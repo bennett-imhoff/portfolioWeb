@@ -1,0 +1,25 @@
+body {
+    height:100vh;
+    background: rgb(92,184,116);
+    background: linear-gradient(0deg, rgba(92,184,116,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.cartel-bienvenida{
+    font-family:'Raleway';
+    font-weight:700;
+    font-size:5em;
+    color:#198754;
+}
+
+form{
+    width:100%;
+}
+
+label, input, button {
+    font-size:2.3em !important;
+}
+
+input{
+    width:100%;
+    padding:15px;
+}

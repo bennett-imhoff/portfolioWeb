@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Portfolio Imhoff</title>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/main.css}"/>
+    <link rel="stylesheet" th:href="@{css/login.css}"/>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+  <section class="container d-flex flex-column align-items-center">
+      <h2 class="cartel-bienvenida">¡Bienvenido!</h2>
+      <form class="pt-5">
+          <label for="inputNombre">Nombre de usuario</label><br>
+          <input type="text" id="inputNombre" class="mt-4 mb-4" placeholder="Ingresa tu nombre de usuario"/><br>
+          <label for="inputPassword">Contraseña</label><br>
+          <input type="password" id="inputPassword" class="mt-4 mb-4" placeholder="Ingresa la contraseña"/><br>
+          <button class="btn btn-success p-3 d-block mx-auto" type="submit">Ingresar</button>
+      </form>
+  </section>
+
+  <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+  <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
