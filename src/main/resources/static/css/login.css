@@ -16,10 +16,59 @@ form{
 }
 
 label, input, button {
-    font-size:2.3em !important;
+    font-size:3.3em !important;
 }
 
 input{
     width:100%;
     padding:15px;
+}
+
+/*Mobile grandes o tablets(720 width en adelante)*/
+
+/*Escritorio portátil pequeño (1024 a 1365)*/
+@media screen and (min-width: 1024px){
+    .cartel-bienvenida{
+        font-size:2.5em;
+    }
+
+    form{
+        width:80%;
+    }
+
+    label, input, button {
+        font-size:1.5em !important;
+    }
+}
+
+/*Escritorio portátil medio (1366 a 1535)
+    y escritorio medio (1535 a 1919)
+*/
+@media screen and (min-width: 1366px){
+    .cartel-bienvenida{
+            font-size:2em;
+        }
+
+        form{
+            width:60%;
+        }
+
+        label, input, button {
+            font-size:1.1em !important;
+        }
+}
+
+/*Escritorio grande (1920 min)*/
+@media screen and (min-width: 1920px){
+    .cartel-bienvenida{
+        font-size:2.5em;
+    }
+
+    form{
+        width:70%;
+    }
+
+    label, input, button {
+        font-size:1.3em !important;
+    }
 }
