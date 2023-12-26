@@ -7,16 +7,15 @@
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{css/main.css}"/>
     <link rel="stylesheet" th:href="@{css/login.css}"/>
-    <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
-    <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body class="d-flex justify-content-center align-items-center">
   <section class="container d-flex flex-column align-items-center">
       <h2 class="cartel-bienvenida">¡Bienvenido!</h2>
       <form class="pt-5 pt-md-3" method="post" action="/login" id="loginForm">
-          <div th:if="${error}" class="alert alert-danger" role="alert">
-              <p th:text="${error}"></p>
+          <div th:if="${error}" class="alert alert-danger alert-dismissible d-flex flex-row align-items-center animate__animated animate__fadeInDown" role="alert">
+              <i class="fa fa-times cursor-pointer" data-bs-dismiss="alert" aria-label="Close"></i><p th:text="${error}" class="mb-0 mx-2"></p>
           </div>
           <label for="inputNombre">Nombre de usuario</label><br>
           <input type="text" id="inputNombre" class="my-4 my-md-3" name="username" placeholder="Ingresa tu nombre de usuario"/><br>
@@ -25,5 +24,9 @@
           <button id="btnIngresar" class="btn btn-success p-4 p-md-3 d-block mx-auto" type="submit">Ingresar</button>
       </form>
   </section>
+
+  <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+  <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
