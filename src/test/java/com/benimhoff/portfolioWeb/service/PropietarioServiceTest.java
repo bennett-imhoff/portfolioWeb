@@ -1,6 +1,7 @@
 package com.benimhoff.portfolioWeb.service;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
+import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,9 @@ public class PropietarioServiceTest {
 
     @Autowired
     private PropietarioService propietarioService;
+
+    @Autowired
+    private PropietarioRepository propietarioRepository;
 
     @Test
     public void guardar_conCamposValidos_guardaPropietario(){
@@ -80,38 +84,38 @@ public class PropietarioServiceTest {
     }
 
     @Test
-    public void validar_conCamposValidos_retornaPropietarioValidado(){
+    public void esUsuarioValido_conCamposValidos_retornaTrue(){
         Propietario propietarioGuardado = new Propietario();
         propietarioGuardado.setNombre("Nombre");
         propietarioGuardado.setApellido("Apellido");
         propietarioGuardado.setDescripcion("Descripcion");
         propietarioGuardado.setUsername("Username");
         propietarioGuardado.setPassword("Password");
-        propietarioGuardado = propietarioService.guardar(propietarioGuardado);
+        propietarioRepository.save(propietarioGuardado);
 
         String username = "Username";
         String password = "Password";
 
-        Propietario propietarioObtenido = propietarioService.validar(username, password);
+        propietarioService.esUsuarioValido(username, password);
 
-        assertEquals(propietarioGuardado.getId(), propietarioObtenido.getId());
+        assertTrue(propietarioService.esUsuarioValido(username, password));
     }
 
     @Test
-    public void validar_conCamposIncorrectos_lanzaExcepcion(){
+    public void esUsuarioValido_conCamposIncorrectos_lanzaExcepcion(){
         Propietario propietarioGuardado = new Propietario();
         propietarioGuardado.setNombre("Nombre");
         propietarioGuardado.setApellido("Apellido");
         propietarioGuardado.setDescripcion("Descripcion");
         propietarioGuardado.setUsername("Username");
         propietarioGuardado.setPassword("Password");
-        propietarioService.guardar(propietarioGuardado);
+        propietarioRepository.save(propietarioGuardado);
 
         String username = "incorrecto";
         String password = "incorrecta";
 
         assertThrows(IllegalArgumentException.class, ()->{
-            propietarioService.validar(username, password);
+            propietarioService.esUsuarioValido(username, password);
         });
     }
 }

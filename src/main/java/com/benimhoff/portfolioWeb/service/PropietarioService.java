@@ -6,5 +6,5 @@ public interface PropietarioService {
 
     Propietario guardar(Propietario propietario);
 
-    Propietario validar(String username, String password);
+    boolean esUsuarioValido(String username, String password);
 }

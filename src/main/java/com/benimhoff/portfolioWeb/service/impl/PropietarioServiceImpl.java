@@ -45,12 +45,12 @@ public class PropietarioServiceImpl implements PropietarioService {
     }
 
     @Override
-    public Propietario validar(String username, String password) {
+    public boolean esUsuarioValido(String username, String password) {
         List<Propietario> propietarios = propietarioRepository.findAll();
         Propietario propietarioGuardado = propietarios.stream().findFirst().get();
         Assert.isTrue(propietarioGuardado.getUsername().equals(username), "El usuario es incorrecto.");
         Assert.isTrue(propietarioGuardado.getPassword().equals(password), "La contraseña es incorrecta.");
 
-        return propietarioGuardado;
+        return propietarioGuardado.getUsername().equals(username) && propietarioGuardado.getPassword().equals(password);
     }
 }
