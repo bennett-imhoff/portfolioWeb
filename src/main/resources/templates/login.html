@@ -7,21 +7,23 @@
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{css/main.css}"/>
     <link rel="stylesheet" th:href="@{css/login.css}"/>
+    <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
 </head>
 <body class="d-flex justify-content-center align-items-center">
   <section class="container d-flex flex-column align-items-center">
       <h2 class="cartel-bienvenida">¡Bienvenido!</h2>
-      <form class="pt-5 pt-md-3">
+      <form class="pt-5 pt-md-3" method="post" action="/login" id="loginForm">
+          <div th:if="${error}" class="alert alert-danger" role="alert">
+              <p th:text="${error}"></p>
+          </div>
           <label for="inputNombre">Nombre de usuario</label><br>
-          <input type="text" id="inputNombre" class="my-4 my-md-3" placeholder="Ingresa tu nombre de usuario"/><br>
+          <input type="text" id="inputNombre" class="my-4 my-md-3" name="username" placeholder="Ingresa tu nombre de usuario"/><br>
           <label for="inputPassword">Contraseña</label><br>
-          <input type="password" id="inputPassword" class="my-4 my-md-3" placeholder="Ingresa la contraseña"/><br>
-          <button class="btn btn-success p-4 p-md-3 d-block mx-auto" type="submit">Ingresar</button>
+          <input type="password" id="inputPassword" class="my-4 my-md-3" name="password" placeholder="Ingresa la contraseña"/><br>
+          <button id="btnIngresar" class="btn btn-success p-4 p-md-3 d-block mx-auto" type="submit">Ingresar</button>
       </form>
   </section>
-
-  <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
-  <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
-  <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
