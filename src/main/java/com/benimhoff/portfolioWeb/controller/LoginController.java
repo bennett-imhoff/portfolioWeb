@@ -22,8 +22,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String ingresar(@RequestParam("username") String username,
-            @RequestParam("password") String password, Model model) {
+    public String ingresar(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
        try {
            propietarioService.esUsuarioValido(username, password);
            usuarioAutenticado = true;

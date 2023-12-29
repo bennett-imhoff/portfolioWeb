@@ -53,4 +53,10 @@ public class PropietarioServiceImpl implements PropietarioService {
 
         return propietarioGuardado.getUsername().equals(username) && propietarioGuardado.getPassword().equals(password);
     }
+
+    @Override
+    public Propietario ver(){
+        List<Propietario> propietarios = propietarioRepository.findAll();
+        return propietarios.stream().findFirst().get();
+    }
 }

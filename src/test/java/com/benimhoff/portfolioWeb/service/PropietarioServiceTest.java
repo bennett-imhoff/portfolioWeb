@@ -118,4 +118,20 @@ public class PropietarioServiceTest {
             propietarioService.esUsuarioValido(username, password);
         });
     }
+
+    @Test
+    public void ver_conCualquierUsuario_retornaPropietario(){
+        Propietario propietarioGuardado = new Propietario();
+        propietarioGuardado.setNombre("Lionel");
+        propietarioGuardado.setApellido("Messi");
+        propietarioGuardado.setDescripcion("Futbolista");
+        propietarioGuardado.setUsername("leomessi");
+        propietarioGuardado.setPassword("leoyanto4ever");
+        propietarioRepository.save(propietarioGuardado);
+
+        Propietario propietarioRetornado = propietarioService.ver();
+
+        assertEquals("Messi", propietarioRetornado.getApellido());
+    }
+
 }
