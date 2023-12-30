@@ -2,17 +2,154 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio Imhoff</title>
+  <title th:text="${'Portfolio ' + propietario.apellido}"></title>
   <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
   <link rel="stylesheet" th:href="@{css/main.css}"/>
+  <link rel="stylesheet" th:href="@{css/secciones.css}"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="icon" th:href="@{/assets/img/iconos-title/icono-portfolio.png}" />
 </head>
 <body>
-  <p>Esta es la home principal</p>
-  <h2>Bienvenido <span th:text="${propietario.nombre}"></span>!</h2>
+  <section id="header" class="fixed-top bg-light">
+    <header class="d-flex align-items-center">
+      <div class="contenedor-barra-superior container d-flex align-items-center">
+        <h1 class="nombre-portfolio me-auto"><a href="index.html" th:text="${propietario.nombre + ' ' + propietario.apellido}"></a></h1>
+        <nav class="barra-navegacion navbar navbar-expand-lg navbar-light">
+          <!-- Contenido para pantallas de escritorio -->
+          <div class="contenedor-navbar-escritorio container-fluid">
+            <div class="d-none d-lg-block">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#descripcion">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#proyectos">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#habilidades">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#experiencia-laboral">Trabajo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#educacion">Educación</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+              </ul>
+            </div>
 
+            <!-- Botón para activar el offcanvas en dispositivos móviles -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
 
+          <!-- Contenido para dispositivos móviles -->
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+               aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="titulo-menu-desplegado offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                      aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <!-- Contenido de la barra de navegación -->
+              <ul class="navbar-nav d-lg-none">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#descripcion"
+                     data-bs-dismiss="offcanvas">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#sobre-mi" data-bs-dismiss="offcanvas">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#proyectos" data-bs-dismiss="offcanvas">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#habilidades" data-bs-dismiss="offcanvas">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#experiencia-laboral"
+                     data-bs-dismiss="offcanvas">Experiencia laboral</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#educacion" data-bs-dismiss="offcanvas">Educación</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contacto" data-bs-dismiss="offcanvas">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </section>
+
+  <main>
+    <section id="descripcion">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                  class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item primer-item active">
+            <div class="fondo-semi-transparente"></div>
+            <div class="contenedor-datos-carrusel d-flex justify-content-center flex-column">
+              <a class="link-descripcion" href="#descripcion-soy">
+                <h2 class="titulo-item-carrusel">Soy</h2>
+              </a>
+              <p class="texto-item-carrusel" th:text="${propietario.textoSoy}"></p>
+            </div>
+          </div>
+          <div class="carousel-item segundo-item">
+            <div class="fondo-semi-transparente"></div>
+            <div class="contenedor-datos-carrusel d-flex justify-content-center flex-column">
+              <a class="link-descripcion" href="#descripcion-quiero">
+                <h2 class="titulo-item-carrusel">Quiero</h2>
+              </a>
+              <p class="texto-item-carrusel" th:text="${propietario.textoQuiero}"></p>
+            </div>
+          </div>
+          <div class="carousel-item tercer-item">
+            <div class="fondo-semi-transparente"></div>
+            <div class="contenedor-datos-carrusel d-flex justify-content-center flex-column">
+              <a class="link-descripcion" href="#descripcion-hago">
+                <h2 class="titulo-item-carrusel">Hago</h2>
+              </a>
+              <p class="texto-item-carrusel" th:text="${propietario.textoHago}"></p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <th:block th:insert="fragments/sobreMi :: sobreMiFragment"/>
+  </main>
   <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
   <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
   <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>

@@ -28,6 +28,9 @@ public class PropietarioServiceTest {
         propietarioSinActualizar.setDescripcion("Descripcion");
         propietarioSinActualizar.setUsername("Username");
         propietarioSinActualizar.setPassword("Password");
+        propietarioSinActualizar.setTextoSoy("Soy");
+        propietarioSinActualizar.setTextoHago("Hago");
+        propietarioSinActualizar.setTextoQuiero("Quiero");
         propietarioSinActualizar = propietarioRepository.save(propietarioSinActualizar);
 
         propietarioSinActualizar.setNombre("Lionel");
@@ -35,6 +38,9 @@ public class PropietarioServiceTest {
         propietarioSinActualizar.setDescripcion("Futbolista");
         propietarioSinActualizar.setUsername("liomessi");
         propietarioSinActualizar.setPassword("antonella");
+        propietarioSinActualizar.setTextoSoy("Soy Leo");
+        propietarioSinActualizar.setTextoHago("Hago magia");
+        propietarioSinActualizar.setTextoQuiero("Quiero seguir jugando al futbol");
         propietarioService.actualizar(propietarioSinActualizar);
 
         Propietario propietarioGuardado = propietarioRepository.findById(propietarioSinActualizar.getId()).get();
@@ -45,7 +51,10 @@ public class PropietarioServiceTest {
                 ()-> assertEquals("Messi", propietarioGuardado.getApellido()),
                 ()-> assertEquals("Futbolista", propietarioGuardado.getDescripcion()),
                 ()-> assertEquals("liomessi", propietarioGuardado.getUsername()),
-                ()-> assertEquals("antonella", propietarioGuardado.getPassword())
+                ()-> assertEquals("antonella", propietarioGuardado.getPassword()),
+                ()-> assertEquals("Soy Leo", propietarioGuardado.getTextoSoy()),
+                ()-> assertEquals("Hago magia", propietarioGuardado.getTextoHago()),
+                ()-> assertEquals("Quiero seguir jugando al futbol", propietarioGuardado.getTextoQuiero())
                 );
     }
 
@@ -57,6 +66,9 @@ public class PropietarioServiceTest {
         propietarioGuardado.setDescripcion(" ");
         propietarioGuardado.setUsername(" ");
         propietarioGuardado.setPassword(" ");
+        propietarioGuardado.setTextoSoy(" ");
+        propietarioGuardado.setTextoQuiero(" ");
+        propietarioGuardado.setTextoHago(" ");
 
         assertThrows(IllegalArgumentException.class, ()->{
             propietarioService.actualizar(propietarioGuardado);
@@ -71,6 +83,9 @@ public class PropietarioServiceTest {
         propietarioGuardado.setDescripcion(null);
         propietarioGuardado.setUsername(null);
         propietarioGuardado.setPassword(null);
+        propietarioGuardado.setTextoSoy(null);
+        propietarioGuardado.setTextoQuiero(null);
+        propietarioGuardado.setTextoHago(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
             propietarioService.actualizar(propietarioGuardado);

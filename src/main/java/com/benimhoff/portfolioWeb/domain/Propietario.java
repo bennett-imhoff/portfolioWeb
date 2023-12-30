@@ -26,6 +26,12 @@ public class Propietario {
 
     private String password;
 
+    private String textoSoy;
+
+    private String textoQuiero;
+
+    private String textoHago;
+
     public Long getId() {
         return id;
     }
@@ -98,4 +104,27 @@ public class Propietario {
         this.password = password;
     }
 
+    public String getTextoSoy() {
+        return textoSoy;
+    }
+
+    public void setTextoSoy(String textoSoy) {
+        this.textoSoy = textoSoy;
+    }
+
+    public String getTextoQuiero() {
+        return textoQuiero;
+    }
+
+    public void setTextoQuiero(String textoQuiero) {
+        this.textoQuiero = textoQuiero;
+    }
+
+    public String getTextoHago() {
+        return textoHago;
+    }
+
+    public void setTextoHago(String textoHago) {
+        this.textoHago = textoHago;
+    }
 }

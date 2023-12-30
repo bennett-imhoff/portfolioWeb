@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+  <th:block th:fragment="sobreMiFragment">
+    <section id="sobre-mi">
+      <h2 class="titulo-seccion">Sobre mi</h2>
+      <div class="texto-sobre-mi" th:utext="${propietario.descripcion.replaceAll('(\r\n|\n)', '<br/>')}"></div>
+    </section>
+  </th:block>
+</body>
+</html>

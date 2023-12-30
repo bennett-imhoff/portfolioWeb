@@ -25,6 +25,9 @@ public class PropietarioServiceImpl implements PropietarioService {
         Assert.hasText(propietario.getDescripcion(), "La descripción es un campo obligatorio.");
         Assert.hasText(propietario.getUsername(), "El nombre de usuario es un campo obligatorio.");
         Assert.hasText(propietario.getPassword(), "La contraseña es un campo obligatorio.");
+        Assert.hasText(propietario.getTextoSoy(), "El texto de quien sos es un campo obligatorio.");
+        Assert.hasText(propietario.getTextoQuiero(), "El texto de qué querés es un campo obligatorio.");
+        Assert.hasText(propietario.getTextoHago(), "El texto de qué hacés es un campo obligatorio.");
 
         return propietarioRepository.save(propietario);
     }

@@ -15,7 +15,10 @@ CREATE TABLE propietario (
     correo VARCHAR(255),
     telefono VARCHAR(255),
     username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    texto_soy VARCHAR(255) NOT NULL,
+    texto_quiero VARCHAR(255) NOT NULL,
+    texto_hago VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE red_social (

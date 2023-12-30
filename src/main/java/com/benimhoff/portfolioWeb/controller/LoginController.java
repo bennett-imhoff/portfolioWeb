@@ -1,5 +1,6 @@
 package com.benimhoff.portfolioWeb.controller;
 
+import com.benimhoff.portfolioWeb.domain.Propietario;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,9 @@ public class LoginController {
     }
 
     @GetMapping("/homeEdicion")
-    public String verHomeEdicion(){
+    public String verHomeEdicion(Model model){
+        Propietario propietario = propietarioService.ver();
+        model.addAttribute("propietario", propietario);
         return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }
 }
