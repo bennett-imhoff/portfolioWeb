@@ -21,42 +21,36 @@ public class PropietarioServiceTest {
     private PropietarioRepository propietarioRepository;
 
     @Test
-    public void guardar_conCamposValidos_guardaPropietario(){
-        Propietario propietario = new Propietario();
-        propietario.setNombre("Nombre");
-        propietario.setApellido("Apellido");
-        propietario.setDescripcion("Descripcion");
-        propietario.setUsername("Username");
-        propietario.setPassword("Password");
+    public void actualizar_conCamposValidos_actualizaPropietario(){
+        Propietario propietarioSinActualizar = new Propietario();
+        propietarioSinActualizar.setNombre("Nombre");
+        propietarioSinActualizar.setApellido("Apellido");
+        propietarioSinActualizar.setDescripcion("Descripcion");
+        propietarioSinActualizar.setUsername("Username");
+        propietarioSinActualizar.setPassword("Password");
+        propietarioSinActualizar = propietarioRepository.save(propietarioSinActualizar);
 
-        Propietario propietarioGuardado = propietarioService.guardar(propietario);
+        propietarioSinActualizar.setNombre("Lionel");
+        propietarioSinActualizar.setApellido("Messi");
+        propietarioSinActualizar.setDescripcion("Futbolista");
+        propietarioSinActualizar.setUsername("liomessi");
+        propietarioSinActualizar.setPassword("antonella");
+        propietarioService.actualizar(propietarioSinActualizar);
 
-        assertNotNull(propietarioGuardado.getId());
+        Propietario propietarioGuardado = propietarioRepository.findById(propietarioSinActualizar.getId()).get();
+
+        assertAll("Verifico que todos los datos se hayan actualizado",
+                ()-> assertEquals(propietarioGuardado.getId(), propietarioGuardado.getId()),
+                ()-> assertEquals("Lionel", propietarioGuardado.getNombre()),
+                ()-> assertEquals("Messi", propietarioGuardado.getApellido()),
+                ()-> assertEquals("Futbolista", propietarioGuardado.getDescripcion()),
+                ()-> assertEquals("liomessi", propietarioGuardado.getUsername()),
+                ()-> assertEquals("antonella", propietarioGuardado.getPassword())
+                );
     }
 
     @Test
-    public void guardar_conOtrosCamposValidos_actualizaPropietario(){
-        Propietario propietarioGuardado = new Propietario();
-        propietarioGuardado.setNombre("Nombre");
-        propietarioGuardado.setApellido("Apellido");
-        propietarioGuardado.setDescripcion("Descripcion");
-        propietarioGuardado.setUsername("Username");
-        propietarioGuardado.setPassword("Password");
-        propietarioGuardado = propietarioService.guardar(propietarioGuardado);
-
-        Propietario propietarioModificado = new Propietario();
-        propietarioModificado.setNombre("Lionel");
-        propietarioModificado.setApellido("Messi");
-        propietarioModificado.setDescripcion("Futbolista");
-        propietarioModificado.setUsername("liomessi");
-        propietarioModificado.setPassword("lio4ever");
-        propietarioModificado = propietarioService.guardar(propietarioModificado);
-
-        assertEquals(propietarioGuardado.getId(), propietarioModificado.getId());
-    }
-
-    @Test
-    public void guardar_conCamposObligatoriosEnBlanco_lanzaExcepcion(){
+    public void actualizar_conCamposObligatoriosEnBlanco_lanzaExcepcion(){
         Propietario propietarioGuardado = new Propietario();
         propietarioGuardado.setNombre(" ");
         propietarioGuardado.setApellido(" ");
@@ -65,12 +59,12 @@ public class PropietarioServiceTest {
         propietarioGuardado.setPassword(" ");
 
         assertThrows(IllegalArgumentException.class, ()->{
-            propietarioService.guardar(propietarioGuardado);
+            propietarioService.actualizar(propietarioGuardado);
         });
     }
 
     @Test
-    public void guardar_conCamposObligatoriosNulos_lanzaExcepcion(){
+    public void actualizar_conCamposObligatoriosNulos_lanzaExcepcion(){
         Propietario propietarioGuardado = new Propietario();
         propietarioGuardado.setNombre(null);
         propietarioGuardado.setApellido(null);
@@ -79,7 +73,7 @@ public class PropietarioServiceTest {
         propietarioGuardado.setPassword(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
-            propietarioService.guardar(propietarioGuardado);
+            propietarioService.actualizar(propietarioGuardado);
         });
     }
 

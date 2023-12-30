@@ -4,7 +4,7 @@ import com.benimhoff.portfolioWeb.domain.Propietario;
 
 public interface PropietarioService {
 
-    Propietario guardar(Propietario propietario);
+    Propietario actualizar(Propietario propietario);
 
     boolean esUsuarioValido(String username, String password);
 
