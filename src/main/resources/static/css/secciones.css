@@ -1,13 +1,16 @@
-.titulo-seccion {
+.titulo-seccion, .titulo-seccion-edicion {
     font-family: 'Raleway';
     font-weight: bold;
-    text-align: center;
     text-transform: uppercase;
-    margin:auto;
-    padding-bottom:5px !important;
     border-bottom:2px solid #5cb874;
     font-size:25px;
     width:fit-content;
+}
+
+.titulo-seccion{
+    text-align:center;
+    padding-bottom:5px !important;
+    margin:auto;
 }
 
 .texto-sobre-mi, .texto-promedio{
@@ -21,8 +24,7 @@
 .img-panel-edicion{
     width:30%;
 }
-
-/*Mobile grandes o tablets(720 width en adelante)*/
+/*
 @media screen and (min-width: 720px){
     .titulo-seccion{
         font-size:45px;
@@ -34,7 +36,6 @@
     }
 }
 
-/*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
     .titulo-seccion{
         font-size:35px;
@@ -46,7 +47,6 @@
     }
 }
 
-/*Escritorio mediano (1366 a 1919)*/
 @media screen and (min-width: 1366px){
     .titulo-seccion{
         font-size:25px;
@@ -63,7 +63,6 @@
     }
 }
 
-/*Escritorio grande (1920 min)*/
 @media screen and (min-width: 1920px){
     .titulo-seccion{
         font-size:40px;
@@ -73,4 +72,4 @@
         font-size: 25px;
         width:85%;
     }
-}
+}*/

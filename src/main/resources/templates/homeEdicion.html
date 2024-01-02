@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" th:href="@{/assets/img/iconos-title/design.png}" />
+    <script src="js/app/portfolioWeb.js"></script>
+    <script src="js/app/service/service.js"></script>
+    <script src="js/app/service/propietario/propietario.js"></script>
+    <script src="js/app/ui/ui.js"></script>
+    <script src="js/app/ui/propietario/propietario.js"></script>
 </head>
 <body>
 <section id="header" class="fixed-top bg-light">
@@ -19,19 +24,44 @@
             </h1>
         </div>
     </header>
-    <main>
-        <div class="d-flex flex-column align-items-center">
-            <img src="https://png.pngtree.com/png-vector/20190412/ourlarge/pngtree-vector-color-palette-icon-png-image_930804.jpg"
-                alt="imagen edicion" class="img-panel-edicion"
-            />
-            <h2 class="titulo-seccion">Edición del portfolio</h2>
-            <p class="texto-promedio">En esta sección podrás editar los datos e información que ven los usuarios de tu portfolio web. <br>
-                <strong>¡Mucho cuidado!</strong> Desde el momento en que clickees "guardar" estos cambios se verán reflejados
-                automáticamente para todos los usuarios.
-            </p>
-        </div>
-    </main>
 </section>
+<main class="p-5">
+    <section class="d-flex flex-column align-items-center">
+        <img src="https://png.pngtree.com/png-vector/20190412/ourlarge/pngtree-vector-color-palette-icon-png-image_930804.jpg"
+            alt="imagen edicion" class="img-panel-edicion"
+        />
+        <h2 class="titulo-seccion">Edición del portfolio</h2>
+        <p class="texto-promedio">En esta sección podrás editar los datos e información que ven los usuarios de tu portfolio web. <br>
+            <strong>¡Mucho cuidado!</strong> Desde el momento en que clickees "guardar" estos cambios se verán reflejados
+            automáticamente para todos los usuarios.
+        </p>
+    </section>
+    <section>
+        <h3 class="titulo-seccion-edicion">Información personal</h3>
+        <button type="button" class="btn btn-outline-success mt-3" data-bs-toggle="modal" data-bs-target="#modalActualizarPropietario">
+            Editar mi información personal
+        </button>
+    </section>
+</main>
+
+<div class="modal fade" id="modalActualizarPropietario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalActualizarPropietarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalActualizarPropietarioLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
 <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>

@@ -1,7 +1,5 @@
 # Portfolio Web Ben Imhoff
 
-Este portfolio web utiliza el principio de Mobile First para su diseño. 
-
 ## Requisitos
 - JAVA 17
 - Maven
