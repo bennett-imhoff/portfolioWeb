@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     @Autowired
-    PropietarioService propietarioService;
+    private PropietarioService propietarioService;
 
     private boolean usuarioAutenticado = false;
 
@@ -33,6 +33,13 @@ public class LoginController {
            return "login";
        }
     }
+
+//    @PostMapping("/login")
+//    public String ingresar(@RequestParam("username") String username, @RequestParam("password") String password) {
+//        propietarioService.esUsuarioValido(username, password);
+//        usuarioAutenticado = true;
+//        return "redirect:/homeEdicion";
+//    }
 
     @GetMapping("/homeEdicion")
     public String verHomeEdicion(Model model){

@@ -6,14 +6,10 @@
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{css/main.css}"/>
     <link rel="stylesheet" th:href="@{css/secciones.css}"/>
+    <link rel="stylesheet" th:href="@{css/homeEdicion.css}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="icon" th:href="@{/assets/img/iconos-title/design.png}" />
-    <script src="js/app/portfolioWeb.js"></script>
-    <script src="js/app/service/service.js"></script>
-    <script src="js/app/service/propietario/propietario.js"></script>
-    <script src="js/app/ui/ui.js"></script>
-    <script src="js/app/ui/propietario/propietario.js"></script>
 </head>
 <body>
 <section id="header" class="fixed-top bg-light">
@@ -30,7 +26,7 @@
         <img src="https://png.pngtree.com/png-vector/20190412/ourlarge/pngtree-vector-color-palette-icon-png-image_930804.jpg"
             alt="imagen edicion" class="img-panel-edicion"
         />
-        <h2 class="titulo-seccion">Edición del portfolio</h2>
+        <h2 class="titulo-seccion pt-3">Edición del portfolio</h2>
         <p class="texto-promedio">En esta sección podrás editar los datos e información que ven los usuarios de tu portfolio web. <br>
             <strong>¡Mucho cuidado!</strong> Desde el momento en que clickees "guardar" estos cambios se verán reflejados
             automáticamente para todos los usuarios.
@@ -46,17 +42,41 @@
 
 <div class="modal fade" id="modalActualizarPropietario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalActualizarPropietarioLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal-dialog-scrollable">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalActualizarPropietarioLabel">Modal title</h5>
+                <h5 class="modal-title" id="modalActualizarPropietarioLabel">Actualizá tus datos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form method="post" id="actualizarPropietarioForm">
+                    <input hidden type="text" id="inputIdPropietario" th:value="${propietario.id}"><br>
+                    <label>Nombre</label><br>
+                    <input type="text" id="inputNombrePropietario" th:value="${propietario.nombre}"><br>
+                    <label>Apellido</label><br>
+                    <input type="text" id="inputApellidoPropietario" th:value="${propietario.apellido}"><br>
+                    <label>Sobre vos</label><br>
+                    <textarea id="inputDescripcionPropietario" th:text="${propietario.descripcion}"></textarea><br>
+                    <label>Ubicación</label><br>
+                    <input type="text" id="inputUbicacionPropietario" th:value="${propietario.ubicacion}"><br>
+                    <label>Correo electrónico</label><br>
+                    <input type="text" id="inputCorreoPropietario" th:value="${propietario.correo}"><br>
+                    <label>Teléfono</label><br>
+                    <input type="text" id="inputTelefonoPropietario" th:value="${propietario.telefono}"><br>
+                    <label>Nombre de usuario</label><br>
+                    <input type="text" id="inputUsernamePropietario" th:value="${propietario.username}"><br>
+                    <label>Contraseña</label><br>
+                    <input type="text" id="inputPasswordPropietario" th:value="${propietario.password}"><br>
+                    <label>Texto banner: SOY</label><br>
+                    <textarea id="inputTextoSoyPropietario" th:text="${propietario.textoSoy}"></textarea><br>
+                    <label>Texto banner: QUIERO</label><br>
+                    <textarea id="inputTextoQuieroPropietario" th:text="${propietario.textoQuiero}"></textarea><br>
+                    <label>Texto banner: HAGO</label><br>
+                    <textarea id="inputTextoHagoPropietario" th:text="${propietario.textoHago}"></textarea><br>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Understood</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" id="btnActualizarPropietario">Actualizar</button>
             </div>
         </div>
     </div>
@@ -65,5 +85,6 @@
 <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
 <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="js/propietario.js"></script>
 </body>
 </html>

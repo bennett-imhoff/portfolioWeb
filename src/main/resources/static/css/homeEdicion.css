@@ -1,0 +1,15 @@
+#modalActualizarPropietarioLabel{
+    font-family:'Raleway';
+}
+
+label{
+    width:100%;
+    color: #5cb874;
+    margin:8px 0;
+}
+
+input, textarea{
+    width:100%;
+    font-family: 'OpenSans';
+    padding:4px;
+}
