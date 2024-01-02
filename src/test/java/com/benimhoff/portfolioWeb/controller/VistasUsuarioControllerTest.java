@@ -5,7 +5,6 @@ import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.ui.Model;

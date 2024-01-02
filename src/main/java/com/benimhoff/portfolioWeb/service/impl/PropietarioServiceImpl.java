@@ -1,6 +1,7 @@
 package com.benimhoff.portfolioWeb.service.impl;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
+import com.benimhoff.portfolioWeb.exception.LoginExcepcion;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,12 @@ public class PropietarioServiceImpl implements PropietarioService {
     public boolean esUsuarioValido(String username, String password) {
         List<Propietario> propietarios = propietarioRepository.findAll();
         Propietario propietarioGuardado = propietarios.stream().findFirst().get();
-        Assert.isTrue(propietarioGuardado.getUsername().equals(username), "El usuario es incorrecto.");
-        Assert.isTrue(propietarioGuardado.getPassword().equals(password), "La contraseña es incorrecta.");
+
+        if (!propietarioGuardado.getUsername().equals(username)){
+            throw new LoginExcepcion("El nombre de usuario ingresado es incorrecto.");
+        }else if (!propietarioGuardado.getPassword().equals(password)){
+            throw new LoginExcepcion("La contraseña ingresada es incorrecta.");
+        }
 
         return propietarioGuardado.getUsername().equals(username) && propietarioGuardado.getPassword().equals(password);
     }

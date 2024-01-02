@@ -1,6 +1,7 @@
 package com.benimhoff.portfolioWeb.service;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
+import com.benimhoff.portfolioWeb.exception.LoginExcepcion;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,7 +124,7 @@ public class PropietarioServiceTest {
         String username = "incorrecto";
         String password = "incorrecta";
 
-        assertThrows(IllegalArgumentException.class, ()->{
+        assertThrows(LoginExcepcion.class, ()->{
             propietarioService.esUsuarioValido(username, password);
         });
     }

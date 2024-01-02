@@ -1,16 +1,17 @@
 package com.benimhoff.portfolioWeb.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleException(Exception ex){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("¡Ups! Parece que hubo un error: " + ex.getMessage());
+    @ExceptionHandler(LoginExcepcion.class)
+    @ModelAttribute
+    public String handleLoginException(LoginExcepcion ex, Model model){
+        model.addAttribute("error", ex.getMessage());
+        return "login";
     }
 }

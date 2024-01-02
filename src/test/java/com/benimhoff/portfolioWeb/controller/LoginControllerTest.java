@@ -1,6 +1,7 @@
 package com.benimhoff.portfolioWeb.controller;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
+import com.benimhoff.portfolioWeb.exception.LoginExcepcion;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -10,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @Transactional
@@ -45,13 +45,13 @@ public class LoginControllerTest {
         String username = "Username";
         String password = "Password";
 
-        String vistaLogin = loginController.ingresar(username, password, model);
+        String vistaLogin = loginController.ingresar(username, password);
 
         assertEquals("redirect:/homeEdicion", vistaLogin);
     }
 
     @Test
-    public void ingresar_conUsuarioInvalido_retornaLoginYPasaError(){
+    public void ingresar_conUsuarioInvalido_lanzaExcepcion(){
         Propietario propietario = new Propietario();
         propietario.setNombre("Nombre");
         propietario.setApellido("Apellido");
@@ -63,9 +63,9 @@ public class LoginControllerTest {
         String username = "benn";
         String password = "benn";
 
-        String vistaLogin = loginController.ingresar(username, password, model);
 
-        verify(model).addAttribute("error", "El usuario es incorrecto.");
-        assertEquals("login", vistaLogin);
+        assertThrows(LoginExcepcion.class, ()->{
+            loginController.ingresar(username, password);
+        });
     }
 }
