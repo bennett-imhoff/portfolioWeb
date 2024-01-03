@@ -1,7 +1,7 @@
 package com.benimhoff.portfolioWeb.controller;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
-import com.benimhoff.portfolioWeb.exception.LoginExcepcion;
+import com.benimhoff.portfolioWeb.exception.LoginException;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -69,7 +68,7 @@ public class LoginControllerTest {
         String username = "benn";
         String password = "benn";
 
-        assertThrows(LoginExcepcion.class, ()->{
+        assertThrows(LoginException.class, ()->{
             loginController.ingresar(username, password);
         });
     }

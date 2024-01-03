@@ -1,7 +1,7 @@
 package com.benimhoff.portfolioWeb.service.impl;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
-import com.benimhoff.portfolioWeb.exception.LoginExcepcion;
+import com.benimhoff.portfolioWeb.exception.LoginException;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -42,9 +41,9 @@ public class PropietarioServiceImpl implements PropietarioService {
         }
 
         if (!propietarioGuardado.getUsername().equals(username)){
-            throw new LoginExcepcion("El nombre de usuario ingresado es incorrecto.");
+            throw new LoginException("El nombre de usuario ingresado es incorrecto.");
         }else if (!propietarioGuardado.getPassword().equals(password)){
-            throw new LoginExcepcion("La contraseña ingresada es incorrecta.");
+            throw new LoginException("La contraseña ingresada es incorrecta.");
         }
 
         return propietarioGuardado.getUsername().equals(username) && propietarioGuardado.getPassword().equals(password);

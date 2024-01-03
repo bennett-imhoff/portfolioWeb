@@ -2,9 +2,9 @@ package com.benimhoff.portfolioWeb.exception;
 
 import org.springframework.core.NestedRuntimeException;
 
-public class LoginExcepcion extends NestedRuntimeException {
+public class LoginException extends NestedRuntimeException {
 
-    public LoginExcepcion(String mensaje){
+    public LoginException(String mensaje){
         super(mensaje);
     }
 }

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(LoginExcepcion.class)
+    @ExceptionHandler(LoginException.class)
     @ModelAttribute
-    public String handleLoginException(LoginExcepcion ex, Model model){
+    public String handleLoginException(LoginException ex, Model model){
         model.addAttribute("error", ex.getMessage());
         return "login";
     }
