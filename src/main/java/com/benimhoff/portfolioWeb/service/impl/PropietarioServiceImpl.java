@@ -36,7 +36,10 @@ public class PropietarioServiceImpl implements PropietarioService {
     @Override
     public boolean esUsuarioValido(String username, String password) {
         List<Propietario> propietarios = propietarioRepository.findAll();
-        Propietario propietarioGuardado = propietarios.stream().findFirst().get();
+        Propietario propietarioGuardado = new Propietario();
+        if (propietarios.stream().findFirst().isPresent()){
+            propietarioGuardado = propietarios.stream().findFirst().get();
+        }
 
         if (!propietarioGuardado.getUsername().equals(username)){
             throw new LoginExcepcion("El nombre de usuario ingresado es incorrecto.");
@@ -50,6 +53,11 @@ public class PropietarioServiceImpl implements PropietarioService {
     @Override
     public Propietario ver(){
         List<Propietario> propietarios = propietarioRepository.findAll();
-        return propietarios.stream().findFirst().get();
+
+        if (propietarios.stream().findFirst().isPresent()){
+            return propietarios.stream().findFirst().get();
+        } else{
+            return new Propietario();
+        }
     }
 }

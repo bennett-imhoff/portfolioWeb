@@ -19,20 +19,20 @@ public class LoginController {
     private boolean usuarioAutenticado = false;
 
     @GetMapping("/login")
-    public String verLogin() {
+    public String login() {
         return "login";
+    }
+
+    @GetMapping("/homeEdicion")
+    public String homeEdicion(Model model){
+        Propietario propietario = propietarioService.ver();
+        model.addAttribute("propietario", propietario);
+        return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }
 
     @PostMapping("/login")
     public String ingresar(@RequestParam("username") String username, @RequestParam("password") String password) throws LoginExcepcion {
         usuarioAutenticado = propietarioService.esUsuarioValido(username, password);
         return "redirect:/homeEdicion";
-    }
-
-    @GetMapping("/homeEdicion")
-    public String verHomeEdicion(Model model){
-        Propietario propietario = propietarioService.ver();
-        model.addAttribute("propietario", propietario);
-        return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }
 }

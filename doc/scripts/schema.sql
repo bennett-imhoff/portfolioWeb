@@ -34,7 +34,6 @@ CREATE TABLE servicio (
 CREATE TABLE proyecto (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
-    resumen VARCHAR(255) NOT NULL,
     descripcion VARCHAR(2000) NOT NULL,
     imagen VARCHAR(255) NOT NULL,
     enlace VARCHAR(255),
