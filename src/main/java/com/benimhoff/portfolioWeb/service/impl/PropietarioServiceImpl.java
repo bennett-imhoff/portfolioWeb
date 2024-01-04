@@ -40,10 +40,8 @@ public class PropietarioServiceImpl implements PropietarioService {
             propietarioGuardado = propietarios.stream().findFirst().get();
         }
 
-        if (!propietarioGuardado.getUsername().equals(username)){
-            throw new LoginException("El nombre de usuario ingresado es incorrecto.");
-        }else if (!propietarioGuardado.getPassword().equals(password)){
-            throw new LoginException("La contraseña ingresada es incorrecta.");
+        if(!propietarioGuardado.getUsername().equals(username) || !propietarioGuardado.getPassword().equals(password)){
+            throw new LoginException("Las credenciales ingresadas son inválidas.");
         }
 
         return propietarioGuardado.getUsername().equals(username) && propietarioGuardado.getPassword().equals(password);
