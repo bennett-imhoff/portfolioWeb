@@ -16,7 +16,7 @@
     <header id="headerEdicion" class="d-flex align-items-center">
         <div class="contenedor-barra-superior barra-superior-edicion container d-flex align-items-center">
             <h1 class="nombre-portfolio me-auto">
-                <a th:text="${'Portfolio ' + propietario.nombre + ' ' + propietario.apellido}"></a>
+                <a href="/" th:text="${'Portfolio ' + propietario.nombre + ' ' + propietario.apellido}"></a>
             </h1>
         </div>
     </header>
@@ -24,11 +24,11 @@
 <main class="main-edicion px-5">
     <section class="d-flex align-items-center" id="edicion">
         <img src="https://cdn-icons-png.flaticon.com/128/7514/7514332.png"
-            alt="imagen edicion" class="img-panel-edicion"
+            alt="imagen edicion" class="img-panel-edicion mx-5"
         />
         <div class="d-flex flex-column">
-            <h2 class="titulo-seccion-edicion text-center pt-3">Edición del portfolio</h2>
-            <p class="texto-seccion-edicion mt-3">En esta sección podrás editar los datos e información que ven los usuarios de tu portfolio web. <br>
+            <h2 class="titulo-seccion-edicion text-center text-md-start pt-3">Edición del portfolio</h2>
+            <p class="texto-seccion-edicion mt-3 mt-md-0">En esta sección podrás editar los datos e información que ven los usuarios de tu portfolio web. <br>
                 <strong>¡Mucho cuidado!</strong> Desde el momento en que clickees "guardar" estos cambios se verán reflejados
                 automáticamente para todos los usuarios.
             </p>
@@ -36,7 +36,7 @@
     </section>
     <section>
         <h3 class="titulo-seccion-edicion">Información personal</h3>
-        <button type="button" id="btnEditarDatosPersonales" class="btn btn-outline-success mt-3" data-bs-toggle="modal" data-bs-target="#modalActualizarPropietario">
+        <button type="button" id="btnEditarDatosPersonales" class="btn btn-outline-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalActualizarPropietario">
             Editar mi información personal
         </button>
     </section>
@@ -46,7 +46,7 @@
     <div class="modal-dialog">
         <div class="modal-content modal-dialog-scrollable">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalActualizarPropietarioLabel">Actualizá tus datos</h5>
+                <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Actualizá tus datos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-0">
@@ -54,30 +54,30 @@
                     <input hidden type="text" id="inputIdPropietario" th:value="${propietario.id}"><br>
                     <label>Nombre</label><br>
                     <input type="text" id="inputNombrePropietario" th:value="${propietario.nombre}" required><br>
-                    <label>Apellido</label><br>
+                    <label class="mt-5 mt-md-3">Apellido</label><br>
                     <input type="text" id="inputApellidoPropietario" th:value="${propietario.apellido}" required><br>
-                    <label>Sobre vos</label><br>
+                    <label class="mt-5 mt-md-3">Sobre vos</label><br>
                     <textarea id="inputDescripcionPropietario" th:text="${propietario.descripcion}" required></textarea><br>
-                    <label>Ubicación</label><br>
+                    <label class="mt-5 mt-md-3">Ubicación</label><br>
                     <input type="text" id="inputUbicacionPropietario" th:value="${propietario.ubicacion}"><br>
-                    <label>Correo electrónico</label><br>
+                    <label class="mt-5 mt-md-3">Correo electrónico</label><br>
                     <input type="text" id="inputCorreoPropietario" th:value="${propietario.correo}"><br>
-                    <label>Teléfono</label><br>
+                    <label class="mt-5 mt-md-3">Teléfono</label><br>
                     <input type="text" id="inputTelefonoPropietario" th:value="${propietario.telefono}"><br>
-                    <label>Nombre de usuario</label><br>
+                    <label class="mt-5 mt-md-3">Nombre de usuario</label><br>
                     <input type="text" id="inputUsernamePropietario" th:value="${propietario.username}" required><br>
-                    <label>Contraseña</label><br>
+                    <label class="mt-5 mt-md-3">Contraseña</label><br>
                     <input type="text" id="inputPasswordPropietario" th:value="${propietario.password}" required><br>
-                    <label>Texto banner: SOY</label><br>
+                    <label class="mt-5 mt-md-3">Texto banner: SOY</label><br>
                     <textarea id="inputTextoSoyPropietario" th:text="${propietario.textoSoy}"></textarea><br>
-                    <label>Texto banner: QUIERO</label><br>
+                    <label class="mt-5 mt-md-3">Texto banner: QUIERO</label><br>
                     <textarea id="inputTextoQuieroPropietario" th:text="${propietario.textoQuiero}"></textarea><br>
-                    <label>Texto banner: HAGO</label><br>
+                    <label class="mt-5 mt-md-3">Texto banner: HAGO</label><br>
                     <textarea id="inputTextoHagoPropietario" th:text="${propietario.textoHago}"></textarea><br>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-success" id="btnActualizarPropietario">Actualizar</button>
             </div>
         </div>

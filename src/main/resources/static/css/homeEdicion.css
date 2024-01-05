@@ -1,5 +1,22 @@
 #modalActualizarPropietarioLabel{
     font-family:'Raleway';
+    font-size:2.5em;
+}
+
+.modal-dialog{
+    max-width:80%;
+    height: 80%;
+    top: 50%;
+    transform: translate(0, -50%) !important;
+}
+
+.modal-body{
+    width: 90%;
+    margin: auto;
+}
+
+label, input, textarea, #btnActualizarPropietario, #btnCerrarModal{
+    font-size:2em;
 }
 
 label{
@@ -11,7 +28,16 @@ label{
 input, textarea{
     width:100%;
     font-family: 'OpenSans';
-    padding:4px;
+    border: 1px solid rgba(25,25,25,0.2);
+    padding: 0.7em 0.4em;
+}
+
+.btn-close{
+    margin-right: 0.5em !important;
+    border: 1px solid;
+    border-radius: 50%;
+    font-size: 1.3em;
+    padding: 0.5em 0.5em 0.5em 0.6em!important
 }
 
 .barra-superior-edicion{
@@ -49,4 +75,83 @@ input, textarea{
     font-size: 2em;
     font-family: 'OpenSans';
     line-height:2;
+}
+
+/*Escritorio portátil pequeño (1024 a 1365)*/
+@media screen and (min-width: 1024px){
+    .barra-superior-edicion .nombre-portfolio{
+        padding: 0.2em 0;
+    }
+
+    .barra-superior-edicion .nombre-portfolio a{
+        font-size:0.6em;
+    }
+
+    #edicion{
+        flex-direction:row;
+    }
+
+    .titulo-seccion-edicion{
+        font-size:1.6em;
+    }
+
+    .texto-seccion-edicion, #btnEditarDatosPersonales{
+        font-size: 1em;
+    }
+
+    .img-panel-edicion{
+        width:20%;
+    }
+
+    .main-edicion{
+        padding-top:5%;
+    }
+
+    #modalActualizarPropietarioLabel{
+        font-size:1.6em;
+    }
+
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btn-close{
+        font-size:1em;
+    }
+
+    .modal-body{
+        width:95%;
+    }
+
+    .modal-body::-webkit-scrollbar{
+        display:none;
+    }
+
+    .btn-close{
+        margin-right: 0.2em !important;
+    }
+}
+
+/*Escritorio portátil medio (1366 a 1535)
+    y escritorio medio (1535 a 1919)
+*/
+@media screen and (min-width: 1366px){
+    .img-panel-edicion{
+        width:10%;
+    }
+}
+
+/*Escritorio grande (1920 min)*/
+@media screen and (min-width: 1920px){
+    .barra-superior-edicion .nombre-portfolio{
+        padding: 0.5em 0;
+    }
+    .barra-superior-edicion .nombre-portfolio a{
+        font-size:1em;
+    }
+
+    .titulo-seccion-edicion, #modalActualizarPropietarioLabel{
+        font-size:2.5em;
+    }
+
+    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close,
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal{
+        font-size: 1.5em;
+    }
 }
