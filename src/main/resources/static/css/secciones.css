@@ -13,7 +13,7 @@
     margin:auto;
 }
 
-.texto-sobre-mi, .texto-promedio{
+.texto-sobre-mi{
     font-family: 'OpenSans';
     font-size: 16px;
     text-align: center;
@@ -22,54 +22,17 @@
 }
 
 .img-panel-edicion{
-    width:30%;
+    width:7%;
 }
 
 @media screen and (min-width: 720px){
-    .titulo-seccion{
-        font-size:45px;
-    }
-
-    .texto-sobre-mi, .texto-promedio{
-        font-size: 25px;
-        width:85%;
-    }
 }
 
 @media screen and (min-width: 1024px){
-    .titulo-seccion{
-        font-size:35px;
-    }
-
-    .texto-sobre-mi, .texto-promedio{
-        font-size: 20px;
-        width:80%;
-    }
 }
 
 @media screen and (min-width: 1366px){
-    .titulo-seccion{
-        font-size:25px;
-    }
-
-    .texto-sobre-mi, .texto-promedio{
-        font-size: 18px;
-        line-height:2;
-        width:85%;
-    }
-
-    .img-panel-edicion{
-        width:20%;
-    }
 }
 
 @media screen and (min-width: 1920px){
-    .titulo-seccion{
-        font-size:40px;
-    }
-
-    .texto-sobre-mi, .texto-promedio{
-        font-size: 25px;
-        width:85%;
-    }
 }

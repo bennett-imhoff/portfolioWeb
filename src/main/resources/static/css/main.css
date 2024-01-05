@@ -92,10 +92,6 @@ section:not(:first-child){
     text-decoration: none;
 }
 
-.nombre-portfolio-edicion a{
-    color:#ffffff;
-}
-
 .titulo-menu-desplegado {
     font-size: 20px;
 }
@@ -175,137 +171,19 @@ section:not(:first-child){
 
 /*Mobile grandes o tablets(720 width en adelante)*/
 @media screen and (min-width: 720px){
-    section:not(:first-child){
-        padding-top:57px;
-        scroll-margin-top:57px;
-    }
 
-    .contenedor-barra-superior {
-            max-width: 100%;
-        margin-top: 10px;
-    }
-
-    .nombre-portfolio {
-        margin-left: 3%;
-    }
-
-    .nombre-portfolio a,
-    .titulo-menu-desplegado {
-        font-size: 40px;
-    }
-
-    .titulo-menu-desplegado {
-        font-size: 35px;
-    }
-
-    .nav-item,
-    .dropdown-item {
-        font-size: 25px;
-    }
-
-    .contenedor-datos-carrusel {
-        margin: 10% 15%;
-    }
-
-    .titulo-item-carrusel{
-        font-size: 55px;
-    }
-
-    .texto-item-carrusel {
-        font-size:40px;
-    }
 }
 
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
-    section:not(:first-child){
-        padding-top:108px;
-        scroll-margin-top:108px;
-    }
 
-    .contenedor-barra-superior {
-        margin-top: 0;
-    }
-
-    .contenedor-navbar-escritorio .navbar-nav {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto auto;
-    }
-
-    .contenedor-navbar-escritorio .navbar-nav .nav-item {
-        width: max-content !important;
-    }
-
-    .nombre-portfolio {
-        margin-left: 1%;
-    }
-
-    .nombre-portfolio a {
-        font-size: 25px;
-    }
-
-    .barra-navegacion .nav-item {
-        margin: 0 20px;
-    }
-
-    .nav-item,
-    .dropdown-item {
-        font-size: 20px;
-    }
 }
 
 /*Escritorio mediano (1366 a 1919)*/
 @media screen and (min-width:1366px){
-    section:not(:first-child){
-        padding-top:72px;
-        scroll-margin-top:72px;
-    }
 
-    .contenedor-navbar-escritorio .navbar-nav {
-        display: flex;
-    }
-
-    .contenedor-datos-carrusel{
-        margin-top:5%;
-    }
-
-    .titulo-item-carrusel{
-        font-size: 45px;
-    }
-
-    .texto-item-carrusel {
-        font-size:25px;
-    }
-
-    .divider{
-        margin: 40px auto;
-    }
 }
 /*Escritorio grande (1920 min)*/
 @media screen and (min-width: 1920px){
-    section:not(:first-child){
-        padding-top:62px;
-        scroll-margin-top:62px;
-    }
 
-    .nombre-portfolio {
-        margin: 0 2% !important;
-    }
-
-    .nombre-portfolio a {
-        font-size: 35px;
-    }
-
-    .barra-navegacion .nav-item {
-        margin: 0 40px;
-    }
-
-    .titulo-item-carrusel{
-        font-size: 55px;
-    }
-
-    .texto-item-carrusel {
-        font-size:35px;
-    }
 }
