@@ -1,13 +1,10 @@
-.titulo-seccion, {
+.titulo-seccion {
     font-family: 'Raleway';
     font-weight: bold;
     text-transform: uppercase;
     border-bottom:2px solid #5cb874;
-    font-size:25px;
+    font-size:2.5em;
     width:fit-content;
-}
-
-.titulo-seccion{
     text-align:center;
     padding-bottom:5px !important;
     margin:auto;
@@ -15,20 +12,35 @@
 
 .texto-sobre-mi{
     font-family: 'OpenSans';
-    font-size: 16px;
+    font-size: 2em;
     text-align: center;
     width:90%;
     margin:20px auto;
-}
-
-@media screen and (min-width: 720px){
+    line-height:2;
 }
 
 @media screen and (min-width: 1024px){
+    .titulo-seccion{
+        font-size:1.6em;
+    }
+
+    .texto-sobre-mi{
+        font-size:1em;
+    }
 }
 
 @media screen and (min-width: 1366px){
+    .texto-sobre-mi{
+        width:80%;
+    }
 }
 
 @media screen and (min-width: 1920px){
+    .titulo-seccion{
+        font-size:2.5em;
+    }
+
+    .texto-sobre-mi{
+        font-size:1.5em;
+    }
 }

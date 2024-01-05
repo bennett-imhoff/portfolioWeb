@@ -69,6 +69,26 @@ html{
     scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar{
+    display:none;
+}
+
+.contenedor-barra-superior{
+    max-width:100%;
+}
+
+.offcanvas{
+    width:50% !important;
+}
+
+.nombre-portfolio{
+    padding: 0.5em 0;
+}
+
+.navbar-toggler{
+    font-size:1.8em;
+}
+
 section:not(:first-child){
     padding-top:50px;
     scroll-margin-top:50px;
@@ -89,7 +109,20 @@ section:not(:first-child){
 }
 
 .titulo-menu-desplegado {
-    font-size: 20px;
+    font-size: 3em;
+}
+
+.nav-item {
+    font-size:2em;
+    margin:0.5em 0;
+}
+
+.btn-close{
+    margin-right: 0.5em !important;
+    border: 1px solid;
+    border-radius: 50%;
+    font-size: 1.3em;
+    padding: 0.5em 0.5em 0.5em 0.6em!important
 }
 
 .carousel-item {
@@ -112,7 +145,7 @@ section:not(:first-child){
 .contenedor-datos-carrusel {
     position: relative;
     height: 80%;
-    margin: 10% 12%;
+    margin: 15% 12%;
     z-index: 2;
 }
 
@@ -123,7 +156,6 @@ section:not(:first-child){
 .titulo-item-carrusel, .texto-item-carrusel {
     color: white;
     font-family: 'Raleway';
-    font-size: 35px;
     font-weight: 700;
     text-align: center;
     margin: 0;
@@ -132,11 +164,12 @@ section:not(:first-child){
 .titulo-item-carrusel{
     animation: fadeInDown 2s ease forwards;
     cursor:pointer;
+    font-size:4.5em;
 }
 
 .texto-item-carrusel {
     font-family: 'OpenSans';
-    font-size:20px;
+    font-size:3em;
     font-weight: 400;
     animation: fadeInUp 2s ease forwards;
 }
@@ -165,21 +198,67 @@ section:not(:first-child){
     margin: 20px auto;
 }
 
-/*Mobile grandes o tablets(720 width en adelante)*/
-@media screen and (min-width: 720px){
-
-}
-
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
+    .nombre-portfolio{
+        padding: 0.2em 0;
+    }
 
+    .nombre-portfolio a{
+        font-size:0.6em;
+    }
+
+    .nav-item{
+        margin:0.5em 0.2em;
+    }
+
+    .nav-link{
+        font-size:0.6em;
+    }
+
+    .contenedor-barra-superior{
+        height: 8vh;
+    }
+
+    .titulo-item-carrusel{
+        font-size:2.5em;
+    }
+
+    .texto-item-carrusel{
+        font-size:2em;
+    }
+
+    .contenedor-datos-carrusel{
+        margin: 6% 12%;
+    }
 }
 
 /*Escritorio mediano (1366 a 1919)*/
 @media screen and (min-width:1366px){
-
+    .nav-item{
+        margin:0.5em 1em;
+    }
 }
+
 /*Escritorio grande (1920 min)*/
 @media screen and (min-width: 1920px){
+    .nombre-portfolio{
+        padding: 0.5em 0;
+    }
 
+    .nombre-portfolio a{
+        font-size:1em;
+    }
+
+    .nav-link{
+        font-size:0.8em;
+    }
+
+    .titulo-item-carrusel{
+        font-size:3.5em;
+    }
+
+    .texto-item-carrusel{
+        font-size:2em;
+    }
 }
