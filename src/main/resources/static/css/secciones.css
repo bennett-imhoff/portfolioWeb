@@ -1,4 +1,4 @@
-.titulo-seccion, .titulo-seccion-edicion {
+.titulo-seccion, {
     font-family: 'Raleway';
     font-weight: bold;
     text-transform: uppercase;
@@ -19,10 +19,6 @@
     text-align: center;
     width:90%;
     margin:20px auto;
-}
-
-.img-panel-edicion{
-    width:7%;
 }
 
 @media screen and (min-width: 720px){

@@ -78,14 +78,10 @@ section:not(:first-child){
     cursor: pointer;
 }
 
-.barra-superior-edicion{
-    background-color: #5cb874 !important;
-}
-
 .nombre-portfolio a,
 .titulo-menu-desplegado {
     font-family: 'Raleway';
-    font-size: 25px;
+    font-size: 1.5em;
     font-weight: 700;
     color: #5cb874;
     text-transform: uppercase;

@@ -13,3 +13,40 @@ input, textarea{
     font-family: 'OpenSans';
     padding:4px;
 }
+
+.barra-superior-edicion{
+    background-color: #5cb874 !important;
+    max-width:100%;
+}
+
+.barra-superior-edicion .nombre-portfolio{
+    padding: 0.5em 0;
+}
+
+.barra-superior-edicion .nombre-portfolio a{
+    color:white;
+}
+
+.main-edicion{
+    padding-top:10%;
+    margin-top:2em;
+}
+
+#edicion{
+    flex-direction:column;
+}
+
+.img-panel-edicion{
+    width:30%;
+}
+
+.titulo-seccion-edicion{
+    font-family: 'Raleway';
+    font-size:3em;
+}
+
+.texto-seccion-edicion, #btnEditarDatosPersonales{
+    font-size: 2em;
+    font-family: 'OpenSans';
+    line-height:2;
+}
