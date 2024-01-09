@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarRedSocialFragment">
+  <section>
+    <h3 class="titulo-seccion-edicion">Redes sociales</h3>
+    <div class="text-end">
+      <button type="button" id="btnAbrirModalCrearRedSocial" class="btn btn-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalCrearRedSocial">
+        <i class="fa fa-plus" aria-hidden="true"></i> Agregar red social
+      </button>
+    </div>
+  </section>
+
+  <div class="modal fade" id="modalCrearRedSocial" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCrearRedSocialLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-dialog-scrollable">
+        <div class="modal-header">
+          <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Crear red social</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <form method="post" id="crearRedSocialForm">
+            <label>Nombre</label><br>
+            <input type="text" id="inputNombreRedSocial" required><br>
+            <label class="mt-5 mt-md-3">Enlace</label><br>
+            <input type="text" id="inputEnlaceRedSocial" required><br>
+            <label class="mt-5 mt-md-3">Icono</label><br>
+            <input type="text" id="inputIconoRedSocial" required><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success" id="btnCrearRedSocial">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarPropietarioFragment">
+  <section>
+    <h3 class="titulo-seccion-edicion">Información personal</h3>
+    <button type="button" id="btnEditarDatosPersonales" class="btn btn-outline-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalActualizarPropietario">
+      Editar mi información personal
+    </button>
+  </section>
+
+  <div class="modal fade" id="modalActualizarPropietario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalActualizarPropietarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-dialog-scrollable">
+        <div class="modal-header">
+          <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Actualizar datos personales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <form method="post" id="actualizarPropietarioForm">
+            <input hidden type="text" id="inputIdPropietario" th:value="${propietario.id}"><br>
+            <label>Nombre</label><br>
+            <input type="text" id="inputNombrePropietario" th:value="${propietario.nombre}" required><br>
+            <label class="mt-5 mt-md-3">Apellido</label><br>
+            <input type="text" id="inputApellidoPropietario" th:value="${propietario.apellido}" required><br>
+            <label class="mt-5 mt-md-3">Sobre vos</label><br>
+            <textarea id="inputDescripcionPropietario" th:text="${propietario.descripcion}" required></textarea><br>
+            <label class="mt-5 mt-md-3">Ubicación</label><br>
+            <input type="text" id="inputUbicacionPropietario" th:value="${propietario.ubicacion}"><br>
+            <label class="mt-5 mt-md-3">Correo electrónico</label><br>
+            <input type="text" id="inputCorreoPropietario" th:value="${propietario.correo}"><br>
+            <label class="mt-5 mt-md-3">Teléfono</label><br>
+            <input type="text" id="inputTelefonoPropietario" th:value="${propietario.telefono}"><br>
+            <label class="mt-5 mt-md-3">Nombre de usuario</label><br>
+            <input type="text" id="inputUsernamePropietario" th:value="${propietario.username}" required><br>
+            <label class="mt-5 mt-md-3">Contraseña</label><br>
+            <input type="text" id="inputPasswordPropietario" th:value="${propietario.password}" required><br>
+            <label class="mt-5 mt-md-3">Texto banner: SOY</label><br>
+            <textarea id="inputTextoSoyPropietario" th:text="${propietario.textoSoy}"></textarea><br>
+            <label class="mt-5 mt-md-3">Texto banner: QUIERO</label><br>
+            <textarea id="inputTextoQuieroPropietario" th:text="${propietario.textoQuiero}"></textarea><br>
+            <label class="mt-5 mt-md-3">Texto banner: HAGO</label><br>
+            <textarea id="inputTextoHagoPropietario" th:text="${propietario.textoHago}"></textarea><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success" id="btnActualizarPropietario">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>
