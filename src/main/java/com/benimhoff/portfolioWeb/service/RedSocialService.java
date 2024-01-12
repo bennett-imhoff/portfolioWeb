@@ -8,5 +8,7 @@ public interface RedSocialService {
 
     RedSocial crear(RedSocial redSocial);
 
+    RedSocial actualizar(RedSocial redSocial);
+
     List<RedSocial> verTodas();
 }

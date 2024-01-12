@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -19,5 +20,11 @@ public class RedSocialRestController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void crear(@RequestBody RedSocial redSocial){
         redSocialService.crear(redSocial);
+    }
+
+    @PutMapping("/api/redSocial")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void actualizar(@RequestBody RedSocial redSocial){
+        redSocialService.actualizar(redSocial);
     }
 }

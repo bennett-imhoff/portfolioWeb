@@ -30,7 +30,6 @@ propietario =(function(){
             data: JSON.stringify(propietario),
             success: function(response) {
                 window.location.reload();
-                alert("Se actualizaron exitosamente tus datos.");
             },
             error: function(xhr, status, error) {
                 $actualizarButton.button("reset");

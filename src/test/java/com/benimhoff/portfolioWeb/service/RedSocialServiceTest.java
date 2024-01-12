@@ -71,6 +71,42 @@ public class RedSocialServiceTest {
     }
 
     @Test
+    public void actualizar_conDatosValidos_actualizaRedSocial(){
+        RedSocial redSocialAntigua = new RedSocial();
+        redSocialAntigua.setNombre("Red social");
+        redSocialAntigua.setEnlace("redsocial.com");
+        redSocialAntigua.setIcono("fa-red-social");
+        redSocialAntigua = redSocialRepository.save(redSocialAntigua);
+
+        RedSocial redSocialNueva = redSocialRepository.findById(redSocialAntigua.getId()).get();
+        redSocialNueva.setNombre("Red social nueva");
+        redSocialNueva.setEnlace("redsocialnueva.com");
+        redSocialNueva.setIcono("fa-red-social-nueva");
+
+        redSocialNueva = redSocialService.actualizar(redSocialNueva);
+
+        assertEquals(redSocialAntigua.getId(), redSocialNueva.getId());
+    }
+
+    @Test
+    public void actualizar_conDatosInvalidos_lanzaExcepcion(){
+        RedSocial redSocialAntigua = new RedSocial();
+        redSocialAntigua.setNombre("Red social");
+        redSocialAntigua.setEnlace("redsocial.com");
+        redSocialAntigua.setIcono("fa-red-social");
+        redSocialAntigua = redSocialRepository.save(redSocialAntigua);
+
+        RedSocial redSocialNueva = redSocialRepository.findById(redSocialAntigua.getId()).get();
+        redSocialNueva.setNombre(" ");
+        redSocialNueva.setEnlace(" ");
+        redSocialNueva.setIcono(null);
+
+        assertThrows(IllegalArgumentException.class, ()->{
+           redSocialService.actualizar(redSocialNueva);
+        });
+    }
+
+    @Test
     public void verTodas_conCualquierUsuario_retornaListaRedesSociales(){
         RedSocial redSocialUno = new RedSocial();
         redSocialUno.setNombre("Red social uno");

@@ -7,13 +7,39 @@
   <section>
     <h3 class="titulo-seccion-edicion">Redes sociales</h3>
     <div class="text-end">
-      <button type="button" id="btnAbrirModalCrearRedSocial" class="btn btn-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalCrearRedSocial">
+      <button type="button" id="btnAbrirModalCrearRedSocial" class="btn btn-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalRedSocial">
         <i class="fa fa-plus" aria-hidden="true"></i> Agregar red social
       </button>
     </div>
+    <div>
+      <table class="mb-5">
+        <thead>
+          <tr>
+            <th>Icono</th>
+            <th>Nombre</th>
+            <th>Enlace</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="redSocial : ${redesSociales}">
+            <td th:text="${redSocial.icono}"></td>
+            <td th:text="${redSocial.nombre}"></td>
+            <td th:text="${redSocial.enlace}"></td>
+            <td>
+              <i class="fa fa-pencil" data-bs-toggle="modal" data-bs-target="#modalRedSocial"
+                 th:data-id-red="${redSocial.id}" th:data-nombre-red="${redSocial.nombre}"
+                 th:data-enlace-red="${redSocial.enlace}" th:data-icono-red="${redSocial.icono}"
+                 th:data-idPropietario-red="${redSocial.idPropietario}"></i>
+              <i class="fa fa-trash"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <div class="modal fade" id="modalCrearRedSocial" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCrearRedSocialLabel" aria-hidden="true">
+  <div class="modal fade" id="modalRedSocial" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalRedSocialLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content modal-dialog-scrollable">
         <div class="modal-header">
@@ -22,6 +48,8 @@
         </div>
         <div class="modal-body pt-0">
           <form method="post" id="crearRedSocialForm">
+            <input hidden type="text" id="inputIdRedSocial"/>
+            <input hidden type="text" id="inputIdPropietarioRedSocial"/>
             <label>Nombre</label><br>
             <input type="text" id="inputNombreRedSocial" required><br>
             <label class="mt-5 mt-md-3">Enlace</label><br>
@@ -32,7 +60,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-success" id="btnCrearRedSocial">Crear</button>
+          <button type="button" class="btn btn-success" id="btnGuardarRedSocial">Guardar</button>
         </div>
       </div>
     </div>
