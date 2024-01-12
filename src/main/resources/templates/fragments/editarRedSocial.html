@@ -36,13 +36,13 @@
           </td>
           <td class="d-flex justify-content-center">
               <span class="cursor-pointer px-3">
-                <i class="fa fa-pencil text-primary" data-bs-toggle="modal" data-bs-target="#modalRedSocial"
+                <i class="fa fa-pencil editar-red-social text-primary" data-bs-toggle="modal" data-bs-target="#modalRedSocial"
                    th:data-id-red="${redSocial.id}" th:data-nombre-red="${redSocial.nombre}"
                    th:data-enlace-red="${redSocial.enlace}" th:data-icono-red="${redSocial.icono}"
                    th:data-idPropietario-red="${redSocial.idPropietario}"></i>
               </span>
             <span class="cursor-pointer px-3">
-                <i class="fa fa-minus-circle text-danger"
+                <i class="fa fa-minus-circle eliminar-red-social text-danger"
                    th:data-id-red="${redSocial.id}"
                    th:data-nombre-red="${redSocial.nombre}"></i>
               </span>
@@ -57,7 +57,7 @@
     <div class="modal-dialog">
       <div class="modal-content modal-dialog-scrollable">
         <div class="modal-header">
-          <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Red social</h5>
+          <h5 class="modal-title mx-4" id="modalActualizarRedSocialLabel">Red social</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body pt-0">
@@ -74,7 +74,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-success" id="btnGuardarRedSocial">Guardar</button>
+          <button type="button" class="btn btn-success btnGuardar" id="btnGuardarRedSocial">Guardar</button>
         </div>
       </div>
     </div>

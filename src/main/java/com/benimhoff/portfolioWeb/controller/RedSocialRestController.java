@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class RedSocialRestController {
     
     @Autowired
-    RedSocialService redSocialService;
+    private RedSocialService redSocialService;
 
     @PostMapping("/api/redSocial")
     @ResponseStatus(HttpStatus.NO_CONTENT)

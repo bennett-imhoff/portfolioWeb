@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RedSocialServiceTest {
 
     @Autowired
-    RedSocialService redSocialService;
+    private RedSocialService redSocialService;
 
     @Autowired
-    RedSocialRepository redSocialRepository;
+    private RedSocialRepository redSocialRepository;
 
     @Test
     public void crear_conDatosValidos_guardaRedSocial(){
@@ -83,10 +82,16 @@ public class RedSocialServiceTest {
         redSocialNueva.setNombre("Red social nueva");
         redSocialNueva.setEnlace("redsocialnueva.com");
         redSocialNueva.setIcono("fa-red-social-nueva");
+        redSocialService.actualizar(redSocialNueva);
 
-        redSocialNueva = redSocialService.actualizar(redSocialNueva);
+        RedSocial redSocialGuardada = redSocialRepository.findById(redSocialAntigua.getId()).get();
 
         assertEquals(redSocialAntigua.getId(), redSocialNueva.getId());
+        assertAll("Verifico que todos los datos se hayan actualizado.",
+            ()-> assertEquals("Red social nueva", redSocialGuardada.getNombre()),
+            ()-> assertEquals("redsocialnueva.com", redSocialGuardada.getEnlace()),
+            ()-> assertEquals("fa-red-social-nueva", redSocialGuardada.getIcono())
+        );
     }
 
     @Test

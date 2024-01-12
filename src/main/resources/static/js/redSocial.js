@@ -2,8 +2,8 @@ redSocial =(function(){
     function init(){
         $('#btnGuardarRedSocial').click(guardarRedSocial);
         $('#btnAbrirModalCrearRedSocial').click(limpiarModal);
-        $('.fa-pencil').click(cargarDatosAlModal);
-        $('.fa-minus-circle').click(eliminarRedSocial);
+        $('.editar-red-social').click(cargarDatosAlModal);
+        $('.eliminar-red-social').click(eliminarRedSocial);
     }
 
     function limpiarModal(){

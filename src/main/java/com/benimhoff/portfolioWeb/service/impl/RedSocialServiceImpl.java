@@ -28,9 +28,9 @@ public class RedSocialServiceImpl implements RedSocialService {
         Assert.hasText(redSocial.getNombre(), "El nombre de la red social no puede quedar vacío.");
         Assert.hasText(redSocial.getEnlace(), "El enlace de la red social no puede quedar vacío.");
         Assert.hasText(redSocial.getIcono(), "Debe establecerse un ícono para la red social.");
-        Optional<Propietario> propietarioRedSocial = propietarioRepository.findAll().stream().findFirst();
 
         //Le asigno el propietario a la red social
+        Optional<Propietario> propietarioRedSocial = propietarioRepository.findAll().stream().findFirst();
         propietarioRedSocial.ifPresent(propietario -> redSocial.setIdPropietario(propietario.getId()));
         Assert.notNull(redSocial.getIdPropietario(), "Debe existir un propietario para crear una red social.");
 

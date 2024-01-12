@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarServicioFragment">
+  <section class="seccion-servicios">
+    <div class="row d-flex align-items-center">
+      <h3 class="titulo-seccion-edicion mb-0 col-6">Servicios</h3>
+      <div class="text-end col-6">
+        <button type="button" id="btnAbrirModalCrearServicio" class="btn btn-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalServicio">
+          <i class="fa fa-plus" aria-hidden="true"></i> Agregar servicio
+        </button>
+      </div>
+    </div>
+    <div>
+      <table class="my-4 texto-seccion-edicion table table-hover">
+        <thead>
+        <tr>
+          <th class="text-center">Icono</th>
+          <th class="text-center">Titulo</th>
+          <th class="text-center">Descripcion</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="servicio : ${servicios}">
+          <td class="text-center"><i th:class="'bi ' + ${servicio.icono}"></i></td>
+          <td class="text-center" th:text="${servicio.titulo}"></td>
+          <td class="text-center" th:text="${servicio.descripcion}"></td>
+          <td class="d-flex justify-content-center">
+              <span class="cursor-pointer px-3">
+                <i class="fa fa-pencil editar-servicio text-primary" data-bs-toggle="modal" data-bs-target="#modalServicio"
+                   th:data-id-servicio="${servicio.id}" th:data-icono-servicio="${servicio.icono}"
+                   th:data-titulo-servicio="${servicio.titulo}" th:data-descripcion-servicio="${servicio.descripcion}"
+                   th:data-idPropietario-servicio="${servicio.idPropietario}"></i>
+              </span>
+            <span class="cursor-pointer px-3">
+                <i class="fa fa-minus-circle eliminar-servicio text-danger"
+                   th:data-id-servicio="${servicio.id}"
+                   th:data-titulo-servicio="${servicio.titulo}"></i>
+              </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="modal fade" id="modalServicio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalServicioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-dialog-scrollable">
+        <div class="modal-header">
+          <h5 class="modal-title mx-4" id="modalActualizarServicioLabel">Servicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <form method="post" id="crearServicioForm">
+            <input hidden type="text" id="inputIdServicio"/>
+            <input hidden type="text" id="inputIdPropietarioServicio"/>
+            <label>Icono</label><br>
+            <input type="text" id="inputIconoServicio" required><br>
+            <label class="mt-5 mt-md-3">Título</label><br>
+            <input type="text" id="inputTituloServicio" required><br>
+            <label class="mt-5 mt-md-3">Descripción</label><br>
+            <textarea id="inputDescripcionServicio"></textarea><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success btnGuardar" id="btnGuardarServicio">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>

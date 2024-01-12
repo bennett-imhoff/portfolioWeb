@@ -15,7 +15,7 @@
     margin: auto;
 }
 
-label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial{
+label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar{
     font-size:2em;
 }
 
@@ -71,7 +71,8 @@ input, textarea{
     font-size:3em;
 }
 
-.texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial{
+.texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial,
+#btnAbrirModalCrearServicio{
     font-size: 2em;
     font-family: 'OpenSans';
     line-height:2;
@@ -95,11 +96,12 @@ input, textarea{
         font-size:1.6em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial,
+    #btnAbrirModalCrearServicio{
         font-size: 1em;
     }
 
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial{
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar{
         font-size:2em;
     }
 
@@ -115,7 +117,7 @@ input, textarea{
         font-size:1.6em;
     }
 
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial, .btn-close{
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar, .btn-close{
         font-size:1em;
     }
 
@@ -131,7 +133,7 @@ input, textarea{
         margin-right: 0.2em !important;
     }
 
-    .seccion-redes-sociales{
+    .seccion-redes-sociales, .seccion-servicios{
         width:50%;
     }
 }
@@ -158,8 +160,9 @@ input, textarea{
         font-size:2.5em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close, #btnGuardarRedSocial,
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnAbrirModalCrearRedSocial{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close, .btnGuardar,
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnAbrirModalCrearRedSocial,
+    #btnAbrirModalCrearServicio{
         font-size: 1.5em;
     }
 }
