@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -104,6 +105,19 @@ public class RedSocialServiceTest {
         assertThrows(IllegalArgumentException.class, ()->{
            redSocialService.actualizar(redSocialNueva);
         });
+    }
+
+    @Test
+    public void eliminar_conUsuarioLogueado_eliminaRedSocial(){
+        RedSocial redSocial = new RedSocial();
+        redSocial.setNombre("Red social");
+        redSocial.setEnlace("redsocial.com");
+        redSocial.setIcono("fa-red-social");
+        redSocial = redSocialRepository.save(redSocial);
+
+        redSocialService.eliminar(redSocial.getId());
+
+        assertFalse(redSocialRepository.existsById(redSocial.getId()));
     }
 
     @Test

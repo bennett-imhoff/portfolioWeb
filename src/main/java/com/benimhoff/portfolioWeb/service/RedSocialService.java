@@ -10,5 +10,7 @@ public interface RedSocialService {
 
     RedSocial actualizar(RedSocial redSocial);
 
+    void eliminar(Long idRedSocial);
+
     List<RedSocial> verTodas();
 }

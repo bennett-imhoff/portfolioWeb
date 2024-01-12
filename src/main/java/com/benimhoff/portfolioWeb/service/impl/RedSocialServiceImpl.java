@@ -47,6 +47,11 @@ public class RedSocialServiceImpl implements RedSocialService {
     }
 
     @Override
+    public void eliminar(Long idRedSocial){
+        redSocialRepository.deleteById(idRedSocial);
+    }
+
+    @Override
     public List<RedSocial> verTodas() {
         return redSocialRepository.findAll();
     }
