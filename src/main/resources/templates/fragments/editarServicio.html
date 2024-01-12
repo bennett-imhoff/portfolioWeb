@@ -4,7 +4,7 @@
 <head></head>
 <body>
 <th:block th:fragment="editarServicioFragment">
-  <section class="seccion-servicios">
+  <article class="seccion-servicios seccion-edicion">
     <div class="row d-flex align-items-center">
       <h3 class="titulo-seccion-edicion mb-0 col-6">Servicios</h3>
       <div class="text-end col-6">
@@ -28,7 +28,7 @@
           <td class="text-center"><i th:class="'bi ' + ${servicio.icono}"></i></td>
           <td class="text-center" th:text="${servicio.titulo}"></td>
           <td class="text-center" th:text="${servicio.descripcion}"></td>
-          <td class="d-flex justify-content-center">
+          <td class="text-nowrap text-center">
               <span class="cursor-pointer px-3">
                 <i class="fa fa-pencil editar-servicio text-primary" data-bs-toggle="modal" data-bs-target="#modalServicio"
                    th:data-id-servicio="${servicio.id}" th:data-icono-servicio="${servicio.icono}"
@@ -45,7 +45,7 @@
         </tbody>
       </table>
     </div>
-  </section>
+  </article>
 
   <div class="modal fade" id="modalServicio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalServicioLabel" aria-hidden="true">
     <div class="modal-dialog">

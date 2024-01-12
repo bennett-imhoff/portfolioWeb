@@ -36,10 +36,13 @@
         </div>
     </section>
 
-    <th:block th:insert="fragments/editarPropietario :: editarPropietarioFragment"/>
-    <th:block th:insert="fragments/editarRedSocial :: editarRedSocialFragment"/>
-    <th:block th:insert="fragments/editarServicio :: editarServicioFragment"/>
-
+    <div class="my-5">
+        <th:block th:insert="fragments/editarPropietario :: editarPropietarioFragment"/>
+    </div>
+    <div class="d-flex bloques-edicion mb-2">
+        <th:block th:insert="fragments/editarRedSocial :: editarRedSocialFragment"/>
+        <th:block th:insert="fragments/editarServicio :: editarServicioFragment"/>
+    </div>
 </main>
 
 <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
