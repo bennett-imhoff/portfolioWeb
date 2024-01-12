@@ -152,8 +152,8 @@
     <th:block th:insert="fragments/sobreMi :: sobreMiFragment"/>
   </main>
 
-  <footer id="footer" class="mt-5 mt-md-3 d-flex flex-column align-items-center">
-    <h2 class="titulo-footer text-center pt-5 pt-md-3">Gracias por visitar mi portfolio</h2>
+  <footer id="footer" class="mt-5 d-flex flex-column align-items-center">
+    <h2 class="titulo-footer text-center pt-5 pt-lg-3">Gracias por visitar mi portfolio</h2>
     <p class="subtitulo-footer text-center">
       <em>
         ¿Listo para colaborar juntos en algo genial?
@@ -161,16 +161,16 @@
         ¡Contactame para empezar!
       </em>
     </p>
-    <section class="redes-sociales mt-4 mt-md-2 pt-0">
+    <section class="redes-sociales mt-4 mt-lg-2 pt-0">
       <ul class="list-unstyled d-flex">
         <li th:each="redSocial : ${redesSociales}">
-          <a class="link-redes-sociales pb-4 pb-md-2 text-decoration-none cursor-pointer" th:href="${redSocial.enlace}" th:title="${redSocial.nombre}" target="_blank">
+          <a class="link-redes-sociales pb-4 pb-lg-2 text-decoration-none cursor-pointer" th:href="${redSocial.enlace}" th:title="${redSocial.nombre}" target="_blank">
             <i th:class="'bi ' + ${redSocial.icono}"></i>
           </a>
         </li>
       </ul>
     </section>
-    <p class="made-by text-center my-4 my-md-2 pb-3 pb-md-2">
+    <p class="made-by text-center my-4 my-lg-2 pb-3 pb-lg-2">
       Diseñado por <br>
       <span>María A. Gómez</span> y <span>Bennett Imhoff Anzor</span>.
     </p>
