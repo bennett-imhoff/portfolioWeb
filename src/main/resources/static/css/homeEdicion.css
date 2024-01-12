@@ -5,7 +5,7 @@
 
 .modal-dialog{
     max-width:80%;
-    height: 80%;
+    max-height: 80%;
     top: 50%;
     transform: translate(0, -50%) !important;
 }
@@ -15,7 +15,7 @@
     margin: auto;
 }
 
-label, input, textarea, #btnActualizarPropietario, #btnCerrarModal{
+label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial{
     font-size:2em;
 }
 
@@ -71,7 +71,7 @@ input, textarea{
     font-size:3em;
 }
 
-.texto-seccion-edicion, #btnEditarDatosPersonales{
+.texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial{
     font-size: 2em;
     font-family: 'OpenSans';
     line-height:2;
@@ -95,8 +95,12 @@ input, textarea{
         font-size:1.6em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial{
         font-size: 1em;
+    }
+
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial{
+        font-size:2em;
     }
 
     .img-panel-edicion{
@@ -111,7 +115,7 @@ input, textarea{
         font-size:1.6em;
     }
 
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btn-close{
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnGuardarRedSocial, .btn-close{
         font-size:1em;
     }
 
@@ -125,6 +129,10 @@ input, textarea{
 
     .btn-close{
         margin-right: 0.2em !important;
+    }
+
+    .seccion-redes-sociales{
+        width:50%;
     }
 }
 
@@ -150,8 +158,8 @@ input, textarea{
         font-size:2.5em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close,
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close, #btnGuardarRedSocial,
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnAbrirModalCrearRedSocial{
         font-size: 1.5em;
     }
 }
