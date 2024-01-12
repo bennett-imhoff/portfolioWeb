@@ -14,26 +14,30 @@
     <div>
       <table class="mb-5">
         <thead>
-          <tr>
-            <th>Icono</th>
-            <th>Nombre</th>
-            <th>Enlace</th>
-            <th>Acciones</th>
-          </tr>
+        <tr>
+          <th>Icono</th>
+          <th>Nombre</th>
+          <th>Enlace</th>
+          <th>Acciones</th>
+        </tr>
         </thead>
         <tbody>
-          <tr th:each="redSocial : ${redesSociales}">
-            <td th:text="${redSocial.icono}"></td>
-            <td th:text="${redSocial.nombre}"></td>
-            <td th:text="${redSocial.enlace}"></td>
-            <td>
-              <i class="fa fa-pencil" data-bs-toggle="modal" data-bs-target="#modalRedSocial"
-                 th:data-id-red="${redSocial.id}" th:data-nombre-red="${redSocial.nombre}"
-                 th:data-enlace-red="${redSocial.enlace}" th:data-icono-red="${redSocial.icono}"
-                 th:data-idPropietario-red="${redSocial.idPropietario}"></i>
-              <i class="fa fa-trash"></i>
-            </td>
-          </tr>
+        <tr th:each="redSocial : ${redesSociales}">
+          <td th:text="${redSocial.icono}"></td>
+          <td th:text="${redSocial.nombre}"></td>
+          <td th:text="${redSocial.enlace}"></td>
+          <td>
+              <span class="cursor-pointer">
+                <i class="fa fa-pencil" data-bs-toggle="modal" data-bs-target="#modalRedSocial"
+                   th:data-id-red="${redSocial.id}" th:data-nombre-red="${redSocial.nombre}"
+                   th:data-enlace-red="${redSocial.enlace}" th:data-icono-red="${redSocial.icono}"
+                   th:data-idPropietario-red="${redSocial.idPropietario}"></i>
+              </span>
+            <span class="cursor-pointer">
+                <i class="fa fa-minus-circle" th:data-id-red="${redSocial.id}"></i>
+              </span>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -43,7 +47,7 @@
     <div class="modal-dialog">
       <div class="modal-content modal-dialog-scrollable">
         <div class="modal-header">
-          <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Crear red social</h5>
+          <h5 class="modal-title mx-4" id="modalActualizarPropietarioLabel">Red social</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body pt-0">

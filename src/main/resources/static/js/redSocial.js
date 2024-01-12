@@ -2,6 +2,7 @@ redSocial =(function(){
     function init(){
         $('#btnGuardarRedSocial').click(guardarRedSocial);
         $('.fa-pencil').click(cargarDatosAlModal);
+        $('.fa-minus-circle').click(eliminarRedSocial);
     }
 
     function cargarDatosAlModal(){
@@ -60,6 +61,26 @@ redSocial =(function(){
                 error: function(xhr, status, error) {
                     $guardarRedSocialButton.button("reset");
                     alert("No se pudo crear la red social.");
+                }
+            });
+        }
+    }
+
+    function eliminarRedSocial(){
+        var btnEliminar = $(this);
+        var idRed = btnEliminar.attr('data-id-red');
+
+        if (confirm("¿Estás seguro de que querés eliminar esta red social?")){
+            $.ajax({
+                url: '/api/redSocial/' + idRed,
+                type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(redSocial),
+                success: function(response) {
+                    window.location.reload();
+                },
+                error: function(xhr, status, error) {
+                    alert("No se pudo eliminar la red social.");
                 }
             });
         }
