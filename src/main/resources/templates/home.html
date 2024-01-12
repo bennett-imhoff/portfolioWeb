@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title th:text="${'Portfolio ' + propietario.apellido}"></title>
   <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" th:href="@{css/main.css}"/>
   <link rel="stylesheet" th:href="@{css/secciones.css}"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
@@ -150,6 +151,30 @@
 
     <th:block th:insert="fragments/sobreMi :: sobreMiFragment"/>
   </main>
+
+  <footer id="footer" class="mt-5 mt-md-3 d-flex flex-column align-items-center">
+    <h2 class="titulo-footer text-center pt-5 pt-md-3">Gracias por visitar mi portfolio</h2>
+    <p class="subtitulo-footer text-center">
+      <em>
+        ¿Listo para colaborar juntos en algo genial?
+        <br>
+        ¡Contactame para empezar!
+      </em>
+    </p>
+    <section class="redes-sociales mt-4 mt-md-2 pt-0">
+      <ul class="list-unstyled d-flex">
+        <li th:each="redSocial : ${redesSociales}">
+          <a class="link-redes-sociales pb-4 pb-md-2 text-decoration-none cursor-pointer" th:href="${redSocial.enlace}" th:title="${redSocial.nombre}" target="_blank">
+            <i th:class="'bi ' + ${redSocial.icono}"></i>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <p class="made-by text-center my-4 my-md-2 pb-3 pb-md-2">
+      Diseñado por <br>
+      <span>María A. Gómez</span> y <span>Bennett Imhoff Anzor</span>.
+    </p>
+  </footer>
   <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
   <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
   <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>

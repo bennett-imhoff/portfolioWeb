@@ -198,6 +198,46 @@ section:not(:first-child){
     margin: 20px auto;
 }
 
+footer{
+    background-color: black;
+    padding-top:30px;
+}
+
+.titulo-footer{
+    font-family: 'Raleway';
+    font-size:2.2em;
+    font-weight:700;
+}
+
+.titulo-footer, .subtitulo-footer, .made-by{
+    color:white;
+}
+
+.subtitulo-footer, .made-by{
+    font-family:'OpenSans';
+    font-size:2em;
+    line-height:1.5;
+    width:90%;
+    margin-bottom:1rem;
+}
+
+.made-by{
+    font-size:1.8em;
+}
+
+.made-by span{
+    color: #5cb874;
+}
+
+.link-redes-sociales .bi {
+    font-size:3em;
+    color:white;
+    background-color: #5cb874;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
     .nombre-portfolio{
@@ -231,6 +271,23 @@ section:not(:first-child){
     .contenedor-datos-carrusel{
         margin: 6% 12%;
     }
+
+    .titulo-footer{
+        font-size:1.2em;
+        font-weight:700;
+    }
+
+    .subtitulo-footer, .made-by{
+        font-size:1em;
+    }
+
+    .made-by{
+        font-size:0.8em;
+    }
+
+    .link-redes-sociales .bi {
+        font-size:2em;
+    }
 }
 
 /*Escritorio mediano (1366 a 1919)*/
@@ -260,5 +317,25 @@ section:not(:first-child){
 
     .texto-item-carrusel{
         font-size:2em;
+    }
+
+    footer{
+        margin-top: 55px !important;
+    }
+
+    .titulo-footer{
+        font-size:1.7em;
+    }
+
+    .subtitulo-footer, .made-by{
+        font-size:1.5em;
+    }
+
+    .made-by{
+        font-size:1.2em;
+    }
+
+    .link-redes-sociales .bi {
+        font-size:2.5em;
     }
 }
