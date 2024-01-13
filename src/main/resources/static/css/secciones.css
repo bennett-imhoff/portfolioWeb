@@ -31,6 +31,13 @@
     font-size: 3.5em;
 }
 
+.texto-seccion-edicion td{
+    vertical-align:middle;
+}
+.texto-seccion-edicion img{
+    width:70%;
+}
+
 @media screen and (min-width: 1024px){
     .titulo-seccion{
         font-size:1.6em;

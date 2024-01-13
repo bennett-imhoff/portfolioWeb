@@ -53,7 +53,8 @@ CREATE TABLE proyecto (
     titulo VARCHAR(255) NOT NULL,
     descripcion VARCHAR(2000) NOT NULL,
     imagen VARCHAR(255) NOT NULL,
-    enlace VARCHAR(255),
+    enlace_github VARCHAR(255),
+    enlace_demo VARCHAR(255),
     id_propietario BIGINT NOT NULL,
     FOREIGN KEY (id_propietario) REFERENCES propietario(id)
 );

@@ -161,6 +161,10 @@ article:not(:first-child){
     .seccion-edicion{
         width:50%;
     }
+
+    .seccion-proyectos{
+        width:100%;
+    }
 }
 
 /*Escritorio portátil medio (1366 a 1535)

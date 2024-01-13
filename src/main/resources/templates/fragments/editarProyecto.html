@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarProyectoFragment">
+  <article class="seccion-proyectos seccion-edicion">
+    <div class="row d-flex align-items-center">
+      <h3 class="titulo-seccion-edicion mb-0 col-6">Proyectos</h3>
+      <div class="text-end col-6">
+        <button type="button" id="btnAbrirModalCrearProyecto" class="btn btn-success mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalProyecto">
+          <i class="fa fa-plus" aria-hidden="true"></i> Agregar proyecto
+        </button>
+      </div>
+    </div>
+    <div>
+      <table class="my-4 texto-seccion-edicion table table-hover">
+        <thead>
+        <tr>
+          <th class="text-center">Título</th>
+          <th class="text-center">Descripción</th>
+          <th class="text-center">Imagen</th>
+          <th class="text-center text-nowrap">Enlace Github</th>
+          <th class="text-center text-nowrap">Enlace Demo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="proyecto : ${proyectos}">
+          <td class="text-center" th:text="${proyecto.titulo}"></td>
+          <td class="text-center" th:text="${proyecto.descripcion}"></td>
+          <td class="text-center" th:title="'Imagen de ' + ${proyecto.titulo}">
+            <img th:src="${proyecto.imagen}" th:alt="'Imagen de ' + ${proyecto.titulo}"/>
+          </td>
+          <td class="text-center">
+            <span th:if="${not #strings.isEmpty(proyecto.enlaceGithub)}">
+              <a class="text-success"
+                 th:href="${proyecto.enlaceGithub}"
+                 target="_blank"
+                 th:title="${proyecto.enlaceGithub}">Ver</a>
+            </span>
+            <span th:unless="${not #strings.isEmpty(proyecto.enlaceGithub)}" class="text-dark">No asignado</span>
+          </td>
+          <td class="text-center">
+            <span th:if="${not #strings.isEmpty(proyecto.enlaceDemo)}">
+              <a class="text-success"
+                 th:href="${proyecto.enlaceDemo}"
+                 target="_blank"
+                 th:title="${proyecto.enlaceDemo}">Ver</a>
+            </span>
+            <span th:unless="${not #strings.isEmpty(proyecto.enlaceDemo)}" class="text-dark">No asignado</span>
+          </td>
+          <td class="text-nowrap text-center">
+              <span class="cursor-pointer px-3">
+                <i class="fa fa-pencil editar-proyecto text-primary" data-bs-toggle="modal" data-bs-target="#modalProyecto"
+                   th:data-id-proyecto="${proyecto.id}" th:data-titulo-proyecto="${proyecto.titulo}"
+                   th:data-descripcion-proyecto="${proyecto.descripcion}" th:data-imagen-proyecto="${proyecto.imagen}"
+                   th:data-enlace-github-proyecto="${proyecto.enlaceGithub}" th:data-enlace-demo-proyecto="${proyecto.enlaceDemo}"
+                   th:data-idPropietario-proyecto="${proyecto.idPropietario}"></i>
+              </span>
+            <span class="cursor-pointer px-3">
+                <i class="fa fa-minus-circle eliminar-proyecto text-danger"
+                   th:data-id-proyecto="${proyecto.id}"
+                   th:data-titulo-proyecto="${proyecto.titulo}"></i>
+              </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <div class="modal fade" id="modalProyecto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalProyectoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-dialog-scrollable">
+        <div class="modal-header">
+          <h5 class="modal-title mx-4" id="modalActualizarProyectoLabel">Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <form method="post" id="crearProyectoForm">
+            <input hidden type="text" id="inputIdProyecto"/>
+            <input hidden type="text" id="inputIdPropietarioProyecto"/>
+            <label>Titulo</label><br>
+            <input type="text" id="inputTituloProyecto" required><br>
+            <label class="mt-5 mt-md-3">Descripción</label><br>
+            <textarea id="inputDescripcionProyecto"></textarea><br>
+            <label class="mt-5 mt-md-3">Imagen</label><br>
+            <input type="text" id="inputImagenProyecto" required><br>
+            <label class="mt-5 mt-md-3">Enlace Github</label><br>
+            <input type="text" id="inputEnlaceGithubProyecto" required><br>
+            <label class="mt-5 mt-md-3">Enlace Demo</label><br>
+            <input type="text" id="inputEnlaceDemoProyecto" required><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success btnGuardar" id="btnGuardarProyecto">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>
