@@ -1,22 +1,34 @@
-.titulo-seccion {
+#servicios{
+    width:85%
+}
+
+.titulo-seccion, .titulo-servicio {
     font-family: 'Raleway';
     font-weight: bold;
+    font-size:2.5em;
+}
+
+.titulo-seccion{
     text-transform: uppercase;
     border-bottom:2px solid #5cb874;
-    font-size:2.5em;
     width:fit-content;
-    text-align:center;
     padding-bottom:5px !important;
-    margin:auto;
+}
+
+.texto-sobre-mi, .contenedor-icono, .texto-servicio{
+    font-family: 'OpenSans';
+    font-size: 2em;
+    line-height:2;
 }
 
 .texto-sobre-mi{
-    font-family: 'OpenSans';
-    font-size: 2em;
-    text-align: center;
     width:90%;
     margin:20px auto;
-    line-height:2;
+}
+
+.contenedor-icono{
+    color:#56b874;
+    font-size: 3.5em;
 }
 
 @media screen and (min-width: 1024px){
@@ -24,14 +36,30 @@
         font-size:1.6em;
     }
 
-    .texto-sobre-mi{
+    .titulo-servicio{
+        font-size:1.4em;
+    }
+
+    .texto-sobre-mi, .texto-servicio{
         font-size:1em;
+    }
+
+    .contenedor-icono{
+        font-size: 2em;
     }
 }
 
 @media screen and (min-width: 1366px){
+    .titulo-servicio{
+        font-size:1.2em;
+    }
+
     .texto-sobre-mi{
         width:80%;
+    }
+
+    .contenedor-icono{
+        font-size: 1.8em;
     }
 }
 
@@ -40,7 +68,15 @@
         font-size:2.5em;
     }
 
-    .texto-sobre-mi{
+    .titulo-servicio{
+        font-size:2em;
+    }
+
+    .texto-sobre-mi, .texto-servicio{
         font-size:1.5em;
+    }
+
+    .contenedor-icono{
+        font-size: 2.8em;
     }
 }

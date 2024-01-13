@@ -5,8 +5,8 @@
 <body>
   <th:block th:fragment="sobreMiFragment">
     <section id="sobre-mi">
-      <h2 class="titulo-seccion">Sobre mi</h2>
-      <div class="texto-sobre-mi" th:utext="${propietario.descripcion.replaceAll('(\r\n|\n)', '<br/>')}"></div>
+      <h2 class="titulo-seccion text-center mx-auto">Sobre mi</h2>
+      <div class="texto-sobre-mi text-center" th:utext="${propietario.descripcion.replaceAll('(\r\n|\n)', '<br/>')}"></div>
     </section>
   </th:block>
 </body>
