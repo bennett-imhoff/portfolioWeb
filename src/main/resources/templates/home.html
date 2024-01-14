@@ -15,7 +15,7 @@
   <section id="header" class="fixed-top bg-light">
     <header class="d-flex align-items-center">
       <div class="contenedor-barra-superior container d-flex align-items-center">
-        <h1 class="nombre-portfolio me-auto"><a href="index.html" th:text="${propietario.nombre + ' ' + propietario.apellido}"></a></h1>
+        <h1 class="nombre-portfolio me-auto"><a href="/" th:text="${propietario.nombre + ' ' + propietario.apellido}"></a></h1>
         <nav class="barra-navegacion navbar navbar-expand-lg navbar-light">
           <!-- Contenido para pantallas de escritorio -->
           <div class="contenedor-navbar-escritorio container-fluid">
@@ -64,27 +64,26 @@
               <!-- Contenido de la barra de navegación -->
               <ul class="navbar-nav d-lg-none">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#descripcion"
-                     data-bs-dismiss="offcanvas">Inicio</a>
+                  <a class="nav-link active" aria-current="page" href="#descripcion">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#sobre-mi" data-bs-dismiss="offcanvas">Sobre mí</a>
+                  <a class="nav-link" href="#sobre-mi">Sobre mí</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#proyectos" data-bs-dismiss="offcanvas">Proyectos</a>
+                  <a class="nav-link" href="#proyectos">Proyectos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#habilidades" data-bs-dismiss="offcanvas">Habilidades</a>
+                  <a class="nav-link" href="#habilidades">Habilidades</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#experiencia-laboral"
                      data-bs-dismiss="offcanvas">Experiencia laboral</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#educacion" data-bs-dismiss="offcanvas">Educación</a>
+                  <a class="nav-link" href="#educacion">Educación</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#contacto" data-bs-dismiss="offcanvas">Contacto</a>
+                  <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
               </ul>
             </div>
@@ -151,6 +150,11 @@
     <hr class="divider">
 
     <th:block th:insert="fragments/sobreMi :: sobreMiFragment"/>
+
+    <hr class="divider">
+
+    <th:block th:insert="fragments/proyectos :: proyectosFragment"/>
+
   </main>
 
   <footer id="footer" class="mt-5 d-flex flex-column align-items-center">
@@ -179,5 +183,7 @@
   <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
   <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
   <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/proyecto.js"></script>
 </body>
 </html>
