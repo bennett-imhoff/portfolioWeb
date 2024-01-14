@@ -1,4 +1,4 @@
-#modalActualizarPropietarioLabel{
+.modal-title-actualizar{
     font-family:'Raleway';
     font-size:2.5em;
 }
@@ -79,8 +79,7 @@ article:not(:first-child){
     font-size:3em;
 }
 
-.texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial,
-#btnAbrirModalCrearServicio{
+.texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar{
     font-size: 2em;
     font-family: 'OpenSans';
     line-height:2;
@@ -108,21 +107,25 @@ article:not(:first-child){
         padding-top:0;
     }
 
-    .seccion-redes-sociales{
-        border-right: 2px solid rgba(61,143,83,0.3);
+    .seccion-edicion{
+        padding:0;
+        margin-top:
     }
 
-    .seccion-edicion{
-        padding:0 2em;
-        margin-top:
+    .seccion-redes-sociales{
+        border-right: 2px solid rgba(61,143,83,0.3);
+        padding-right:2em;
+    }
+
+    .seccion-servicios{
+        padding-left:2em;
     }
 
     .titulo-seccion-edicion{
         font-size:1.6em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales, #btnAbrirModalCrearRedSocial,
-    #btnAbrirModalCrearServicio{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar{
         font-size: 1em;
     }
 
@@ -138,7 +141,7 @@ article:not(:first-child){
         padding-top:5%;
     }
 
-    #modalActualizarPropietarioLabel{
+    .modal-title-actualizar{
         font-size:1.6em;
     }
 
@@ -161,6 +164,10 @@ article:not(:first-child){
     .seccion-edicion{
         width:50%;
     }
+
+    .seccion-proyectos{
+        width:100%;
+    }
 }
 
 /*Escritorio portátil medio (1366 a 1535)
@@ -181,13 +188,12 @@ article:not(:first-child){
         font-size:1em;
     }
 
-    .titulo-seccion-edicion, #modalActualizarPropietarioLabel{
+    .titulo-seccion-edicion, .modal-title-actualizar{
         font-size:2.5em;
     }
 
     .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close, .btnGuardar,
-    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, #btnAbrirModalCrearRedSocial,
-    #btnAbrirModalCrearServicio{
+    label, input, textarea, #btnActualizarPropietario, #btnCerrarModal, .btn-abrir-modal-agregar{
         font-size: 1.5em;
     }
 }
