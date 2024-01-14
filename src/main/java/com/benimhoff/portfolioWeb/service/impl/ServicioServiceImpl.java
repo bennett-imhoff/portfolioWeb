@@ -29,7 +29,7 @@ public class ServicioServiceImpl implements ServicioService {
         Assert.hasText(servicio.getTitulo(), "El servicio debe tener un título asociado.");
         Assert.hasText(servicio.getDescripcion(), "El servicio debe tener una descripción asociada.");
 
-        //Le asigno el propietario a la red social
+        //Le asigno el propietario al servicio
         Optional<Propietario> propietarioServicio = propietarioRepository.findAll().stream().findFirst();
         propietarioServicio.ifPresent(propietario -> servicio.setIdPropietario(propietario.getId()));
         Assert.notNull(servicio.getIdPropietario(), "Debe existir un propietario para crear un servicio.");
