@@ -1,10 +1,12 @@
 package com.benimhoff.portfolioWeb.controller;
 
 import com.benimhoff.portfolioWeb.domain.Propietario;
+import com.benimhoff.portfolioWeb.domain.Proyecto;
 import com.benimhoff.portfolioWeb.domain.RedSocial;
 import com.benimhoff.portfolioWeb.domain.Servicio;
 import com.benimhoff.portfolioWeb.exception.LoginException;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
+import com.benimhoff.portfolioWeb.service.ProyectoService;
 import com.benimhoff.portfolioWeb.service.RedSocialService;
 import com.benimhoff.portfolioWeb.service.ServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class LoginController {
     @Autowired
     private ServicioService servicioService;
 
+    @Autowired
+    private ProyectoService proyectoService;
+
     private boolean usuarioAutenticado = false;
 
     @GetMapping("/login")
@@ -46,9 +51,11 @@ public class LoginController {
         Propietario propietario = propietarioService.ver();
         List<RedSocial> redesSociales = redSocialService.verTodas();
         List<Servicio> servicios = servicioService.verTodos();
+        List<Proyecto> proyectos = proyectoService.verTodos();
         model.addAttribute("propietario", propietario);
         model.addAttribute("redesSociales", redesSociales);
         model.addAttribute("servicios", servicios);
+        model.addAttribute("proyectos", proyectos);
         return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }
 }
