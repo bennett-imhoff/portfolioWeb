@@ -4,6 +4,9 @@ proyecto =(function(){
         $('#btnAbrirModalCrearProyecto').click(limpiarModal);
         $('.editar-proyecto').click(cargarDatosAlModal);
         $('.eliminar-proyecto').click(eliminarProyecto);
+        $('.btn-ver-mas').click(mostrarDescripcion);
+        $('.btn-ver-menos').click(noMostrarDescripcion);
+
     }
 
     function limpiarModal(){
@@ -106,6 +109,32 @@ proyecto =(function(){
                 }
             });
         }
+    }
+
+    function mostrarDescripcion(){
+        var btnVerMas = $(this);
+        var proyecto = btnVerMas.closest('.card-body');
+        var descripcion = proyecto.find('.descripcion-proyecto');
+        var resumen = proyecto.find('.resumen-proyecto');
+        var btnVerMenos = proyecto.find('.btn-ver-menos');
+
+        descripcion.removeClass('d-none');
+        resumen.addClass('d-none');
+        btnVerMenos.removeClass('d-none');
+        btnVerMas.addClass('d-none');
+    }
+
+    function noMostrarDescripcion(){
+        var btnVerMenos = $(this);
+        var proyecto = btnVerMenos.closest('.card-body');
+        var descripcion = proyecto.find('.descripcion-proyecto');
+        var resumen = proyecto.find('.resumen-proyecto');
+        var btnVerMas = proyecto.find('.btn-ver-mas');
+
+        descripcion.addClass('d-none');
+        resumen.removeClass('d-none');
+        btnVerMenos.addClass('d-none');
+        btnVerMas.removeClass('d-none');
     }
 
     return {

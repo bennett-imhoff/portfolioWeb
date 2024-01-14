@@ -1,8 +1,8 @@
-#servicios{
+#servicios, #proyectos{
     width:85%
 }
 
-.titulo-seccion, .titulo-servicio {
+.titulo-seccion, .titulo-servicio, .titulo-proyecto {
     font-family: 'Raleway';
     font-weight: bold;
     font-size:2.5em;
@@ -15,7 +15,7 @@
     padding-bottom:5px !important;
 }
 
-.texto-sobre-mi, .contenedor-icono, .texto-servicio{
+.texto-sobre-mi, .contenedor-icono, .texto-servicio, .texto-proyecto{
     font-family: 'OpenSans';
     font-size: 2em;
     line-height:2;
@@ -31,26 +31,47 @@
     font-size: 3.5em;
 }
 
+.contenedor-enlaces{
+    width:50%;
+    margin:0 8px;
+}
+
+.contenedor-enlaces a{
+    width:100%;
+}
+
+.imagen-proyecto{
+    height:30em;
+}
+
 @media screen and (min-width: 1024px){
     .titulo-seccion{
         font-size:1.6em;
     }
 
-    .titulo-servicio{
+    .titulo-servicio, .titulo-proyecto{
         font-size:1.4em;
     }
 
-    .texto-sobre-mi, .texto-servicio{
+    .texto-sobre-mi, .texto-servicio, .texto-proyecto{
         font-size:1em;
     }
 
     .contenedor-icono{
         font-size: 2em;
     }
+
+    .texto-descripcion{
+        height: 26em;
+    }
+
+    .imagen-proyecto{
+        height:11em;
+    }
 }
 
 @media screen and (min-width: 1366px){
-    .titulo-servicio{
+    .titulo-servicio, .titulo-proyecto{
         font-size:1.2em;
     }
 
@@ -61,10 +82,24 @@
     .contenedor-icono{
         font-size: 1.8em;
     }
+
+    .texto-descripcion{
+        height: 18em;
+    }
+
+    .imagen-proyecto{
+        height:14em;
+    }
+}
+
+@media screen and (min-width: 1536px){
+    .texto-descripcion{
+        height: 16em;
+    }
 }
 
 @media screen and (min-width: 1920px){
-    .titulo-seccion{
+    .titulo-seccion, .titulo-proyecto{
         font-size:2.5em;
     }
 
@@ -72,11 +107,19 @@
         font-size:2em;
     }
 
-    .texto-sobre-mi, .texto-servicio{
+    .texto-sobre-mi, .texto-servicio, .texto-proyecto{
         font-size:1.5em;
     }
 
     .contenedor-icono{
         font-size: 2.8em;
+    }
+
+    .texto-descripcion{
+        height: 20em;
+    }
+
+    .imagen-proyecto{
+        height:18em;
     }
 }

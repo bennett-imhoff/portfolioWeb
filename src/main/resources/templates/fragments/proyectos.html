@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="proyectosFragment">
+    <section id="proyectos" class="mx-auto">
+        <h2 class="titulo-seccion text-center mx-auto">Proyectos</h2>
+        <div class="row">
+            <div class="col-12 col-lg-4 my-lg-4" th:each="proyecto : ${proyectos}">
+                <div class="card tarjeta-proyecto mx-auto my-5 my-lg-0">
+                    <img th:src="${proyecto.imagen}" class="card-img-top imagen-proyecto mb-5 mb-lg-2" th:alt="${proyecto.titulo}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title titulo-proyecto text-center" th:text="${proyecto.titulo}"></h5>
+                        <p class="card-text texto-proyecto texto-resumen d-lg-none resumen-proyecto" th:text="${proyecto.resumen}"></p>
+                        <p class="card-text texto-proyecto texto-descripcion d-none d-lg-block descripcion-proyecto" th:text="${proyecto.descripcion}"></p>
+                        <button type="button" class="btn btn-link btn-ver-mas texto-proyecto d-lg-none card-text text-success mb-4" id="btnVerDescripcionProyecto">Ver más</button>
+                        <button type="button" class="btn btn-link btn-ver-menos texto-proyecto d-none d-lg-none card-text text-success mb-4" id="btnNoVerDescripcionProyecto">Ver menos</button>
+                        <div class="d-flex flex-row justify-content-center">
+                            <span th:if="${not #strings.isEmpty(proyecto.enlaceGithub)}" class="contenedor-enlaces">
+                                <a th:href="${proyecto.enlaceGithub}" target="_blank" th:title="${proyecto.enlaceGithub}" class="btn btn-success card-text texto-proyecto">
+                                  Repositorio
+                                </a>
+                            </span>
+                            <span th:if="${not #strings.isEmpty(proyecto.enlaceDemo)}" class="contenedor-enlaces">
+                                <a th:href="${proyecto.enlaceDemo}" target="_blank" th:title="${proyecto.enlaceDemo}" class="btn btn-success card-text texto-proyecto">
+                                  Página
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+</body>
+</html>
