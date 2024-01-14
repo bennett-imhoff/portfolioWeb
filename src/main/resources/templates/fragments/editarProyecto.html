@@ -19,8 +19,8 @@
         <tr>
           <th class="text-center">Título</th>
           <th class="text-center">Resumen</th>
-          <th class="text-center d-none d-lg-block">Descripción</th>
-          <th class="text-center">Imagen</th>
+          <th class="text-center d-none d-lg-table-cell">Descripción</th>
+          <th class="text-center d-none d-lg-table-cell">Imagen</th>
           <th class="text-center">GitHub</th>
           <th class="text-center">Página</th>
           <th class="text-center">Acciones</th>
@@ -30,9 +30,9 @@
         <tr th:each="proyecto : ${proyectos}">
           <td class="text-center" th:text="${proyecto.titulo}"></td>
           <td class="text-center" th:text="${proyecto.resumen}"></td>
-          <td class="text-center d-none d-lg-block" th:text="${proyecto.descripcion}"></td>
-          <td class="text-center">
-            <img th:src="${proyecto.imagen}" alt="${proyecto.titulo}"/>
+          <td class="text-center d-none d-lg-table-cell" th:text="${proyecto.descripcion}"></td>
+          <td class="text-center d-none d-lg-table-cell">
+            <img th:src="${proyecto.imagen}" th:alt="${proyecto.titulo}"/>
           </td>
           <td class="text-center">
             <span th:if="${not #strings.isEmpty(proyecto.enlaceGithub)}">

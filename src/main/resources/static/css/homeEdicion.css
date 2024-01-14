@@ -85,6 +85,10 @@ article:not(:first-child){
     line-height:2;
 }
 
+.texto-seccion-edicion img{
+    width:100%;
+}
+
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
     .barra-superior-edicion .nombre-portfolio{
