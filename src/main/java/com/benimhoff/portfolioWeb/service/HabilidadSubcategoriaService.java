@@ -13,4 +13,6 @@ public interface HabilidadSubcategoriaService {
     void eliminar(Long idHabilidadSubcategoria);
 
     List<HabilidadSubcategoria> verTodas();
+
+    HabilidadSubcategoria obtenerPorId(Long idHabilidadSubcategoria);
 }

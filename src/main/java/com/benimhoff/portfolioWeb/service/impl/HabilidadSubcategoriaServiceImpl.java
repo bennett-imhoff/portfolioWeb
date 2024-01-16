@@ -51,4 +51,11 @@ public class HabilidadSubcategoriaServiceImpl implements HabilidadSubcategoriaSe
     public List<HabilidadSubcategoria> verTodas() {
         return habilidadSubcategoriaRepository.findAll();
     }
+
+    @Override
+    public HabilidadSubcategoria obtenerPorId(Long idHabilidadSubcategoria) {
+        Assert.isTrue(habilidadSubcategoriaRepository.existsById(idHabilidadSubcategoria), "La subcategoría debe existir.");
+
+        return habilidadSubcategoriaRepository.findById(idHabilidadSubcategoria).get();
+    }
 }
