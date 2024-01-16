@@ -59,10 +59,7 @@
             <label>Nombre</label><br>
             <input type="text" id="inputNombreSubcategoria" required><br>
             <label>Selecciona una categoría:</label>
-<!--            <select>-->
-<!--              <option id="inputIdCategoriaSubcategoria" th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>-->
-<!--            </select>-->
-            <select id="inputIdCategoriaSubcategoria" name="idHabilidadCategoria">
+            <select id="inputIdCategoriaSubcategoria" name="idHabilidadCategoria" class="estilos-input cursor-pointer">
               <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
             </select>
           </form>

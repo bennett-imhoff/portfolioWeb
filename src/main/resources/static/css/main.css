@@ -238,6 +238,22 @@ footer{
     border-radius: 50%;
 }
 
+.estilos-input {
+    outline: 0;
+    box-shadow: none;
+    border: 0 solid rgba(92, 184, 116, 0.5) !important;
+    border-bottom-width: 2px !important;
+    border-radius: 0 !important;
+    width:100%;
+    padding:0.5em 0;
+}
+
+.estilos-input:focus {
+    background-color: transparent !important;
+    border-color: #5cb874 !important;
+    box-shadow: none !important;
+}
+
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
     .nombre-portfolio{
@@ -287,6 +303,10 @@ footer{
 
     .link-redes-sociales .bi {
         font-size:2em;
+    }
+
+    .estilos-input{
+        width:50%;
     }
 }
 
