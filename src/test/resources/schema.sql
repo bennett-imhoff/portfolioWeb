@@ -49,6 +49,13 @@ CREATE TABLE habilidad_categoria (
     FOREIGN KEY (id_propietario) REFERENCES propietario(id)
 );
 
+CREATE TABLE habilidad_subcategoria(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(255) NOT NULL,
+    id_habilidad_categoria BIGINT NOT NULL,
+    FOREIGN KEY (id_habilidad_categoria) REFERENCES habilidad_categoria(id)
+);
+
 CREATE TABLE habilidad (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
@@ -57,8 +64,8 @@ CREATE TABLE habilidad (
     icono VARCHAR(255),
     imagen VARCHAR(255),
     nivel VARCHAR(255),
-    id_habilidad_categoria BIGINT NOT NULL,
-    FOREIGN KEY (id_habilidad_categoria) REFERENCES habilidad_categoria(id)
+    id_habilidad_subcategoria BIGINT NOT NULL,
+    FOREIGN KEY (id_habilidad_subcategoria) REFERENCES habilidad_subcategoria(id)
 );
 
 CREATE TABLE proyecto (

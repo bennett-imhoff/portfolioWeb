@@ -30,6 +30,12 @@ public class LoginController {
     @Autowired
     private HabilidadCategoriaService habilidadCategoriaService;
 
+    @Autowired
+    private HabilidadSubcategoriaService habilidadSubcategoriaService;
+
+    @Autowired
+    private HabilidadService habilidadService;
+
     private boolean usuarioAutenticado = false;
 
     @GetMapping("/login")
@@ -50,11 +56,15 @@ public class LoginController {
         List<Servicio> servicios = servicioService.verTodos();
         List<Proyecto> proyectos = proyectoService.verTodos();
         List<HabilidadCategoria> categorias = habilidadCategoriaService.verTodas();
+        List<HabilidadSubcategoria> subcategorias = habilidadSubcategoriaService.verTodas();
+        List<Habilidad> habilidades = habilidadService.verTodas();
         model.addAttribute("propietario", propietario);
         model.addAttribute("redesSociales", redesSociales);
         model.addAttribute("servicios", servicios);
         model.addAttribute("proyectos", proyectos);
         model.addAttribute("categorias", categorias);
+        model.addAttribute("subcategorias", subcategorias);
+        model.addAttribute("habilidades", habilidades);
         return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }
 }
