@@ -43,13 +43,26 @@ CREATE TABLE proyecto (
     FOREIGN KEY (id_propietario) REFERENCES propietario(id)
 );
 
+CREATE TABLE habilidad_categoria (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    icono VARCHAR(255) NOT NULL,
+    colorIcono VARCHAR(255) NOT NULL,
+    id_propietario BIGINT NOT NULL,
+    FOREIGN KEY (id_propietario) REFERENCES propietario(id)
+);
+
 CREATE TABLE habilidad (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    porcentaje INT NOT NULL,
-    imagen VARCHAR(255) NOT NULL,
-    id_propietario BIGINT NOT NULL,
-    FOREIGN KEY (id_propietario) REFERENCES propietario(id)
+    descripcion VARCHAR(255),
+    porcentaje INT,
+    icono VARCHAR(255),
+    imagen VARCHAR(255),
+    nivel VARCHAR(255),
+    id_habilidad_categoria BIGINT NOT NULL,
+    FOREIGN KEY (id_habilidad_categoria) REFERENCES habilidad_categoria(id)
 );
 
 CREATE TABLE experiencia_laboral (

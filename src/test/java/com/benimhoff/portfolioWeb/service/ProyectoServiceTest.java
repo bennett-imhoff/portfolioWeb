@@ -123,7 +123,7 @@ public class ProyectoServiceTest {
     }
 
     @Test
-    public void eliminar_conUsuarioLogueado_eliminaProyeto(){
+    public void eliminar_conUsuarioLogueado_eliminaProyecto(){
         Proyecto proyecto = new Proyecto();
         proyecto.setTitulo("Titulo del proyecto");
         proyecto.setResumen("Resumen del proyecto");

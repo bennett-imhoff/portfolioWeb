@@ -1,13 +1,7 @@
 package com.benimhoff.portfolioWeb.controller;
 
-import com.benimhoff.portfolioWeb.domain.Propietario;
-import com.benimhoff.portfolioWeb.domain.Proyecto;
-import com.benimhoff.portfolioWeb.domain.RedSocial;
-import com.benimhoff.portfolioWeb.domain.Servicio;
-import com.benimhoff.portfolioWeb.service.PropietarioService;
-import com.benimhoff.portfolioWeb.service.ProyectoService;
-import com.benimhoff.portfolioWeb.service.RedSocialService;
-import com.benimhoff.portfolioWeb.service.ServicioService;
+import com.benimhoff.portfolioWeb.domain.*;
+import com.benimhoff.portfolioWeb.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,16 +24,21 @@ public class VistasUsuarioController {
     @Autowired
     private ProyectoService proyectoService;
 
+    @Autowired
+    private HabilidadCategoriaService habilidadCategoriaService;
+
     @GetMapping("/")
     public String home (Model model){
         Propietario propietario = propietarioService.ver();
         List<RedSocial> redesSociales = redSocialService.verTodas();
         List<Servicio> servicios = servicioService.verTodos();
         List<Proyecto> proyectos = proyectoService.verTodos();
+        List<HabilidadCategoria> categorias = habilidadCategoriaService.verTodas();
         model.addAttribute("propietario", propietario);
         model.addAttribute("redesSociales", redesSociales);
         model.addAttribute("servicios", servicios);
         model.addAttribute("proyectos", proyectos);
+        model.addAttribute("categorias", categorias);
         return "home";
     }
 }
