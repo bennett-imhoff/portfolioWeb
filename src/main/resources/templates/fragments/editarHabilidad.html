@@ -14,25 +14,73 @@
       </div>
     </div>
     <div>
-      <table class="my-4 texto-seccion-edicion table table-hover">
+      <table class="my-4 texto-seccion-edicion tabla-habilidades table table-hover align-middle">
         <thead>
         <tr>
           <th class="text-center">Nombre</th>
           <th class="text-center">Subcategoría</th>
+          <th class="text-center d-none d-lg-table-cell">Descripción</th>
+          <th class="text-center d-none d-lg-table-cell">Porcentaje</th>
+          <th class="text-center d-none d-lg-table-cell">Icono</th>
+          <th class="text-center d-none d-lg-table-cell">Imagen</th>
+          <th class="text-center d-none d-lg-table-cell">Nivel</th>
           <th class="text-center">Acciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="habilidad : ${habilidades}">
           <td class="text-center" th:text="${habilidad.nombre}"></td>
-          <td class="text-center" th:each="subcategorias : ${subcategorias}" th:if="${subcategoria.id eq habilidad.idHabilidadSubcategoria}">
+          <td class="text-center" th:each="subcategoria : ${subcategorias}" th:if="${subcategoria.id eq habilidad.idHabilidadSubcategoria}">
             <span th:text="${subcategoria.nombre}" class="px-2"></span>
+          </td>
+          <td class="text-center d-none d-lg-table-cell">
+            <span th:if="${not #strings.isEmpty(habilidad.descripcion)}">
+              <span th:text="${habilidad.descripcion}"></span>
+            </span>
+            <span th:unless="${not #strings.isEmpty(habilidad.descripcion)}">
+              <i class="bi bi-dash-lg" style="color:grey;"></i>
+            </span>
+          </td>
+          <td class="text-center d-none d-lg-table-cell">
+            <span th:if="${habilidad.porcentaje != null}">
+                <span th:text="${habilidad.porcentaje} + '%'"></span>
+            </span>
+            <span th:unless="${habilidad.porcentaje != null}">
+                <i class="bi bi-dash-lg" style="color:grey;"></i>
+            </span>
+          </td>
+          <td class="text-center d-none d-lg-table-cell">
+            <span th:if="${not #strings.isEmpty(habilidad.icono)}">
+              <i th:class="'bi ' + ${habilidad.icono}" style="color: #5cb874;"></i>
+            </span>
+            <span th:unless="${not #strings.isEmpty(habilidad.icono)}">
+              <i class="bi bi-dash-lg" style="color:grey;"></i>
+            </span>
+          </td>
+          <td class="text-center d-none d-lg-table-cell">
+            <span th:if="${not #strings.isEmpty(habilidad.imagen)}">
+              <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}"/>
+            </span>
+            <span th:unless="${not #strings.isEmpty(habilidad.imagen)}">
+              <i class="bi bi-dash-lg" style="color:grey;"></i>
+            </span>
+          </td>
+          <td class="text-center d-none d-lg-table-cell">
+            <span th:if="${not #strings.isEmpty(habilidad.nivel)}">
+              <span th:text="${habilidad.nivel}"></span>
+            </span>
+            <span th:unless="${not #strings.isEmpty(habilidad.nivel)}">
+              <i class="bi bi-dash-lg" style="color:grey;"></i>
+            </span>
           </td>
           <td class="text-nowrap text-center">
               <span class="cursor-pointer px-3">
                 <i class="fa fa-pencil editar-habilidad text-primary" data-bs-toggle="modal" data-bs-target="#modalHabilidad"
                    th:data-id-habilidad="${habilidad.id}" th:data-nombre-habilidad="${habilidad.nombre}"
-                   th:data-idSubcategoria-habilidad="${habilidad.idHabilidadSubcategoria}"></i>
+                   th:data-idSubcategoria-habilidad="${habilidad.idHabilidadSubcategoria}" th:data-descripcion-habilidad="${habilidad.descripcion}"
+                   th:data-porcentaje-habilidad="${habilidad.porcentaje}" th:data-icono-habilidad="${habilidad.icono}"
+                   th:data-imagen-habilidad="${habilidad.imagen}" th:data-nivel-habilidad="${habilidad.nivel}"
+                ></i>
               </span>
             <span class="cursor-pointer px-3">
                 <i class="fa fa-minus-circle eliminar-habilidad text-danger"
@@ -62,6 +110,27 @@
             <select id="inputIdHabilidadSubcategoria" name="inputIdHabilidadSubcategoria" class="estilos-input cursor-pointer">
               <option th:each="subcategoria : ${subcategorias}" th:value="${subcategoria.id}" th:text="${subcategoria.nombre}"></option>
             </select>
+            <div class="seccion-descripcion" id="seccionDescripcion">
+              <label class="mt-5 mt-md-3">Descripción</label><br>
+              <textarea id="inputDescripcionHabilidad"></textarea><br>
+            </div>
+            <div class="seccion-porcentaje" id="seccionPorcentaje">
+              <label class="mt-5 mt-md-3">Porcentaje adquirido</label><br>
+              <input type="number" id="inputPorcentajeHabilidad" min="0" step="1" required><br>
+            </div>
+            <div class="seccion-icono" id="seccionIcono">
+              <label class="mt-5 mt-md-3">Icono</label><br>
+              <input type="text" id="inputIconoHabilidad" required><br>
+            </div>
+            <div class="seccion-imagen" id="seccionImagen">
+              <label class="mt-5 mt-md-3">Imagen</label><br>
+              <input type="text" id="inputImagenHabilidad" required><br>
+            </div>
+            <div class="seccion-nivel" id="seccionNivel">
+              <label class="mt-5 mt-md-3">Nivel</label><br>
+              <input type="text" id="inputNivelHabilidad" required><br>
+              <small class="text-muted mt-4">Principiante - Intermedio - Avanzado - Nativo</small><br>
+            </div>
           </form>
         </div>
         <div class="modal-footer">

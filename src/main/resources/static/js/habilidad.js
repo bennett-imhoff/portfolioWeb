@@ -5,6 +5,12 @@ habilidad =(function(){
         $('.editar-habilidad').click(cargarDatosAlModal);
         $('.eliminar-habilidad').click(eliminarHabilidad);
         $('#inputIdHabilidadSubcategoria').change(elegirSubcategoria);
+
+        $('#seccionDescripcion').hide();
+        $('#seccionPorcentaje').hide();
+        $('#seccionIcono').hide();
+        $('#seccionImagen').hide();
+        $('#seccionNivel').hide();
     }
 
     function elegirSubcategoria(){
@@ -14,10 +20,34 @@ habilidad =(function(){
             url: '/api/habilidadSubcategoria/' + idSubcategoriaElegida,
             type:'GET',
             success: function(subcategoria){
-                console.log(subcategoria);
+                if (subcategoria && subcategoria.necesitaDescripcion){
+                    $('#seccionDescripcion').show();
+                }else{
+                    $('#seccionDescripcion').hide();
+                }
+                if (subcategoria && subcategoria.necesitaPorcentaje){
+                    $('#seccionPorcentaje').show();
+                }else{
+                    $('#seccionPorcentaje').hide();
+                }
+                if (subcategoria && subcategoria.necesitaIcono){
+                    $('#seccionIcono').show();
+                }else{
+                    $('#seccionIcono').hide();
+                }
+                if (subcategoria && subcategoria.necesitaImagen){
+                    $('#seccionImagen').show();
+                }else{
+                    $('#seccionImagen').hide();
+                }
+                if (subcategoria && subcategoria.necesitaNivel){
+                    $('#seccionNivel').show();
+                }else{
+                    $('#seccionNivel').hide();
+                }
             },
             error: function(){
-                alert("ERROR");
+                alert("No se pudo obtener ninguna subcategoría.");
             }
         });
     }
@@ -26,17 +56,32 @@ habilidad =(function(){
         $('#inputIdHabilidad').val(null);
         $('#inputNombreHabilidad').val("");
         $('#inputIdHabilidadSubcategoria').val(null);
+        $('#inputDescripcionHabilidad').val("");
+        $('#inputPorcentajeHabilidad').val(null);
+        $('#inputIconoHabilidad').val("");
+        $('#inputImagenHabilidad').val("");
+        $('#inputNivelHabilidad').val("");
     }
 
     function cargarDatosAlModal(){
         var btnEditar = $(this);
         var idHabilidad = btnEditar.attr('data-id-habilidad');
         var idNombreHabilidad = btnEditar.attr('data-nombre-habilidad');
-        var idSubcategoriaHabilidad = btnEditar.attr('ddata-idSubcategoria-habilidad');
+        var idSubcategoriaHabilidad = btnEditar.attr('data-idSubcategoria-habilidad');
+        var descripcionHabilidad = btnEditar.attr('data-descripcion-habilidad');
+        var porcentajeHabilidad = btnEditar.attr('data-porcentaje-habilidad');
+        var iconoHabilidad = btnEditar.attr('data-icono-habilidad');
+        var imagenHabilidad = btnEditar.attr('data-imagen-habilidad');
+        var nivelHabilidad = btnEditar.attr('data-nivel-habilidad');
 
         $('#inputIdHabilidad').val(idHabilidad);
         $('#inputNombreHabilidad').val(idNombreHabilidad);
         $('#inputIdHabilidadSubcategoria').val(idSubcategoriaHabilidad);
+        $('#inputDescripcionHabilidad').val(descripcionHabilidad);
+        $('#inputPorcentajeHabilidad').val(porcentajeHabilidad);
+        $('#inputIconoHabilidad').val(iconoHabilidad);
+        $('#inputImagenHabilidad').val(imagenHabilidad);
+        $('#inputNivelHabilidad').val(nivelHabilidad);
     }
 
     function guardarHabilidad(e){
@@ -47,6 +92,11 @@ habilidad =(function(){
         var habilidad = {
             nombre: $('#inputNombreHabilidad').val(),
             idHabilidadSubcategoria: $('#inputIdHabilidadSubcategoria').val(),
+            descripcion: $('#inputDescripcionHabilidad').val(),
+            porcentaje: $('#inputPorcentajeHabilidad').val(),
+            icono: $('#inputIconoHabilidad').val(),
+            imagen: $('#inputImagenHabilidad').val(),
+            nivel: $('#inputNivelHabilidad').val(),
         }
 
         var idHabilidad = $('#inputIdHabilidad').val();
