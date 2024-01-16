@@ -47,11 +47,12 @@
         <th:block th:insert="fragments/editarProyecto :: editarProyectoFragment"/>
     </div>
     <div class="d-flex bloques-edicion mb-3">
-        <div class="flex-column">
+        <div class="bloque-categorias flex-column">
             <th:block th:insert="fragments/editarHabilidadCategoria :: editarHabilidadCategoriaFragment"/>
             <th:block th:insert="fragments/editarHabilidadSubcategoria :: editarHabilidadSubcategoriaFragment"/>
         </div>
-        </div>
+        <th:block th:insert="fragments/editarHabilidad :: editarHabilidadFragment"/>
+    </div>
 </main>
 
 <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>

@@ -129,7 +129,7 @@ article:not(:first-child){
         padding-right:2em;
     }
 
-    .seccion-servicios{
+    .seccion-servicios, .seccion-habilidades{
         padding-left:2em;
     }
 
@@ -173,11 +173,11 @@ article:not(:first-child){
         margin-right: 0.2em !important;
     }
 
-    .seccion-edicion{
+    .seccion-edicion, .bloque-categorias{
         width:50%;
     }
 
-    .seccion-proyectos{
+    .seccion-proyectos, .seccion-subcategorias, .seccion-categorias{
         width:100%;
     }
 }
