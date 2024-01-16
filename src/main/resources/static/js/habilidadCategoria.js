@@ -37,7 +37,7 @@ habilidadCategoria =(function(){
         var $guardarCategoriaButton = $("#btnGuardarCategoria");
         $guardarCategoriaButton.button("loading");
 
-        var categoria = {
+        var habilidadCategoria = {
             nombre: $('#inputNombreCategoria').val(),
             descripcion: $('#inputDescripcionCategoria').val(),
             icono: $('#inputIconoCategoria').val(),
@@ -47,13 +47,13 @@ habilidadCategoria =(function(){
         var idCategoria = $('#inputIdCategoria').val();
 
         if (idCategoria){
-            categoria.id = idCategoria;
-            categoria.idPropietario = $('#inputIdPropietarioCategoria').val();
+            habilidadCategoria.id = idCategoria;
+            habilidadCategoria.idPropietario = $('#inputIdPropietarioCategoria').val();
             $.ajax({
                 url: '/api/habilidadCategoria',
                 type: 'PUT',
                 contentType: 'application/json',
-                data: JSON.stringify(categoria),
+                data: JSON.stringify(habilidadCategoria),
                 success: function(response) {
                     window.location.reload();
                 },
@@ -67,7 +67,7 @@ habilidadCategoria =(function(){
                 url: '/api/habilidadCategoria',
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify(categoria),
+                data: JSON.stringify(habilidadCategoria),
                 success: function(response) {
                     window.location.reload();
                 },
@@ -89,7 +89,7 @@ habilidadCategoria =(function(){
                 url: '/api/habilidadCategoria/' + idCategoria,
                 type: 'DELETE',
                 contentType: 'application/json',
-                data: JSON.stringify(categoria),
+                data: JSON.stringify(habilidadCategoria),
                 success: function(response) {
                     window.location.reload();
                 },

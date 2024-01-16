@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarHabilidadSubcategoriaFragment">
+  <article class="seccion-subcategorias seccion-edicion">
+    <div class="row d-flex align-items-center">
+      <h3 class="titulo-seccion-edicion mb-0 col-6">Subcategorías de habilidades</h3>
+      <div class="text-end col-6">
+        <button type="button" id="btnAbrirModalCrearSubcategoria" class="btn btn-success btn-abrir-modal-agregar mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalSubcategoria">
+          <i class="fa fa-plus" aria-hidden="true"></i> Agregar subcategoría
+        </button>
+      </div>
+    </div>
+    <div>
+      <table class="my-4 texto-seccion-edicion table table-hover">
+        <thead>
+        <tr>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Categoría</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="subcategoria : ${subcategorias}">
+          <td class="text-center" th:text="${subcategoria.nombre}"></td>
+          <td class="text-center" th:style="'background-color: ' + ${categoria.colorIcono}" th:each="categoria : ${categorias}" th:if="${categoria.id eq subcategoria.idHabilidadCategoria}">
+            <span th:text="${categoria.nombre}" class="px-2"></span>
+          </td>
+          <td class="text-nowrap text-center">
+              <span class="cursor-pointer px-3">
+                <i class="fa fa-pencil editar-subcategoria text-primary" data-bs-toggle="modal" data-bs-target="#modalSubcategoria"
+                   th:data-id-subcategoria="${subcategoria.id}" th:data-nombre-subcategoria="${subcategoria.nombre}"
+                   th:data-idCategoria-subcategoria="${subcategoria.idHabilidadCategoria}"></i>
+              </span>
+            <span class="cursor-pointer px-3">
+                <i class="fa fa-minus-circle eliminar-subcategoria text-danger"
+                   th:data-id-subcategoria="${subcategoria.id}"
+                   th:data-nombre-subcategoria="${subcategoria.nombre}"></i>
+              </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <div class="modal fade" id="modalSubcategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalSubcategoriaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modal-dialog-scrollable">
+        <div class="modal-header">
+          <h5 class="modal-title mx-4 modal-title-actualizar" id="modalActualizarSubcategoriaLabel">Subcategoría de habilidades</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <form method="post" id="crearSubcategoriaForm">
+            <input hidden type="text" id="inputIdSubcategoria"/>
+            <label>Nombre</label><br>
+            <input type="text" id="inputNombreSubcategoria" required><br>
+            <label>Selecciona una categoría:</label>
+<!--            <select>-->
+<!--              <option id="inputIdCategoriaSubcategoria" th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>-->
+<!--            </select>-->
+            <select id="inputIdCategoriaSubcategoria" name="idHabilidadCategoria">
+              <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+            </select>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success btnGuardar" id="btnGuardarSubcategoria">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+</body>
+</html>
