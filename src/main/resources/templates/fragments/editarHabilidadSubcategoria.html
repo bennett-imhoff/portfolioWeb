@@ -32,6 +32,9 @@
               <span class="cursor-pointer px-3">
                 <i class="fa fa-pencil editar-subcategoria text-primary" data-bs-toggle="modal" data-bs-target="#modalSubcategoria"
                    th:data-id-subcategoria="${subcategoria.id}" th:data-nombre-subcategoria="${subcategoria.nombre}"
+                   th:data-id-necesita-descripcion="${subcategoria.necesitaDescripcion}" th:data-id-necesita-porcentaje="${subcategoria.necesitaPorcentaje}"
+                   th:data-id-necesita-icono="${subcategoria.necesitaIcono}" th:data-id-necesita-imagen="${subcategoria.necesitaImagen}"
+                   th:data-id-necesita-nivel="${subcategoria.necesitaNivel}"
                    th:data-idCategoria-subcategoria="${subcategoria.idHabilidadCategoria}"></i>
               </span>
             <span class="cursor-pointer px-3">
@@ -62,6 +65,27 @@
             <select id="inputIdCategoriaSubcategoria" name="idHabilidadCategoria" class="estilos-input cursor-pointer">
               <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
             </select>
+            <h6 class="modal-title-actualizar mt-4">¿Necesita...?</h6>
+            <div class="check-descripcion d-flex">
+              <label class="label-checkbox">Descripción: </label>
+              <input type="checkbox" class="input-checkbox" id="inputNecesitaDescripcionSubcategoria"><br>
+            </div>
+            <div class="check-porcentaje d-flex">
+              <label class="label-checkbox">Porcentaje: </label>
+              <input type="checkbox" class="input-checkbox" id="inputNecesitaPorcentajeSubcategoria"><br>
+            </div>
+            <div class="check-icono d-flex">
+              <label class="label-checkbox">Icono: </label>
+              <input type="checkbox" class="input-checkbox" id="inputNecesitaIconoSubcategoria"><br>
+            </div>
+            <div class="check-imagen d-flex">
+              <label class="label-checkbox">Imagen: </label>
+              <input type="checkbox" class="input-checkbox" id="inputNecesitaImagenSubcategoria"><br>
+            </div>
+            <div class="check-nivel d-flex">
+              <label class="label-checkbox">Nivel: </label>
+              <input type="checkbox" class="input-checkbox" id="inputNecesitaNivelSubcategoria"><br>
+            </div>
           </form>
         </div>
         <div class="modal-footer">

@@ -52,6 +52,11 @@ CREATE TABLE habilidad_categoria (
 CREATE TABLE habilidad_subcategoria(
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
+    necesita_descripcion BOOLEAN NOT NULL,
+    necesita_porcentaje BOOLEAN NOT NULL,
+    necesita_icono BOOLEAN NOT NULL,
+    necesita_imagen BOOLEAN NOT NULL,
+    necesita_nivel BOOLEAN NOT NULL,
     id_habilidad_categoria BIGINT NOT NULL,
     FOREIGN KEY (id_habilidad_categoria) REFERENCES habilidad_categoria(id)
 );

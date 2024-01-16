@@ -20,6 +20,11 @@ public class HabilidadSubcategoriaServiceImpl implements HabilidadSubcategoriaSe
     public HabilidadSubcategoria crear(HabilidadSubcategoria habilidadSubcategoria) {
         Assert.hasText(habilidadSubcategoria.getNombre(), "La subcategoría debe tener un nombre.");
         Assert.notNull(habilidadSubcategoria.getIdHabilidadCategoria(), "La subcategoría debe estar asociada a una categoría");
+        Assert.notNull(habilidadSubcategoria.isNecesitaDescripcion(), "Debes indicar si es obligatoria la descripción.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaPorcentaje(), "Debes indicar si es obligatorio el porcentaje.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaIcono(), "Debes indicar si es obligatorio el ícono.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaImagen(), "Debes indicar si es obligatoria una imagen.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaNivel(), "Debes indicar si es obligatorio el nivel.");
 
         return habilidadSubcategoriaRepository.save(habilidadSubcategoria);
     }
@@ -28,6 +33,11 @@ public class HabilidadSubcategoriaServiceImpl implements HabilidadSubcategoriaSe
     public HabilidadSubcategoria actualizar(HabilidadSubcategoria habilidadSubcategoria) {
         Assert.hasText(habilidadSubcategoria.getNombre(), "La subcategoría debe tener un nombre.");
         Assert.notNull(habilidadSubcategoria.getIdHabilidadCategoria(), "La subcategoría debe estar asociada a una categoría");
+        Assert.notNull(habilidadSubcategoria.isNecesitaDescripcion(), "Debes indicar si es obligatoria la descripción.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaPorcentaje(), "Debes indicar si es obligatorio el porcentaje.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaIcono(), "Debes indicar si es obligatorio el ícono.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaImagen(), "Debes indicar si es obligatoria una imagen.");
+        Assert.notNull(habilidadSubcategoria.isNecesitaNivel(), "Debes indicar si es obligatorio el nivel.");
 
         return habilidadSubcategoriaRepository.save(habilidadSubcategoria);
     }

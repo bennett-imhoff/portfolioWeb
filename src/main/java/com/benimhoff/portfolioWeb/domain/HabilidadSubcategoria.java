@@ -12,6 +12,16 @@ public class HabilidadSubcategoria {
 
     private String nombre;
 
+    private Boolean necesitaDescripcion;
+
+    private Boolean necesitaPorcentaje;
+
+    private Boolean necesitaIcono;
+
+    private Boolean necesitaImagen;
+
+    private Boolean necesitaNivel;
+
     private Long idHabilidadCategoria;
 
     public Long getId() {
@@ -28,6 +38,46 @@ public class HabilidadSubcategoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Boolean isNecesitaDescripcion() {
+        return necesitaDescripcion;
+    }
+
+    public void setNecesitaDescripcion(Boolean necesitaDescripcion) {
+        this.necesitaDescripcion = necesitaDescripcion;
+    }
+
+    public Boolean isNecesitaPorcentaje() {
+        return necesitaPorcentaje;
+    }
+
+    public void setNecesitaPorcentaje(Boolean necesitaPorcentaje) {
+        this.necesitaPorcentaje = necesitaPorcentaje;
+    }
+
+    public Boolean isNecesitaIcono() {
+        return necesitaIcono;
+    }
+
+    public void setNecesitaIcono(Boolean necesitaIcono) {
+        this.necesitaIcono = necesitaIcono;
+    }
+
+    public Boolean isNecesitaImagen() {
+        return necesitaImagen;
+    }
+
+    public void setNecesitaImagen(Boolean necesitaImagen) {
+        this.necesitaImagen = necesitaImagen;
+    }
+
+    public Boolean isNecesitaNivel() {
+        return necesitaNivel;
+    }
+
+    public void setNecesitaNivel(Boolean necesitaNivel) {
+        this.necesitaNivel = necesitaNivel;
     }
 
     public Long getIdHabilidadCategoria() {
