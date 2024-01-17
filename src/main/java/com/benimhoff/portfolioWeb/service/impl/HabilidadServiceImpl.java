@@ -1,7 +1,6 @@
 package com.benimhoff.portfolioWeb.service.impl;
 
 import com.benimhoff.portfolioWeb.domain.Habilidad;
-import com.benimhoff.portfolioWeb.domain.HabilidadSubcategoria;
 import com.benimhoff.portfolioWeb.repository.HabilidadRepository;
 import com.benimhoff.portfolioWeb.service.HabilidadService;
 import org.springframework.beans.factory.annotation.Autowired;

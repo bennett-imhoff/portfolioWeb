@@ -1,6 +1,5 @@
 package com.benimhoff.portfolioWeb.service.impl;
 
-import com.benimhoff.portfolioWeb.domain.HabilidadCategoria;
 import com.benimhoff.portfolioWeb.domain.HabilidadSubcategoria;
 import com.benimhoff.portfolioWeb.repository.HabilidadSubcategoriaRepository;
 import com.benimhoff.portfolioWeb.service.HabilidadSubcategoriaService;
@@ -17,6 +16,7 @@ public class HabilidadSubcategoriaServiceImpl implements HabilidadSubcategoriaSe
 
     @Autowired
     private HabilidadSubcategoriaRepository habilidadSubcategoriaRepository;
+
     @Override
     public HabilidadSubcategoria crear(HabilidadSubcategoria habilidadSubcategoria) {
         Assert.hasText(habilidadSubcategoria.getNombre(), "La subcategoría debe tener un nombre.");
