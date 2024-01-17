@@ -1,9 +1,11 @@
 package com.benimhoff.portfolioWeb.controller;
 
+import com.benimhoff.portfolioWeb.domain.Habilidad;
 import com.benimhoff.portfolioWeb.domain.HabilidadCategoria;
 import com.benimhoff.portfolioWeb.domain.HabilidadSubcategoria;
 import com.benimhoff.portfolioWeb.domain.Propietario;
 import com.benimhoff.portfolioWeb.service.HabilidadCategoriaService;
+import com.benimhoff.portfolioWeb.service.HabilidadService;
 import com.benimhoff.portfolioWeb.service.HabilidadSubcategoriaService;
 import com.benimhoff.portfolioWeb.service.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +28,18 @@ public class HabilidadController {
     @Autowired
     private HabilidadSubcategoriaService habilidadSubcategoriaService;
 
+    @Autowired
+    private HabilidadService habilidadService;
+
     @GetMapping("/habilidad/{idCategoria}")
     public String habilidad(@PathVariable Long idCategoria, Model model){
         HabilidadCategoria categoria = habilidadCategoriaService.obtenerPorId(idCategoria);
         List<HabilidadSubcategoria> subcategorias = habilidadSubcategoriaService.verTodas();
+        List<Habilidad> habilidades = habilidadService.verTodas();
         Propietario propietario = propietarioService.ver();
         model.addAttribute("categoria", categoria);
         model.addAttribute("subcategorias", subcategorias);
+        model.addAttribute("habilidades", habilidades);
         model.addAttribute("propietario", propietario);
 
         return "habilidad";
