@@ -57,4 +57,11 @@ public class HabilidadCategoriaServiceImpl implements HabilidadCategoriaService 
     public List<HabilidadCategoria> verTodas() {
         return habilidadCategoriaRepository.findAll();
     }
+
+    @Override
+    public HabilidadCategoria obtenerPorId(Long idHabilidadCategoria) {
+        Assert.isTrue(habilidadCategoriaRepository.existsById(idHabilidadCategoria), "La categoría debe existir.");
+
+        return habilidadCategoriaRepository.findById(idHabilidadCategoria).get();
+    }
 }

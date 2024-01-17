@@ -13,4 +13,6 @@ public interface HabilidadCategoriaService {
     void eliminar(Long idHabilidadCategoria);
 
     List<HabilidadCategoria> verTodas();
+
+    HabilidadCategoria obtenerPorId(Long idHabilidadCategoria);
 }

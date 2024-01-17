@@ -1,8 +1,8 @@
-#servicios, #proyectos{
+#servicios, #proyectos, #habilidades{
     width:85%
 }
 
-.titulo-seccion, .titulo-servicio, .titulo-proyecto {
+.titulo-seccion, .titulo-servicio, .titulo-proyecto, .titulo-categoria {
     font-family: 'Raleway';
     font-weight: bold;
     font-size:2.5em;
@@ -15,7 +15,8 @@
     padding-bottom:5px !important;
 }
 
-.texto-sobre-mi, .contenedor-icono, .texto-servicio, .texto-proyecto{
+.texto-sobre-mi, .contenedor-icono, .texto-servicio, .texto-proyecto,
+.texto-categoria{
     font-family: 'OpenSans';
     font-size: 2em;
     line-height:2;
@@ -44,16 +45,25 @@
     height:30em;
 }
 
-@media screen and (min-width: 1024px){
+.card-categoria .bi{
+    font-size:4em;
+}
+
+.card-categoria .card-body{
+    width:85%;
+}
+
+@media only screen and (min-width: 1024px){
     .titulo-seccion{
         font-size:1.6em;
     }
 
-    .titulo-servicio, .titulo-proyecto{
+    .titulo-servicio, .titulo-proyecto, .titulo-categoria{
         font-size:1.4em;
     }
 
-    .texto-sobre-mi, .texto-servicio, .texto-proyecto{
+    .texto-sobre-mi, .texto-servicio, .texto-proyecto,
+    .texto-categoria{
         font-size:1em;
     }
 
@@ -68,10 +78,18 @@
     .imagen-proyecto{
         height:11em;
     }
+
+    .card-categoria .bi{
+        font-size:3em;
+    }
+
+    .card-categoria .card-body{
+        width:85%;
+    }
 }
 
-@media screen and (min-width: 1366px){
-    .titulo-servicio, .titulo-proyecto{
+@media only screen and (min-width: 1366px){
+    .titulo-servicio, .titulo-proyecto, .titulo-categoria{
         font-size:1.2em;
     }
 
@@ -92,22 +110,23 @@
     }
 }
 
-@media screen and (min-width: 1536px){
+@media only screen and (min-width: 1536px){
     .texto-descripcion{
         height: 16em;
     }
 }
 
-@media screen and (min-width: 1920px){
-    .titulo-seccion, .titulo-proyecto{
-        font-size:2.5em;
+@media only screen and (min-width: 1920px){
+    .titulo-seccion, .titulo-proyecto, .titulo-categoria{
+        font-size:1.9em;
     }
 
     .titulo-servicio{
         font-size:2em;
     }
 
-    .texto-sobre-mi, .texto-servicio, .texto-proyecto{
+    .texto-sobre-mi, .texto-servicio, .texto-proyecto,
+    .texto-categoria{
         font-size:1.5em;
     }
 
@@ -121,5 +140,9 @@
 
     .imagen-proyecto{
         height:18em;
+    }
+
+    .card-categoria .bi{
+        font-size:4em;
     }
 }

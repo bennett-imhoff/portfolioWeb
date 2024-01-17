@@ -1,6 +1,7 @@
 package com.benimhoff.portfolioWeb.service;
 
 import com.benimhoff.portfolioWeb.domain.Habilidad;
+import com.benimhoff.portfolioWeb.domain.HabilidadSubcategoria;
 
 import java.util.List;
 
