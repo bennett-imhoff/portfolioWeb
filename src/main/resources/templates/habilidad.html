@@ -5,28 +5,68 @@
   <title th:text="${'Portfolio ' + propietario.apellido}"></title>
   <link rel="stylesheet" th:href="@{/assets/css/bootstrap/bootstrap.min.css}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" th:href="@{css/main.css}"/>
-  <link rel="stylesheet" th:href="@{css/secciones.css}"/>
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <link rel="stylesheet" th:href="@{/css/secciones.css}"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="icon" th:href="@{/assets/img/iconos-title/icono-portfolio.png}" />
 </head>
 <body>
-<h2 th:text="${categoria.nombre}"></h2>
-<div>
-  <div th:each="subcategoria : ${subcategorias}"
-       th:if="${subcategoria.idHabilidadCategoria eq categoria.id}">
-    <h3 th:text="${subcategoria.nombre}"></h3>
-    <ul>
-      <li th:each="habilidad : ${habilidades}"
-          th:if="${habilidad.idHabilidadSubcategoria eq subcategoria.id}"
-          th:text="${habilidad.nombre}"
-      ></li>
-    </ul>
-  </div>
-</div>
-<script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
-<script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
-<script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
+  <section id="header" class="fixed-top bg-light">
+    <header class="d-flex align-items-center">
+      <div class="contenedor-barra-superior container d-flex align-items-center">
+        <h1 class="nombre-portfolio me-auto"><a href="/" th:text="${propietario.nombre + ' ' + propietario.apellido}"></a></h1>
+        <nav class="barra-navegacion navbar navbar-expand-lg navbar-light">
+          <div class="contenedor-navbar-escritorio container-fluid">
+            <div>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Atrás</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </section>
+
+  <main class="main-categoria-habilidad">
+    <section class="d-flex flex-column align-items-center">
+      <i th:class="'img-categoria bi ' + ${categoria.icono}" th:style="'color: ' + ${categoria.colorIcono}"></i>
+      <h2 th:text="${categoria.nombre}" class="nombre-categoria pb-5 text-uppercase"></h2>
+    </section>
+
+    <div th:each="subcategoria : ${subcategorias}"
+         th:if="${subcategoria.idHabilidadCategoria eq categoria.id}"
+         class="px-5 mt-5">
+        <h3 th:text="${subcategoria.nombre}" class="titulo-subcategoria pb-3"></h3>
+        <div class="contenedor-habilidades-subcategoria"
+             th:each="habilidad : ${habilidades}"
+             th:if="${habilidad.idHabilidadSubcategoria eq subcategoria.id}">
+          <div class="habilidad-imagen-nivel" th:if="${not #strings.isEmpty(habilidad.imagen) && not #strings.isEmpty(habilidad.nivel)}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+          <div class="habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.imagen) && not #strings.isEmpty(habilidad.descripcion)}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+          <div class="habilidad-solo-imagen" th:if="${not #strings.isEmpty(habilidad.imagen) && #strings.isEmpty(habilidad.nivel) && #strings.isEmpty(habilidad.descripcion)}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+          <div class="habilidad-icono-porcentaje" th:if="${not #strings.isEmpty(habilidad.icono) && habilidad.porcentaje != null}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+          <div class="habilidad-icono-descripcion" th:if="${not #strings.isEmpty(habilidad.icono) && not #strings.isEmpty(habilidad.descripcion)}">
+            <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+          <div class="habilidad-icono-nivel" th:if="${not #strings.isEmpty(habilidad.icono) && not #strings.isEmpty(habilidad.nivel)}">
+            <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+          </div>
+        </div>
+    </div>
+  </main>
+  <script src="assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+  <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+  <script src="assets/js/libs/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
