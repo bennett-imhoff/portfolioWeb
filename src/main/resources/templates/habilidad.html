@@ -44,23 +44,27 @@
         <div class="contenedor-habilidades-subcategoria"
              th:each="habilidad : ${habilidades}"
              th:if="${habilidad.idHabilidadSubcategoria eq subcategoria.id}">
-          <div class="habilidad-imagen-nivel" th:if="${not #strings.isEmpty(habilidad.imagen) && not #strings.isEmpty(habilidad.nivel)}">
+          <div class="habilidad-con-icono" th:if="${not #strings.isEmpty(habilidad.icono)}">
+            <div class="habilidad-icono-porcentaje" th:if="${habilidad.porcentaje != null}">
               <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
-          </div>
-          <div class="habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.imagen) && not #strings.isEmpty(habilidad.descripcion)}">
+            </div>
+            <div class="habilidad-icono-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
               <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
-          </div>
-          <div class="habilidad-solo-imagen" th:if="${not #strings.isEmpty(habilidad.imagen) && #strings.isEmpty(habilidad.nivel) && #strings.isEmpty(habilidad.descripcion)}">
+            </div>
+            <div class="habilidad-icono-nivel" th:if="${not #strings.isEmpty(habilidad.nivel)}">
               <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            </div>
           </div>
-          <div class="habilidad-icono-porcentaje" th:if="${not #strings.isEmpty(habilidad.icono) && habilidad.porcentaje != null}">
+          <div class="habilidad-con-imagen" th:if="${not #strings.isEmpty(habilidad.imagen)}">
+            <div class="habilidad-imagen-nivel" th:if="${not #strings.isEmpty(habilidad.nivel)}">
               <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
-          </div>
-          <div class="habilidad-icono-descripcion" th:if="${not #strings.isEmpty(habilidad.icono) && not #strings.isEmpty(habilidad.descripcion)}">
-            <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
-          </div>
-          <div class="habilidad-icono-nivel" th:if="${not #strings.isEmpty(habilidad.icono) && not #strings.isEmpty(habilidad.nivel)}">
-            <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            </div>
+            <div class="habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            </div>
+            <div class="habilidad-solo-imagen" th:if="${#strings.isEmpty(habilidad.descripcion) && #strings.isEmpty(habilidad.nivel)}">
+              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            </div>
           </div>
         </div>
     </div>
