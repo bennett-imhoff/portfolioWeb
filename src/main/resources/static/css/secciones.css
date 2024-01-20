@@ -72,6 +72,15 @@
     font-size: 4em;
 }
 
+.icono-habilidad {
+    font-size: 3.5em;
+    color: #5cb874;
+}
+
+.img-habilidad {
+    width: 75%;
+}
+
 @media only screen and (min-width: 1024px) {
     .titulo-seccion, .titulo-subcategoria {
         font-size: 1.6em;
