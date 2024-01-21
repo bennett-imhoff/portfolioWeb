@@ -122,6 +122,18 @@
     .img-habilidad {
         width: 100%;
     }
+
+    .main-categoria-habilidad {
+        margin-top: 5em;
+    }
+
+    .habilidad-icono-nivel .bi{
+        font-size:1.5em;
+    }
+
+    .habilidad-solo-imagen .img-habilidad {
+        width: 65%;
+    }
 }
 
 @media only screen and (min-width: 1366px) {
@@ -188,5 +200,9 @@
 
     .card-categoria .bi {
         font-size: 4em;
+    }
+
+    .habilidad-icono-nivel .bi{
+        font-size:2.5em;
     }
 }

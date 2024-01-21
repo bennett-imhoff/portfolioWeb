@@ -46,29 +46,33 @@
              th:if="${habilidad.idHabilidadSubcategoria eq subcategoria.id}">
           <div class="habilidad-con-icono" th:if="${not #strings.isEmpty(habilidad.icono)}">
             <div class="habilidad-icono-porcentaje row d-flex align-items-center" th:if="${habilidad.porcentaje != null}">
-              <i th:class="'col-2 py-2 pyx-4 icono-habilidad bi ' + ${habilidad.icono}"></i>
+              <i th:class="'col-2 py-2 px-4 icono-habilidad bi ' + ${habilidad.icono}"></i>
               <h3 class="col-5 texto-categoria" th:text="${habilidad.nombre}"></h3>
               <progress class="col-4 barra-progreso" th:id="'progreso'+${habilidad.nombre}" max="100" th:value="${habilidad.porcentaje}"></progress>
             </div>
-            <div class="habilidad-icono-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
-              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            <div class="habilidad-icono-descripcion d-flex flex-column align-items-center" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
+              <i th:class="'text-center col-2 py-2 px-4 icono-habilidad bi ' + ${habilidad.icono}"></i>
+              <p class="texto-categoria fw-bold mb-0" th:text="${habilidad.nombre} + ': '"></p>
+              <p class="texto-categoria text-center" th:text="${habilidad.descripcion}"></p>
             </div>
-            <div class="habilidad-icono-nivel" th:if="${not #strings.isEmpty(habilidad.nivel)}">
-              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            <div class="habilidad-icono-nivel d-flex mt-3" th:if="${not #strings.isEmpty(habilidad.nivel)}">
+              <i th:class="'col-2- icono-habilidad bi ' + ${habilidad.icono}"></i>
+              <p class="texto-categoria fw-bold mx-3" th:text="${habilidad.nombre} + ': '"></p>
+              <p class="texto-categoria" th:text="${habilidad.nivel}"></p>
             </div>
           </div>
           <div class="habilidad-con-imagen" th:if="${not #strings.isEmpty(habilidad.imagen)}">
-            <div class="habilidad-imagen-nivel row d-flex align-items-center py-4 py-md-1" th:if="${not #strings.isEmpty(habilidad.nivel)}">
-              <div class="col-3 col-md-1">
+            <div class="habilidad-imagen-nivel row d-flex align-items-center py-4 py-lg-1" th:if="${not #strings.isEmpty(habilidad.nivel)}">
+              <div class="col-3 col-lg-1">
                 <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}" class="img-habilidad"/>
               </div>
               <div class="col-9 d-flex flex-column">
-                <h5 class="texto-categoria fw-bold mt-md-3" th:text="${habilidad.nombre}"></h5>
+                <h5 class="texto-categoria fw-bold mt-lg-3" th:text="${habilidad.nombre}"></h5>
                 <p class="texto-categoria" th:text="${habilidad.nivel}"></p>
               </div>
             </div>
-            <div class="row d-flex align-items-center py-4 py-md-1 habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
-              <div class="col-3 col-md-1">
+            <div class="row d-flex align-items-center py-4 py-lg-1 habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
+              <div class="col-3 col-lg-1">
                 <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}" class="img-habilidad"/>
               </div>
               <div class="col-9 d-flex flex-column">
@@ -76,8 +80,11 @@
                 <p class="texto-categoria" th:text="${habilidad.descripcion}"></p>
               </div>
             </div>
-            <div class="habilidad-solo-imagen" th:if="${#strings.isEmpty(habilidad.descripcion) && #strings.isEmpty(habilidad.nivel)}">
-              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            <div class="habilidad-solo-imagen d-flex align-items-center mt-4" th:if="${#strings.isEmpty(habilidad.descripcion) && #strings.isEmpty(habilidad.nivel)}">
+              <div class="col-3 col-lg-1 text-center">
+                <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}" class="img-habilidad"/>
+              </div>
+              <p class="texto-categoria col-7 mb-0" th:text="${habilidad.nombre}"></p>
             </div>
           </div>
         </div>
