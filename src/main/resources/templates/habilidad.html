@@ -40,7 +40,7 @@
     <div th:each="subcategoria : ${subcategorias}"
          th:if="${subcategoria.idHabilidadCategoria eq categoria.id}"
          class="px-5 mt-5">
-        <h3 th:text="${subcategoria.nombre}" class="titulo-subcategoria pb-4 mb-5"></h3>
+        <h3 th:text="${subcategoria.nombre}" class="titulo-subcategoria pb-4 mb-5 mb-md-2"></h3>
         <div class="contenedor-habilidades-subcategoria"
              th:each="habilidad : ${habilidades}"
              th:if="${habilidad.idHabilidadSubcategoria eq subcategoria.id}">
@@ -58,17 +58,23 @@
             </div>
           </div>
           <div class="habilidad-con-imagen" th:if="${not #strings.isEmpty(habilidad.imagen)}">
-            <div class="row d-flex align-items-center py-4" th:if="${not #strings.isEmpty(habilidad.nivel)}">
-              <div class="col-3">
+            <div class="habilidad-imagen-nivel row d-flex align-items-center py-4 py-md-1" th:if="${not #strings.isEmpty(habilidad.nivel)}">
+              <div class="col-3 col-md-1">
                 <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}" class="img-habilidad"/>
               </div>
               <div class="col-9 d-flex flex-column">
-                <h5 class="texto-categoria fw-bold" th:text="${habilidad.nombre}"></h5>
+                <h5 class="texto-categoria fw-bold mt-md-3" th:text="${habilidad.nombre}"></h5>
                 <p class="texto-categoria" th:text="${habilidad.nivel}"></p>
               </div>
             </div>
-            <div class="habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
-              <p class="texto-categoria" th:text="${habilidad.nombre}"></p>
+            <div class="row d-flex align-items-center py-4 py-md-1 habilidad-imagen-descripcion" th:if="${not #strings.isEmpty(habilidad.descripcion)}">
+              <div class="col-3 col-md-1">
+                <img th:src="${habilidad.imagen}" th:alt="${habilidad.nombre}" class="img-habilidad"/>
+              </div>
+              <div class="col-9 d-flex flex-column">
+                <h5 class="texto-categoria fw-bold mt-md-3" th:text="${habilidad.nombre}"></h5>
+                <p class="texto-categoria" th:text="${habilidad.descripcion}"></p>
+              </div>
             </div>
             <div class="habilidad-solo-imagen" th:if="${#strings.isEmpty(habilidad.descripcion) && #strings.isEmpty(habilidad.nivel)}">
               <p class="texto-categoria" th:text="${habilidad.nombre}"></p>

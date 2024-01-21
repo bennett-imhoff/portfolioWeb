@@ -118,6 +118,10 @@
     .card-categoria .card-body {
         width: 85%;
     }
+
+    .img-habilidad {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1366px) {
