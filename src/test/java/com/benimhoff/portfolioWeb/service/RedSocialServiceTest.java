@@ -78,7 +78,8 @@ public class RedSocialServiceTest {
         redSocialAntigua.setIcono("fa-red-social");
         redSocialAntigua = redSocialRepository.save(redSocialAntigua);
 
-        RedSocial redSocialNueva = redSocialRepository.findById(redSocialAntigua.getId()).get();
+        RedSocial redSocialNueva = new RedSocial();
+        redSocialNueva.setId(redSocialAntigua.getId());
         redSocialNueva.setNombre("Red social nueva");
         redSocialNueva.setEnlace("redsocialnueva.com");
         redSocialNueva.setIcono("fa-red-social-nueva");

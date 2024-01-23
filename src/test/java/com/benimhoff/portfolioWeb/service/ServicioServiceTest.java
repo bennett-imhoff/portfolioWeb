@@ -81,7 +81,8 @@ public class ServicioServiceTest {
         servicioAntiguo.setIdPropietario(1L);
         servicioAntiguo = servicioRepository.save(servicioAntiguo);
 
-        Servicio servicioNuevo = servicioRepository.findById(servicioAntiguo.getId()).get();
+        Servicio servicioNuevo = new Servicio();
+        servicioNuevo.setId(servicioAntiguo.getId());
         servicioNuevo.setIcono("fa-servicio-nuevo");
         servicioNuevo.setTitulo("Servicio nuevo");
         servicioNuevo.setDescripcion("Descripción del servicio nuevo.");

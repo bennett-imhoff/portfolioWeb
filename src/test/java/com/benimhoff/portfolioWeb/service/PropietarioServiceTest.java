@@ -34,15 +34,17 @@ public class PropietarioServiceTest {
         propietarioSinActualizar.setTextoQuiero("Quiero");
         propietarioSinActualizar = propietarioRepository.save(propietarioSinActualizar);
 
-        propietarioSinActualizar.setNombre("Lionel");
-        propietarioSinActualizar.setApellido("Messi");
-        propietarioSinActualizar.setDescripcion("Futbolista");
-        propietarioSinActualizar.setUsername("liomessi");
-        propietarioSinActualizar.setPassword("antonella");
-        propietarioSinActualizar.setTextoSoy("Soy Leo");
-        propietarioSinActualizar.setTextoHago("Hago magia");
-        propietarioSinActualizar.setTextoQuiero("Quiero seguir jugando al futbol");
-        propietarioService.actualizar(propietarioSinActualizar);
+        Propietario propietarioActualizado = new Propietario();
+        propietarioActualizado.setId(propietarioSinActualizar.getId());
+        propietarioActualizado.setNombre("Lionel");
+        propietarioActualizado.setApellido("Messi");
+        propietarioActualizado.setDescripcion("Futbolista");
+        propietarioActualizado.setUsername("liomessi");
+        propietarioActualizado.setPassword("antonella");
+        propietarioActualizado.setTextoSoy("Soy Leo");
+        propietarioActualizado.setTextoHago("Hago magia");
+        propietarioActualizado.setTextoQuiero("Quiero seguir jugando al futbol");
+        propietarioService.actualizar(propietarioActualizado);
 
         Propietario propietarioGuardado = propietarioRepository.findById(propietarioSinActualizar.getId()).get();
 

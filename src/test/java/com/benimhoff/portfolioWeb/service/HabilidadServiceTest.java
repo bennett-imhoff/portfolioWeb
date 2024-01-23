@@ -61,7 +61,8 @@ public class HabilidadServiceTest {
         habilidadVieja.setIdHabilidadSubcategoria(1L);
         habilidadVieja = habilidadRepository.save(habilidadVieja);
 
-        Habilidad habilidadNueva = habilidadRepository.findById(habilidadVieja.getId()).get();
+        Habilidad habilidadNueva = new Habilidad();
+        habilidadNueva.setId(habilidadVieja.getId());
         habilidadNueva.setNombre("Habilidad nueva");
         habilidadNueva.setIdHabilidadSubcategoria(2L);
         habilidadService.actualizar(habilidadNueva);

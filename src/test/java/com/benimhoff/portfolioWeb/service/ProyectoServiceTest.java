@@ -83,7 +83,8 @@ public class ProyectoServiceTest {
         proyectoAntiguo.setIdPropietario(1L);
         proyectoAntiguo = proyectoRepository.save(proyectoAntiguo);
 
-        Proyecto proyectoNuevo = proyectoRepository.findById(proyectoAntiguo.getId()).get();
+        Proyecto proyectoNuevo = new Proyecto();
+        proyectoNuevo.setId(proyectoAntiguo.getId());
         proyectoNuevo.setTitulo("Titulo del proyecto nuevo");
         proyectoNuevo.setResumen("Resumen del proyecto nuevo");
         proyectoNuevo.setDescripcion("Descripcion del proyecto nuevo");

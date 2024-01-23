@@ -86,7 +86,8 @@ public class HabilidadCategoriaServiceTest {
         habilidadCategoriaAntigua.setIdPropietario(1L);
         habilidadCategoriaAntigua = habilidadCategoriaRepository.save(habilidadCategoriaAntigua);
 
-        HabilidadCategoria habilidadCategoriaNueva = habilidadCategoriaRepository.findById(habilidadCategoriaAntigua.getId()).get();
+        HabilidadCategoria habilidadCategoriaNueva = new HabilidadCategoria();
+        habilidadCategoriaNueva.setId(habilidadCategoriaAntigua.getId());
         habilidadCategoriaNueva.setNombre("Nueva categoría");
         habilidadCategoriaNueva.setDescripcion("Nueva descripción.");
         habilidadCategoriaNueva.setIcono("fa fa-nueva");

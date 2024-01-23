@@ -81,7 +81,8 @@ public class HabilidadSubcategoriaServiceTest {
         subcategoriaVieja.setIdHabilidadCategoria(1L);
         subcategoriaVieja = habilidadSubcategoriaRepository.save(subcategoriaVieja);
 
-        HabilidadSubcategoria subcategoriaNueva = habilidadSubcategoriaRepository.findById(subcategoriaVieja.getId()).get();
+        HabilidadSubcategoria subcategoriaNueva = new HabilidadSubcategoria();
+        subcategoriaNueva.setId(subcategoriaVieja.getId());
         subcategoriaNueva.setNombre("Subcategoria nueva");
         subcategoriaNueva.setNecesitaDescripcion(false);
         subcategoriaNueva.setNecesitaPorcentaje(true);
