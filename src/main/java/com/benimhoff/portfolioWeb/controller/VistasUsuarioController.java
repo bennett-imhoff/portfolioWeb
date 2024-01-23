@@ -27,6 +27,9 @@ public class VistasUsuarioController {
     @Autowired
     private HabilidadCategoriaService habilidadCategoriaService;
 
+    @Autowired
+    private ExperienciaLaboralService experienciaLaboralService;
+
     @GetMapping("/")
     public String home (Model model){
         Propietario propietario = propietarioService.ver();
@@ -34,11 +37,15 @@ public class VistasUsuarioController {
         List<Servicio> servicios = servicioService.verTodos();
         List<Proyecto> proyectos = proyectoService.verTodos();
         List<HabilidadCategoria> categorias = habilidadCategoriaService.verTodas();
+        List<ExperienciaLaboral> experienciasLaborales = experienciaLaboralService.verTodas();
+
         model.addAttribute("propietario", propietario);
         model.addAttribute("redesSociales", redesSociales);
         model.addAttribute("servicios", servicios);
         model.addAttribute("proyectos", proyectos);
         model.addAttribute("categorias", categorias);
+        model.addAttribute("experienciasLaborales", experienciasLaborales);
+
         return "home";
     }
 }

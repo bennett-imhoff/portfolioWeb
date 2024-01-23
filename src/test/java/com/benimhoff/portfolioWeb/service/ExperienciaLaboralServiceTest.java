@@ -76,12 +76,8 @@ public class ExperienciaLaboralServiceTest {
         ExperienciaLaboral experienciaLaboralAntigua = crearExperienciaLaboralValida();
         experienciaLaboralAntigua = experienciaLaboralRepository.save(experienciaLaboralAntigua);
 
-        ExperienciaLaboral experienciaLaboralNueva = new ExperienciaLaboral();
+        ExperienciaLaboral experienciaLaboralNueva = crearExperienciaLaboralValida();
         experienciaLaboralNueva.setId(experienciaLaboralAntigua.getId());
-        experienciaLaboralNueva.setPuesto(experienciaLaboralAntigua.getPuesto());
-        experienciaLaboralNueva.setFechaInicio(experienciaLaboralAntigua.getFechaInicio());
-        experienciaLaboralNueva.setDescripcion(experienciaLaboralAntigua.getDescripcion());
-        experienciaLaboralNueva.setIcono(experienciaLaboralAntigua.getIcono());
         experienciaLaboralNueva.setEmpresa("Nueva empresa");
         experienciaLaboralService.actualizar(experienciaLaboralNueva);
 
@@ -96,7 +92,7 @@ public class ExperienciaLaboralServiceTest {
         ExperienciaLaboral experienciaLaboralAntigua = crearExperienciaLaboralValida();
         experienciaLaboralAntigua = experienciaLaboralRepository.save(experienciaLaboralAntigua);
 
-        ExperienciaLaboral experienciaLaboralNueva = new ExperienciaLaboral();
+        ExperienciaLaboral experienciaLaboralNueva = crearExperienciaLaboralValida();
         experienciaLaboralNueva.setId(experienciaLaboralAntigua.getId());
         experienciaLaboralNueva.setEmpresa(" ");
 

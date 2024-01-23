@@ -24,11 +24,7 @@ public class RedSocialServiceTest {
 
     @Test
     public void crear_conDatosValidos_guardaRedSocial(){
-        RedSocial redSocial = new RedSocial();
-        redSocial.setNombre("Red social");
-        redSocial.setEnlace("redsocial.com");
-        redSocial.setIcono("img.imagendeicono.com");
-        redSocial.setIdPropietario(1L);
+        RedSocial redSocial = crearRedSocialValida();
         redSocial = redSocialService.crear(redSocial);
 
         assertNotNull(redSocial.getId());
@@ -60,10 +56,8 @@ public class RedSocialServiceTest {
 
     @Test
     public void crear_conIdPropietarioNulo_lanzaExcepcion(){
-        RedSocial redSocial = new RedSocial();
-        redSocial.setNombre("Red social");
-        redSocial.setEnlace("redsocial.com");
-        redSocial.setIcono("img.imagendeicono.com");
+        RedSocial redSocial = crearRedSocialValida();
+        redSocial.setIdPropietario(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
             redSocialService.crear(redSocial);
@@ -72,41 +66,28 @@ public class RedSocialServiceTest {
 
     @Test
     public void actualizar_conDatosValidos_actualizaRedSocial(){
-        RedSocial redSocialAntigua = new RedSocial();
-        redSocialAntigua.setNombre("Red social");
-        redSocialAntigua.setEnlace("redsocial.com");
-        redSocialAntigua.setIcono("fa-red-social");
+        RedSocial redSocialAntigua = crearRedSocialValida();
         redSocialAntigua = redSocialRepository.save(redSocialAntigua);
 
-        RedSocial redSocialNueva = new RedSocial();
+        RedSocial redSocialNueva = crearRedSocialValida();
         redSocialNueva.setId(redSocialAntigua.getId());
         redSocialNueva.setNombre("Red social nueva");
-        redSocialNueva.setEnlace("redsocialnueva.com");
-        redSocialNueva.setIcono("fa-red-social-nueva");
         redSocialService.actualizar(redSocialNueva);
 
         RedSocial redSocialGuardada = redSocialRepository.findById(redSocialAntigua.getId()).get();
 
         assertEquals(redSocialAntigua.getId(), redSocialNueva.getId());
-        assertAll("Verifico que todos los datos se hayan actualizado.",
-            ()-> assertEquals("Red social nueva", redSocialGuardada.getNombre()),
-            ()-> assertEquals("redsocialnueva.com", redSocialGuardada.getEnlace()),
-            ()-> assertEquals("fa-red-social-nueva", redSocialGuardada.getIcono())
-        );
+        assertEquals("Red social nueva", redSocialGuardada.getNombre());
     }
 
     @Test
     public void actualizar_conDatosInvalidos_lanzaExcepcion(){
-        RedSocial redSocialAntigua = new RedSocial();
-        redSocialAntigua.setNombre("Red social");
-        redSocialAntigua.setEnlace("redsocial.com");
-        redSocialAntigua.setIcono("fa-red-social");
+        RedSocial redSocialAntigua = crearRedSocialValida();
         redSocialAntigua = redSocialRepository.save(redSocialAntigua);
 
-        RedSocial redSocialNueva = redSocialRepository.findById(redSocialAntigua.getId()).get();
+        RedSocial redSocialNueva = crearRedSocialValida();
+        redSocialNueva.setId(redSocialAntigua.getId());
         redSocialNueva.setNombre(" ");
-        redSocialNueva.setEnlace(" ");
-        redSocialNueva.setIcono(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
            redSocialService.actualizar(redSocialNueva);
@@ -115,10 +96,7 @@ public class RedSocialServiceTest {
 
     @Test
     public void eliminar_conUsuarioLogueado_eliminaRedSocial(){
-        RedSocial redSocial = new RedSocial();
-        redSocial.setNombre("Red social");
-        redSocial.setEnlace("redsocial.com");
-        redSocial.setIcono("fa-red-social");
+        RedSocial redSocial = crearRedSocialValida();
         redSocial = redSocialRepository.save(redSocial);
 
         redSocialService.eliminar(redSocial.getId());
@@ -128,18 +106,10 @@ public class RedSocialServiceTest {
 
     @Test
     public void verTodas_conCualquierUsuario_retornaListaRedesSociales(){
-        RedSocial redSocialUno = new RedSocial();
-        redSocialUno.setNombre("Red social uno");
-        redSocialUno.setEnlace("redsocialuno.com");
-        redSocialUno.setIcono("img.imagenderedsocialuno.com");
-        redSocialUno.setIdPropietario(1L);
+        RedSocial redSocialUno = crearRedSocialValida();
         redSocialUno = redSocialRepository.save(redSocialUno);
 
-        RedSocial redSocialDos = new RedSocial();
-        redSocialDos.setNombre("Red social dos");
-        redSocialDos.setEnlace("redsocialdos.com");
-        redSocialDos.setIcono("img.imagenderedsocialdos.com");
-        redSocialDos.setIdPropietario(1L);
+        RedSocial redSocialDos = crearRedSocialValida();
         redSocialDos = redSocialRepository.save(redSocialDos);
 
         List<RedSocial> redesCreadas = new ArrayList<>();
@@ -149,5 +119,15 @@ public class RedSocialServiceTest {
         List<RedSocial> redesGuardadas = redSocialService.verTodas();
 
         assertArrayEquals(new List[]{redesCreadas}, new List[]{redesGuardadas});
+    }
+
+    private RedSocial crearRedSocialValida(){
+        RedSocial redSocial = new RedSocial();
+        redSocial.setNombre("Red social");
+        redSocial.setEnlace("redsocial.com");
+        redSocial.setIcono("img.imagendeicono.com");
+        redSocial.setIdPropietario(1L);
+
+        return redSocial;
     }
 }

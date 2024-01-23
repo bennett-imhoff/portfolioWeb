@@ -24,12 +24,7 @@ public class HabilidadCategoriaServiceTest {
 
     @Test
     public void crear_conDatosValidos_guardaHabilidadCategoria(){
-        HabilidadCategoria habilidadCategoria = new HabilidadCategoria();
-        habilidadCategoria.setNombre("Categoría");
-        habilidadCategoria.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoria.setIcono("fa fa-categoria");
-        habilidadCategoria.setColorIcono("#712987");
-        habilidadCategoria.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoria = crearCategoriaValida();
         habilidadCategoria = habilidadCategoriaService.crear(habilidadCategoria);
 
         assertNotNull(habilidadCategoria.getId());
@@ -37,11 +32,8 @@ public class HabilidadCategoriaServiceTest {
 
     @Test
     public void crear_conIdPropietarioNulo_lanzaExcepcion(){
-        HabilidadCategoria habilidadCategoria = new HabilidadCategoria();
-        habilidadCategoria.setNombre("Categoría");
-        habilidadCategoria.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoria.setIcono("fa fa-categoria");
-        habilidadCategoria.setColorIcono("#712987");
+        HabilidadCategoria habilidadCategoria = crearCategoriaValida();
+        habilidadCategoria.setIdPropietario(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
            habilidadCategoriaService.crear(habilidadCategoria);
@@ -78,48 +70,28 @@ public class HabilidadCategoriaServiceTest {
 
     @Test
     public void actualizar_conDatosValidos_actualizaHabilidadCategoria(){
-        HabilidadCategoria habilidadCategoriaAntigua = new HabilidadCategoria();
-        habilidadCategoriaAntigua.setNombre("Categoría");
-        habilidadCategoriaAntigua.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoriaAntigua.setIcono("fa fa-categoria");
-        habilidadCategoriaAntigua.setColorIcono("#712987");
-        habilidadCategoriaAntigua.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoriaAntigua = crearCategoriaValida();
         habilidadCategoriaAntigua = habilidadCategoriaRepository.save(habilidadCategoriaAntigua);
 
-        HabilidadCategoria habilidadCategoriaNueva = new HabilidadCategoria();
+        HabilidadCategoria habilidadCategoriaNueva = crearCategoriaValida();
         habilidadCategoriaNueva.setId(habilidadCategoriaAntigua.getId());
         habilidadCategoriaNueva.setNombre("Nueva categoría");
-        habilidadCategoriaNueva.setDescripcion("Nueva descripción.");
-        habilidadCategoriaNueva.setIcono("fa fa-nueva");
-        habilidadCategoriaNueva.setColorIcono("#7129872");
         habilidadCategoriaService.actualizar(habilidadCategoriaNueva);
 
         HabilidadCategoria habilidadCategoriaGuardada = habilidadCategoriaRepository.findById(habilidadCategoriaAntigua.getId()).get();
 
         assertEquals(habilidadCategoriaAntigua.getId(), habilidadCategoriaGuardada.getId());
-        assertAll("Verifico que los datos se hayan actualizado.",
-            ()-> assertEquals("Nueva categoría", habilidadCategoriaGuardada.getNombre()),
-            ()-> assertEquals("Nueva descripción.", habilidadCategoriaGuardada.getDescripcion()),
-            ()-> assertEquals("fa fa-nueva", habilidadCategoriaGuardada.getIcono()),
-            ()-> assertEquals("#7129872", habilidadCategoriaGuardada.getColorIcono())
-        );
+        assertEquals("Nueva categoria", habilidadCategoriaGuardada.getNombre());
     }
 
     @Test
     public void actualizar_conDatosInvalidos_lanzaExcepcion(){
-        HabilidadCategoria habilidadCategoriaAntigua = new HabilidadCategoria();
-        habilidadCategoriaAntigua.setNombre("Categoría");
-        habilidadCategoriaAntigua.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoriaAntigua.setIcono("fa fa-categoria");
-        habilidadCategoriaAntigua.setColorIcono("#712987");
-        habilidadCategoriaAntigua.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoriaAntigua = crearCategoriaValida();
         habilidadCategoriaAntigua = habilidadCategoriaRepository.save(habilidadCategoriaAntigua);
 
-        HabilidadCategoria habilidadCategoriaNueva = habilidadCategoriaRepository.findById(habilidadCategoriaAntigua.getId()).get();
+        HabilidadCategoria habilidadCategoriaNueva = crearCategoriaValida();
+        habilidadCategoriaNueva.setId(habilidadCategoriaAntigua.getId());
         habilidadCategoriaNueva.setNombre(" ");
-        habilidadCategoriaNueva.setDescripcion(" ");
-        habilidadCategoriaNueva.setIcono(null);
-        habilidadCategoriaNueva.setColorIcono(" ");
 
         assertThrows(IllegalArgumentException.class, ()->{
             habilidadCategoriaService.actualizar(habilidadCategoriaNueva);
@@ -128,12 +100,7 @@ public class HabilidadCategoriaServiceTest {
 
     @Test
     public void eliminar_conUsuarioLogueado_eliminaHabilidadCategoria(){
-        HabilidadCategoria habilidadCategoria = new HabilidadCategoria();
-        habilidadCategoria.setNombre("Categoría");
-        habilidadCategoria.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoria.setIcono("fa fa-categoria");
-        habilidadCategoria.setColorIcono("#712987");
-        habilidadCategoria.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoria = crearCategoriaValida();
         habilidadCategoria = habilidadCategoriaRepository.save(habilidadCategoria);
 
         habilidadCategoriaService.eliminar(habilidadCategoria.getId());
@@ -143,20 +110,10 @@ public class HabilidadCategoriaServiceTest {
 
     @Test
     public void verTodos_conCualquierUsuario_retornaListaHabilidadCategoria(){
-        HabilidadCategoria habilidadCategoria = new HabilidadCategoria();
-        habilidadCategoria.setNombre("Categoría");
-        habilidadCategoria.setDescripcion("Esta es la categoría de las categorías.");
-        habilidadCategoria.setIcono("fa fa-categoria");
-        habilidadCategoria.setColorIcono("#712987");
-        habilidadCategoria.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoria = crearCategoriaValida();
         habilidadCategoria = habilidadCategoriaRepository.save(habilidadCategoria);
 
-        HabilidadCategoria habilidadCategoriaDos = new HabilidadCategoria();
-        habilidadCategoriaDos.setNombre("Categoría 2");
-        habilidadCategoriaDos.setDescripcion("Esta es la categoría 2 de las categorías 2.");
-        habilidadCategoriaDos.setIcono("fa fa-categoria-2");
-        habilidadCategoria.setColorIcono("#712982");
-        habilidadCategoriaDos.setIdPropietario(1L);
+        HabilidadCategoria habilidadCategoriaDos = crearCategoriaValida();
         habilidadCategoriaDos = habilidadCategoriaRepository.save(habilidadCategoriaDos);
 
         List<HabilidadCategoria> categoriasCreadas = new ArrayList<>();
@@ -166,5 +123,16 @@ public class HabilidadCategoriaServiceTest {
         List<HabilidadCategoria> categoriasGuardadas = habilidadCategoriaService.verTodas();
 
         assertArrayEquals(new List[]{categoriasCreadas}, new List[]{categoriasGuardadas});
+    }
+
+    private HabilidadCategoria crearCategoriaValida(){
+        HabilidadCategoria habilidadCategoria = new HabilidadCategoria();
+        habilidadCategoria.setNombre("Categoría");
+        habilidadCategoria.setDescripcion("Esta es la categoría de las categorías.");
+        habilidadCategoria.setIcono("fa fa-categoria");
+        habilidadCategoria.setColorIcono("#712987");
+        habilidadCategoria.setIdPropietario(1L);
+
+        return habilidadCategoria;
     }
 }

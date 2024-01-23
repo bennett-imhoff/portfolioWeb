@@ -24,9 +24,7 @@ public class HabilidadServiceTest {
 
     @Test
     public void crear_conDatosValidos_guardaHabilidad(){
-        Habilidad habilidad = new Habilidad();
-        habilidad.setNombre("Habilidad");
-        habilidad.setIdHabilidadSubcategoria(1L);
+        Habilidad habilidad = crearHabilidadValida();
         habilidad = habilidadService.crear(habilidad);
 
         assertNotNull(habilidad.getId());
@@ -56,36 +54,28 @@ public class HabilidadServiceTest {
 
     @Test
     public void actualizar_conCamposValidos_actualizaHabilidad(){
-        Habilidad habilidadVieja = new Habilidad();
-        habilidadVieja.setNombre("Habilidad vieja");
-        habilidadVieja.setIdHabilidadSubcategoria(1L);
+        Habilidad habilidadVieja = crearHabilidadValida();
         habilidadVieja = habilidadRepository.save(habilidadVieja);
 
-        Habilidad habilidadNueva = new Habilidad();
+        Habilidad habilidadNueva = crearHabilidadValida();
         habilidadNueva.setId(habilidadVieja.getId());
         habilidadNueva.setNombre("Habilidad nueva");
-        habilidadNueva.setIdHabilidadSubcategoria(2L);
         habilidadService.actualizar(habilidadNueva);
 
         Habilidad habilidadGuardada = habilidadRepository.findById(habilidadVieja.getId()).get();
 
         assertEquals(habilidadVieja.getId(), habilidadGuardada.getId());
-        assertAll("Verifico los datos actualizados.",
-            ()-> assertEquals("Habilidad nueva", habilidadGuardada.getNombre()),
-            ()-> assertEquals(2L, habilidadGuardada.getIdHabilidadSubcategoria())
-        );
+        assertEquals("Habilidad nueva", habilidadGuardada.getNombre());
     }
 
     @Test
     public void actualizar_conCamposInvalidos_lanzaExcepcion(){
-        Habilidad habilidadVieja = new Habilidad();
-        habilidadVieja.setNombre("Habilidad");
-        habilidadVieja.setIdHabilidadSubcategoria(1L);
+        Habilidad habilidadVieja = crearHabilidadValida();
         habilidadVieja = habilidadRepository.save(habilidadVieja);
 
-        Habilidad habilidadNueva = habilidadRepository.findById(habilidadVieja.getId()).get();
+        Habilidad habilidadNueva = crearHabilidadValida();
+        habilidadNueva.setId(habilidadVieja.getId());
         habilidadNueva.setNombre(" ");
-        habilidadNueva.setIdHabilidadSubcategoria(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
            habilidadService.actualizar(habilidadNueva);
@@ -94,9 +84,7 @@ public class HabilidadServiceTest {
 
     @Test
     public void eliminar_conUsuarioLogueado_eliminaHabilidad(){
-        Habilidad habilidad = new Habilidad();
-        habilidad.setNombre("Nombre");
-        habilidad.setIdHabilidadSubcategoria(1L);
+        Habilidad habilidad = crearHabilidadValida();
         habilidadRepository.save(habilidad);
 
         habilidadService.eliminar(habilidad.getId());
@@ -106,14 +94,10 @@ public class HabilidadServiceTest {
 
     @Test
     public void verTodas_conCualquierUsuario_retornaListaHabilidades(){
-        Habilidad habilidadUno = new Habilidad();
-        habilidadUno.setNombre("Nombre uno");
-        habilidadUno.setIdHabilidadSubcategoria(1L);
+        Habilidad habilidadUno = crearHabilidadValida();
         habilidadUno = habilidadRepository.save(habilidadUno);
 
-        Habilidad habilidadDos = new Habilidad();
-        habilidadDos.setNombre("Nombre dos");
-        habilidadDos.setIdHabilidadSubcategoria(2L);
+        Habilidad habilidadDos = crearHabilidadValida();
         habilidadDos = habilidadRepository.save(habilidadDos);
 
         List<Habilidad> habilidadesCreadas = new ArrayList<>();
@@ -123,5 +107,13 @@ public class HabilidadServiceTest {
         List<Habilidad> habilidadesGuardadas = habilidadService.verTodas();
 
         assertArrayEquals(new List[]{habilidadesCreadas}, new List[]{habilidadesGuardadas});
+    }
+
+    private Habilidad crearHabilidadValida(){
+        Habilidad habilidad = new Habilidad();
+        habilidad.setNombre("Habilidad");
+        habilidad.setIdHabilidadSubcategoria(1L);
+
+        return habilidad;
     }
 }

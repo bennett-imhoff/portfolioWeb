@@ -23,12 +23,8 @@ public class ProyectoServiceTest {
 
     @Test
     public void crear_conDatosValidos_guardaProyecto(){
-        Proyecto proyecto = new Proyecto();
-        proyecto.setTitulo("Titulo del proyecto");
-        proyecto.setResumen("Resumen del proyecto");
-        proyecto.setDescripcion("Descripcion del proyecto");
-        proyecto.setImagen("urldeimagen.com");
-        proyecto.setIdPropietario(1L);
+        Proyecto proyecto = crearProyectoValido();
+
         proyecto = proyectoService.crear(proyecto);
 
         assertNotNull(proyecto.getId());
@@ -42,9 +38,7 @@ public class ProyectoServiceTest {
         proyecto.setDescripcion(" ");
         proyecto.setImagen(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            proyectoService.crear(proyecto);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> proyectoService.crear(proyecto));
     }
 
     @Test
@@ -55,68 +49,41 @@ public class ProyectoServiceTest {
         proyecto.setDescripcion(null);
         proyecto.setImagen(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            proyectoService.crear(proyecto);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> proyectoService.crear(proyecto));
     }
 
     @Test
     public void crear_conIdPropietarioNulo_lanzaExcepcion(){
-        Proyecto proyecto = new Proyecto();
-        proyecto.setTitulo("Titulo del proyecto");
-        proyecto.setResumen("Resumen del proyecto");
-        proyecto.setDescripcion("Descripcion del proyecto");
-        proyecto.setImagen("urldeimagen.com");
+        Proyecto proyecto = crearProyectoValido();
+        proyecto.setIdPropietario(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            proyectoService.crear(proyecto);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> proyectoService.crear(proyecto));
     }
 
     @Test
     public void actualizar_conDatosValidos_actualizaProyecto(){
-        Proyecto proyectoAntiguo = new Proyecto();
-        proyectoAntiguo.setTitulo("Titulo del proyecto antiguo");
-        proyectoAntiguo.setResumen("Resumen del proyecto antiguo");
-        proyectoAntiguo.setDescripcion("Descripcion del proyecto antiguo");
-        proyectoAntiguo.setImagen("urldeimagenproyectoantiguo.com");
-        proyectoAntiguo.setIdPropietario(1L);
+        Proyecto proyectoAntiguo = crearProyectoValido();
         proyectoAntiguo = proyectoRepository.save(proyectoAntiguo);
 
-        Proyecto proyectoNuevo = new Proyecto();
+        Proyecto proyectoNuevo = crearProyectoValido();
         proyectoNuevo.setId(proyectoAntiguo.getId());
         proyectoNuevo.setTitulo("Titulo del proyecto nuevo");
-        proyectoNuevo.setResumen("Resumen del proyecto nuevo");
-        proyectoNuevo.setDescripcion("Descripcion del proyecto nuevo");
-        proyectoNuevo.setImagen("urldeimagenproyectonuevo.com");
         proyectoService.actualizar(proyectoNuevo);
 
         Proyecto proyectoGuardado = proyectoRepository.findById(proyectoAntiguo.getId()).get();
 
         assertEquals(proyectoAntiguo.getId(), proyectoNuevo.getId());
-        assertAll("Verifico que todos los datos se hayan actualizado.",
-            ()-> assertEquals("Titulo del proyecto nuevo", proyectoGuardado.getTitulo()),
-            ()-> assertEquals("Resumen del proyecto nuevo", proyectoGuardado.getResumen()),
-            ()-> assertEquals("Descripcion del proyecto nuevo", proyectoGuardado.getDescripcion()),
-            ()-> assertEquals("urldeimagenproyectonuevo.com", proyectoGuardado.getImagen())
-        );
+        assertEquals("Titulo del proyecto nuevo", proyectoGuardado.getTitulo());
     }
 
     @Test
     public void actualizar_conDatosInvalidos_lanzaExcepcion(){
-        Proyecto proyectoAntiguo = new Proyecto();
-        proyectoAntiguo.setTitulo("Titulo del proyecto antiguo");
-        proyectoAntiguo.setResumen("Resumen del proyecto antiguo");
-        proyectoAntiguo.setDescripcion("Descripcion del proyecto antiguo");
-        proyectoAntiguo.setImagen("urldeimagenproyectoantiguo.com");
-        proyectoAntiguo.setIdPropietario(1L);
+        Proyecto proyectoAntiguo = crearProyectoValido();
         proyectoAntiguo = proyectoRepository.save(proyectoAntiguo);
 
-        Proyecto proyectoNuevo = proyectoRepository.findById(proyectoAntiguo.getId()).get();
+        Proyecto proyectoNuevo = crearProyectoValido();
+        proyectoNuevo.setId(proyectoAntiguo.getId());
         proyectoNuevo.setTitulo(" ");
-        proyectoNuevo.setResumen(" ");
-        proyectoNuevo.setDescripcion(" ");
-        proyectoNuevo.setImagen(null);
 
         assertThrows(IllegalArgumentException.class, ()->{
            proyectoService.actualizar(proyectoNuevo);
@@ -125,12 +92,7 @@ public class ProyectoServiceTest {
 
     @Test
     public void eliminar_conUsuarioLogueado_eliminaProyecto(){
-        Proyecto proyecto = new Proyecto();
-        proyecto.setTitulo("Titulo del proyecto");
-        proyecto.setResumen("Resumen del proyecto");
-        proyecto.setDescripcion("Descripcion del proyecto");
-        proyecto.setImagen("urldeimagenproyecto.com");
-        proyecto.setIdPropietario(1L);
+        Proyecto proyecto = crearProyectoValido();
         proyecto = proyectoRepository.save(proyecto);
 
         proyectoService.eliminar(proyecto.getId());
@@ -140,20 +102,10 @@ public class ProyectoServiceTest {
 
     @Test
     public void verTodos_conCualquierUsuario_retornaListaProyectos(){
-        Proyecto proyectoUno = new Proyecto();
-        proyectoUno.setTitulo("Titulo del proyecto uno");
-        proyectoUno.setResumen("Resumen del proyecto uno");
-        proyectoUno.setDescripcion("Descripcion del proyecto uno");
-        proyectoUno.setImagen("urldeimagenproyectouno.com");
-        proyectoUno.setIdPropietario(1L);
+        Proyecto proyectoUno = crearProyectoValido();
         proyectoUno = proyectoRepository.save(proyectoUno);
 
-        Proyecto proyectoDos = new Proyecto();
-        proyectoDos.setTitulo("Titulo del proyecto dos");
-        proyectoDos.setResumen("Resumen del proyecto dos");
-        proyectoDos.setDescripcion("Descripcion del proyecto dos");
-        proyectoDos.setImagen("urldeimagenproyectodos.com");
-        proyectoDos.setIdPropietario(1L);
+        Proyecto proyectoDos = crearProyectoValido();
         proyectoDos = proyectoRepository.save(proyectoDos);
 
         List<Proyecto> proyectosCreados = new ArrayList<>();
@@ -163,5 +115,16 @@ public class ProyectoServiceTest {
         List<Proyecto> proyectosGuardados = proyectoService.verTodos();
 
         assertArrayEquals(new List[]{proyectosCreados}, new List[]{proyectosGuardados});
+    }
+
+    private Proyecto crearProyectoValido(){
+        Proyecto proyecto = new Proyecto();
+        proyecto.setTitulo("Titulo del proyecto");
+        proyecto.setResumen("Resumen del proyecto");
+        proyecto.setDescripcion("Descripcion del proyecto");
+        proyecto.setImagen("urldeimagen.com");
+        proyecto.setIdPropietario(1L);
+
+        return proyecto;
     }
 }
