@@ -3,6 +3,7 @@ package com.benimhoff.portfolioWeb.service.impl;
 import com.benimhoff.portfolioWeb.domain.ExperienciaLaboral;
 import com.benimhoff.portfolioWeb.domain.Propietario;
 import com.benimhoff.portfolioWeb.repository.ExperienciaLaboralRepository;
+import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.ExperienciaLaboralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class ExperienciaLaboralServiceImpl implements ExperienciaLaboralService 
     @Autowired
     private ExperienciaLaboralRepository experienciaLaboralRepository;
 
+    @Autowired
+    private PropietarioRepository propietarioRepository;
+
     @Override
     public ExperienciaLaboral crear(ExperienciaLaboral experienciaLaboral) {
         Assert.hasText(experienciaLaboral.getPuesto(), "El puesto es un campo obligatorio.");
@@ -28,7 +32,7 @@ public class ExperienciaLaboralServiceImpl implements ExperienciaLaboralService 
         Assert.hasText(experienciaLaboral.getIcono(), "El icono es un campo obligatorio.");
 
         //Le asigno el propietario a la experiencia laboral
-        Optional<ExperienciaLaboral> propietarioExperiencia = experienciaLaboralRepository.findAll().stream().findFirst();
+        Optional<Propietario> propietarioExperiencia = propietarioRepository.findAll().stream().findFirst();
         propietarioExperiencia.ifPresent(propietario -> experienciaLaboral.setIdPropietario(propietario.getId()));
         Assert.notNull(experienciaLaboral.getIdPropietario(), "Debe existir un propietario para crear una experiencia laboral.");
 

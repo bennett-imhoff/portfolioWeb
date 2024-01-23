@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="editarExperienciaLaboralFragment">
+    <article class="seccion-experiencias-laborales seccion-edicion">
+        <div class="row d-flex align-items-center">
+            <h3 class="titulo-seccion-edicion mb-0 col-6">Experiencias laborales</h3>
+            <div class="text-end col-6">
+                <button type="button" id="btnAbrirModalCrearExperienciaLaboral" class="btn btn-success btn-abrir-modal-agregar mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalExperienciaLaboral">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Agregar experiencia laboral
+                </button>
+            </div>
+        </div>
+        <div>
+            <table class="my-4 texto-seccion-edicion tabla-habilidades table table-hover align-middle">
+                <thead>
+                <tr>
+                    <th class="text-center">Puesto</th>
+                    <th class="text-center">Empresa</th>
+                    <th class="text-center">Inicio</th>
+                    <th class="text-center">Fin</th>
+                    <th class="text-center">Icono</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="experienciaLaboral : ${experienciasLaborales}">
+                    <td class="text-center" th:text="${experienciaLaboral.puesto}"></td>
+                    <td class="text-center" th:text="${experienciaLaboral.empresa}"></td>
+                    <td class="text-center" th:text="${#dates.format(experienciaLaboral.fechaInicio, 'dd/MM/yyyy')}"></td>
+                    <td class="text-center">
+                        <span th:if="${experienciaLaboral.fechaFin}">
+                            <p class="mb-0" th:text="${#dates.format(experienciaLaboral.fechaFin, 'dd/MM/yyyy')}"></p>
+                        </span>
+                        <span th:unless="${experienciaLaboral.fechaFin}">
+                            <p class="mb-0" >-</p>
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <i th:class="'text-success bi ' + ${experienciaLaboral.icono}"></i>
+                    </td>
+                    <td class="text-nowrap text-center">
+                        <span class="cursor-pointer px-3">
+                            <i class="fa fa-pencil editar-experiencia-laboral text-primary" data-bs-toggle="modal" data-bs-target="#modalExperienciaLaboral"
+                               th:data-id-experiencia-laboral="${experienciaLaboral.id}"
+                               th:data-puesto-experiencia-laboral="${experienciaLaboral.puesto}"
+                               th:data-empresa-experiencia-laboral="${experienciaLaboral.empresa}"
+                               th:data-descripcion-experiencia-laboral="${experienciaLaboral.descripcion}"
+                               th:data-fecha-inicio-experiencia-laboral="${experienciaLaboral.fechaInicio}"
+                               th:data-fecha-fin-experiencia-laboral="${experienciaLaboral.fechaFin}"
+                               th:data-icono-experiencia-laboral="${experienciaLaboral.icono}"
+                               th:data-idPropietario-experiencia-laboral="${experienciaLaboral.idPropietario}"
+                            ></i>
+                        </span>
+                        <span class="cursor-pointer px-3">
+                            <i class="fa fa-minus-circle eliminar-experiencia-laboral text-danger"
+                                th:data-id-experiencia-laboral="${experienciaLaboral.id}"
+                               th:data-puesto-experiencia-laboral="${experienciaLaboral.puesto}"
+                               th:data-empresa-experiencia-laboral="${experienciaLaboral.empresa}"
+                            ></i>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+
+    <div class="modal fade" id="modalExperienciaLaboral" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalExperienciaLaboralLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-dialog-scrollable">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-4 modal-title-actualizar" id="modalActualizarExperienciaLaboralLabel">Experiencia laboral</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <form method="post" id="crearExperienciaLaboralForm">
+                        <input hidden type="text" id="inputIdExperienciaLaboral"/>
+                        <input hidden type="text" id="inputIdPropietarioExperienciaLaboral"/>
+                        <label class="mt-5 mt-md-3">Puesto</label><br>
+                        <input type="text" id="inputPuestoExperienciaLaboral" required/><br>
+                        <label class="mt-5 mt-md-3">Empresa</label><br>
+                        <input type="text" id="inputEmpresaExperienciaLaboral" required/><br>
+                        <label class="mt-5 mt-md-3">Descripción</label><br>
+                        <textarea id="inputDescripcionExperienciaLaboral" required></textarea><br>
+                        <label class="mt-5 mt-md-3">Fecha de inicio</label><br>
+                        <input type="date" id="inputFechaInicioExperienciaLaboral" required/><br>
+                        <label class="mt-5 mt-md-3">Fecha de fin</label><br>
+                        <input type="date" id="inputFechaFinExperienciaLaboral" required/><br>
+                        <label class="mt-5 mt-md-3">Icono</label>
+                        <input type="text" id="inputIconoExperienciaLaboral" required/><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success btnGuardar" id="btnGuardarExperienciaLaboral">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
