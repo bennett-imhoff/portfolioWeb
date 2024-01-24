@@ -1,3 +1,7 @@
+body {
+    width: fit-content !important;
+}
+
 .modal-title-actualizar{
     font-family:'Raleway';
     font-size:2.5em;
@@ -107,6 +111,10 @@ article:not(:first-child){
 
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px){
+    body {
+        width: 90% !important;
+    }
+
     .barra-superior-edicion .nombre-portfolio{
         padding: 0.2em 0;
     }
@@ -132,12 +140,12 @@ article:not(:first-child){
         margin-top:
     }
 
-    .seccion-redes-sociales, .seccion-categorias, .seccion-experiencias-laborales{
+    .seccion-redes-sociales, .seccion-categorias {
         border-right: 2px solid rgba(61,143,83,0.3);
         padding-right:2em;
     }
 
-    .seccion-servicios, .seccion-subcategorias, .seccion-educaciones{
+    .seccion-servicios, .seccion-subcategorias {
         padding-left:2em;
     }
 
@@ -185,7 +193,7 @@ article:not(:first-child){
         width:50%;
     }
 
-    .seccion-proyectos, .seccion-habilidades{
+    .seccion-proyectos, .seccion-habilidades, .seccion-experiencias-laborales, .seccion-educaciones {
         width:100%;
     }
 }
