@@ -35,9 +35,7 @@ public class HabilidadSubcategoriaServiceTest {
         HabilidadSubcategoria subcategoria = crearSubcategoriaValida();
         subcategoria.setNombre(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            habilidadSubcategoriaService.crear(subcategoria);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> habilidadSubcategoriaService.crear(subcategoria));
     }
 
     @Test
@@ -45,9 +43,7 @@ public class HabilidadSubcategoriaServiceTest {
         HabilidadSubcategoria subcategoria = crearSubcategoriaValida();
         subcategoria.setNecesitaDescripcion(null);
 
-        assertThrows(IllegalArgumentException.class,()->{
-            habilidadSubcategoriaService.crear(subcategoria);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> habilidadSubcategoriaService.crear(subcategoria));
     }
 
     @Test
@@ -72,11 +68,10 @@ public class HabilidadSubcategoriaServiceTest {
         subcategoriaVieja = habilidadSubcategoriaRepository.save(subcategoriaVieja);
 
         HabilidadSubcategoria subcategoriaNueva = crearSubcategoriaValida();
+        subcategoriaNueva.setId(subcategoriaVieja.getId());
         subcategoriaNueva.setNombre(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-           habilidadSubcategoriaService.actualizar(subcategoriaNueva);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> habilidadSubcategoriaService.actualizar(subcategoriaNueva));
     }
 
     @Test

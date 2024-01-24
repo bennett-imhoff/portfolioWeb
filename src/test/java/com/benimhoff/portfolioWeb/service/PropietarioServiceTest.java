@@ -46,9 +46,7 @@ public class PropietarioServiceTest {
         propietarioActualizado.setId(propietarioSinActualizar.getId());
         propietarioActualizado.setNombre(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            propietarioService.actualizar(propietarioActualizado);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> propietarioService.actualizar(propietarioActualizado));
     }
 
     @Test
@@ -60,9 +58,7 @@ public class PropietarioServiceTest {
         propietarioActualizado.setId(propietarioSinActualizar.getId());
         propietarioActualizado.setUsername(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            propietarioService.actualizar(propietarioActualizado);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> propietarioService.actualizar(propietarioActualizado));
     }
 
     @Test
@@ -86,9 +82,7 @@ public class PropietarioServiceTest {
         String username = "incorrecto";
         String password = "incorrecta";
 
-        assertThrows(LoginException.class, ()->{
-            propietarioService.esUsuarioValido(username, password);
-        });
+        assertThrows(LoginException.class, ()-> propietarioService.esUsuarioValido(username, password));
     }
 
     @Test

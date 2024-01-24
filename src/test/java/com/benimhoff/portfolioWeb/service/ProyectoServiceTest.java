@@ -85,9 +85,7 @@ public class ProyectoServiceTest {
         proyectoNuevo.setId(proyectoAntiguo.getId());
         proyectoNuevo.setTitulo(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-           proyectoService.actualizar(proyectoNuevo);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> proyectoService.actualizar(proyectoNuevo));
     }
 
     @Test

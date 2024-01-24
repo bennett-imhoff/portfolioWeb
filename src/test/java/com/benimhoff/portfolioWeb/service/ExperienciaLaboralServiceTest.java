@@ -42,9 +42,7 @@ public class ExperienciaLaboralServiceTest {
         experienciaLaboral.setFechaInicio(new Date());
         experienciaLaboral.setIcono(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-           experienciaLaboralService.crear(experienciaLaboral);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> experienciaLaboralService.crear(experienciaLaboral));
     }
 
     @Test
@@ -56,9 +54,7 @@ public class ExperienciaLaboralServiceTest {
         experienciaLaboral.setFechaInicio(null);
         experienciaLaboral.setIcono(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            experienciaLaboralService.crear(experienciaLaboral);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> experienciaLaboralService.crear(experienciaLaboral));
     }
 
     @Test
@@ -66,9 +62,7 @@ public class ExperienciaLaboralServiceTest {
         ExperienciaLaboral experienciaLaboral = crearExperienciaLaboralValida();
         experienciaLaboral.setIdPropietario(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            experienciaLaboralService.crear(experienciaLaboral);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> experienciaLaboralService.crear(experienciaLaboral));
     }
 
     @Test
@@ -96,9 +90,7 @@ public class ExperienciaLaboralServiceTest {
         experienciaLaboralNueva.setId(experienciaLaboralAntigua.getId());
         experienciaLaboralNueva.setEmpresa(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            experienciaLaboralService.actualizar(experienciaLaboralNueva);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> experienciaLaboralService.actualizar(experienciaLaboralNueva));
     }
 
     @Test

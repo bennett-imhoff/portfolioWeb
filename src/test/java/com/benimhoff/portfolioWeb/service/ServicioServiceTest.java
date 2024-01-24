@@ -38,9 +38,7 @@ public class ServicioServiceTest {
         servicio.setDescripcion(" ");
         servicio.setIdPropietario(1L);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-           servicioService.crear(servicio);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> servicioService.crear(servicio));
     }
 
     @Test
@@ -51,9 +49,7 @@ public class ServicioServiceTest {
         servicio.setDescripcion(null);
         servicio.setIdPropietario(1L);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            servicioService.crear(servicio);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> servicioService.crear(servicio));
     }
 
     @Test
@@ -61,9 +57,7 @@ public class ServicioServiceTest {
         Servicio servicio = crearServicioValido();
         servicio.setIdPropietario(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            servicioService.crear(servicio);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> servicioService.crear(servicio));
     }
 
     @Test
@@ -91,9 +85,7 @@ public class ServicioServiceTest {
         servicioNuevo.setId(servicioAntiguo.getId());
         servicioNuevo.setIcono(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            servicioService.actualizar(servicioNuevo);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> servicioService.actualizar(servicioNuevo));
     }
 
     @Test

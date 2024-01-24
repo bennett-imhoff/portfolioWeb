@@ -37,9 +37,7 @@ public class RedSocialServiceTest {
         redSocial.setEnlace(" ");
         redSocial.setIcono(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            redSocialService.crear(redSocial);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> redSocialService.crear(redSocial));
     }
 
     @Test
@@ -49,9 +47,7 @@ public class RedSocialServiceTest {
         redSocial.setEnlace(null);
         redSocial.setIcono(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            redSocialService.crear(redSocial);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> redSocialService.crear(redSocial));
     }
 
     @Test
@@ -59,9 +55,7 @@ public class RedSocialServiceTest {
         RedSocial redSocial = crearRedSocialValida();
         redSocial.setIdPropietario(null);
 
-        assertThrows(IllegalArgumentException.class, ()->{
-            redSocialService.crear(redSocial);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> redSocialService.crear(redSocial));
     }
 
     @Test
@@ -89,9 +83,7 @@ public class RedSocialServiceTest {
         redSocialNueva.setId(redSocialAntigua.getId());
         redSocialNueva.setNombre(" ");
 
-        assertThrows(IllegalArgumentException.class, ()->{
-           redSocialService.actualizar(redSocialNueva);
-        });
+        assertThrows(IllegalArgumentException.class, ()-> redSocialService.actualizar(redSocialNueva));
     }
 
     @Test
