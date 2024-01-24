@@ -193,7 +193,7 @@ section:not(:first-child){
 
 .divider{
     color:#3d8f53;
-    opacity:0.5;
+    opacity:0.8;
     width: 60%;
     margin: 20px auto;
 }
