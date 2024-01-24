@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<th:block th:fragment="educacionFragment">
+  <section id="educacion" class="mx-auto">
+    <h2 class="titulo-seccion text-center mx-auto">Educación</h2>
+    <div class="row d-flex mt-4" th:each="educacion : ${educaciones}">
+      <i th:class="'text-success text-center bi ' + ${educacion.icono}"></i>
+      <h3 class="titulo-educacion fw-bold text-center mt-3 mb-0" th:text="${educacion.titulo}"></h3>
+      <p class="texto-sobre-mi text-center mt-3 mb-0 fw-bold text-success" th:text="${educacion.lugar}"></p>
+      <p class="texto-sobre-mi text-center mt-3 mb-0">
+        <em th:text="${#dates.format(educacion.fechaInicio, 'yyyy')}"></em>
+        <span th:if="${educacion.fechaFin != null}">
+          <em th:text="' - ' + ${#dates.format(educacion.fechaFin, 'yyyy')}"></em>
+        </span>
+      </p>
+      <p class="texto-sobre-mi text-center my-3" th:text="${educacion.descripcion}"></p>
+    </div>
+
+  </section>
+</th:block>
+</body>
+</html>

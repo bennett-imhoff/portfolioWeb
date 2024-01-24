@@ -39,6 +39,9 @@ public class LoginController {
     @Autowired
     private ExperienciaLaboralService experienciaLaboralService;
 
+    @Autowired
+    private EducacionService educacionService;
+
     private boolean usuarioAutenticado = false;
 
     @GetMapping("/login")
@@ -62,6 +65,7 @@ public class LoginController {
         List<HabilidadSubcategoria> subcategorias = habilidadSubcategoriaService.verTodas();
         List<Habilidad> habilidades = habilidadService.verTodas();
         List<ExperienciaLaboral> experienciasLaborales = experienciaLaboralService.verTodas();
+        List<Educacion> educaciones = educacionService.verTodas();
 
         model.addAttribute("propietario", propietario);
         model.addAttribute("redesSociales", redesSociales);
@@ -71,6 +75,7 @@ public class LoginController {
         model.addAttribute("subcategorias", subcategorias);
         model.addAttribute("habilidades", habilidades);
         model.addAttribute("experienciasLaborales", experienciasLaborales);
+        model.addAttribute("educaciones", educaciones);
 
         return usuarioAutenticado ? "homeEdicion" : "redirect:/login";
     }

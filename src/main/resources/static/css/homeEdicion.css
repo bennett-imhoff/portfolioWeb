@@ -132,12 +132,12 @@ article:not(:first-child){
         margin-top:
     }
 
-    .seccion-redes-sociales, .seccion-categorias{
+    .seccion-redes-sociales, .seccion-categorias, .seccion-experiencias-laborales{
         border-right: 2px solid rgba(61,143,83,0.3);
         padding-right:2em;
     }
 
-    .seccion-servicios, .seccion-subcategorias{
+    .seccion-servicios, .seccion-subcategorias, .seccion-educaciones{
         padding-left:2em;
     }
 
