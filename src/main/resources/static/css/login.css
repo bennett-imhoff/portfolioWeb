@@ -1,119 +1,119 @@
 body {
-    height:100vh;
+    height: 100vh;
     background: url('../assets/img/slide-2.jpg');
-    background-size:cover;
-    background-position:bottom;
+    background-size: cover;
+    background-position: bottom;
 }
 
-.container-principal-login{
+.container-principal-login {
     background-color: rgba(61, 143, 83, 0.4);
-    width:100%;
-    height:100vh;
+    width: 100%;
+    height: 100vh;
 }
 
-.container-login{
+.container-login {
     background-color: rgba(255,255,255,0.3);
     width: 100%;
-    border-radius:5px;
+    border-radius: 5px;
 }
 
-.badge{
+.badge {
     --bs-badge-padding-x: 0.35em;
     --bs-badge-font-weight: 400;
 }
 
-#inputNombre, #inputPassword{
-    border-radius:5px;
-    border:none;
+#inputNombre, #inputPassword {
+    border-radius: 5px;
+    border: none;
     margin: 36px 0 !important;
-    width:100%;
-    padding:15px;
+    width: 100%;
+    padding: 15px;
 }
 
-.cartel-bienvenida{
-    font-family:'Raleway';
-    font-weight:700;
-    font-size:3.5em;
-    color:#198754;
+.cartel-bienvenida {
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 3.5em;
+    color: #198754;
 }
 
-form{
-    width:90%;
+form {
+    width: 90%;
 }
 
 label, input, button, .alert {
-    font-size:2em !important;
+    font-size: 2em !important;
 }
 
-input{
-    width:100%;
-    padding:15px;
+input {
+    width: 100%;
+    padding: 15px;
 }
 
-#btnIngresar{
-    padding:15px;
+#btnIngresar {
+    padding: 15px;
 }
 
 /*Escritorio portátil pequeño (1024 a 1365)*/
-@media screen and (min-width: 1024px){
-    .cartel-bienvenida{
-        font-size:1.6em;
+@media screen and (min-width: 1024px) {
+    .cartel-bienvenida {
+        font-size: 1.6em;
     }
 
-    form{
-        width:80%;
+    form {
+        width: 80%;
     }
 
     label, input, button, .alert {
-        font-size:1em !important;
+        font-size: 1em !important;
     }
 
-    .container-login{
-        width:75%;
+    .container-login {
+        width: 75%;
     }
 
-    #inputPassword, #inputNombre{
+    #inputPassword, #inputNombre {
         margin: 16px 0 !important;
         padding: 12px;
     }
 
-    #btnIngresar{
-        padding:10px;
+    #btnIngresar {
+        padding: 10px;
     }
 }
 
 /*Escritorio portátil medio (1366 a 1535)
     y escritorio medio (1535 a 1919)
 */
-@media screen and (min-width: 1366px){
-    .cartel-bienvenida{
-        font-size:2em;
+@media screen and (min-width: 1366px) {
+    .cartel-bienvenida {
+        font-size: 2em;
     }
 
-    form{
-        width:70%;
+    form {
+        width: 70%;
     }
 
     label, input, button, .alert {
-        font-size:1.1em !important;
+        font-size: 1.1em !important;
     }
 
-    .container-login{
-        width:60%;
+    .container-login {
+        width: 60%;
     }
 }
 
 /*Escritorio grande (1920 min)*/
-@media screen and (min-width: 1920px){
-    .cartel-bienvenida{
-        font-size:2.5em;
+@media screen and (min-width: 1920px) {
+    .cartel-bienvenida {
+        font-size: 2.5em;
     }
 
-    form{
-        width:70%;
+    form {
+        width: 70%;
     }
 
     label, input, button, .alert {
-        font-size:1.3em !important;
+        font-size: 1.3em !important;
     }
 }

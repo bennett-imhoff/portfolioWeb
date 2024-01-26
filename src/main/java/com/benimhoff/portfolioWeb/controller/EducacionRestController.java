@@ -14,19 +14,19 @@ public class EducacionRestController {
 
     @PostMapping("/api/educacion")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void crear(@RequestBody Educacion educacion){
+    public void crear(@RequestBody Educacion educacion) {
         educacionService.crear(educacion);
     }
 
     @PutMapping("/api/educacion")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void actualizar(@RequestBody Educacion educacion){
+    public void actualizar(@RequestBody Educacion educacion) {
         educacionService.actualizar(educacion);
     }
 
     @DeleteMapping("/api/educacion/{idEducacion}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long idEducacion){
+    public void eliminar(@PathVariable Long idEducacion) {
         educacionService.eliminar(idEducacion);
     }
 }

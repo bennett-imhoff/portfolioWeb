@@ -34,7 +34,7 @@ public class VistasUsuarioController {
     private EducacionService educacionService;
 
     @GetMapping("/")
-    public String home (Model model){
+    public String home (Model model) {
         Propietario propietario = propietarioService.ver();
         List<RedSocial> redesSociales = redSocialService.verTodas();
         List<Servicio> servicios = servicioService.verTodos();

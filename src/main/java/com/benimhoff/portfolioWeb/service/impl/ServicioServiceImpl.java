@@ -38,7 +38,7 @@ public class ServicioServiceImpl implements ServicioService {
     }
 
     @Override
-    public Servicio actualizar(Servicio servicio){
+    public Servicio actualizar(Servicio servicio) {
         Assert.hasText(servicio.getIcono(), "El servicio debe tener un ícono asociado.");
         Assert.hasText(servicio.getTitulo(), "El servicio debe tener un título asociado.");
         Assert.hasText(servicio.getDescripcion(), "El servicio debe tener una descripción asociada.");
@@ -47,12 +47,12 @@ public class ServicioServiceImpl implements ServicioService {
     }
 
     @Override
-    public void eliminar(Long idServicio){
+    public void eliminar(Long idServicio) {
         servicioRepository.deleteById(idServicio);
     }
 
     @Override
-    public List<Servicio> verTodos(){
+    public List<Servicio> verTodos() {
         return servicioRepository.findAll();
     }
 }

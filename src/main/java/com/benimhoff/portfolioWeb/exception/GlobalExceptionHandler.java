@@ -10,7 +10,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(LoginException.class)
     @ModelAttribute
-    public String handleLoginException(LoginException ex, Model model){
+    public String handleLoginException(LoginException ex, Model model) {
         model.addAttribute("error", ex.getMessage());
         return "login";
     }

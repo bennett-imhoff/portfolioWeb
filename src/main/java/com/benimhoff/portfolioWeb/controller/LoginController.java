@@ -56,7 +56,7 @@ public class LoginController {
     }
 
     @GetMapping("/homeEdicion")
-    public String homeEdicion(Model model){
+    public String homeEdicion(Model model) {
         Propietario propietario = propietarioService.ver();
         List<RedSocial> redesSociales = redSocialService.verTodas();
         List<Servicio> servicios = servicioService.verTodos();

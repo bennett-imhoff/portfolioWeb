@@ -14,19 +14,19 @@ public class ProyectoRestController {
 
     @PostMapping("/api/proyecto")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void crear(@RequestBody Proyecto proyecto){
+    public void crear(@RequestBody Proyecto proyecto) {
         proyectoService.crear(proyecto);
     }
 
     @PutMapping("/api/proyecto")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void actualizar(@RequestBody Proyecto proyecto){
+    public void actualizar(@RequestBody Proyecto proyecto) {
         proyectoService.actualizar(proyecto);
     }
 
     @DeleteMapping("/api/proyecto/{idProyecto}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long idProyecto){
+    public void eliminar(@PathVariable Long idProyecto) {
         proyectoService.eliminar(idProyecto);
     }
 }

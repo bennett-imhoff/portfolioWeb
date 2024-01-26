@@ -14,19 +14,19 @@ public class HabilidadCategoriaRestController {
 
     @PostMapping("/api/habilidadCategoria")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void crear(@RequestBody HabilidadCategoria habilidadCategoria){
+    public void crear(@RequestBody HabilidadCategoria habilidadCategoria) {
         habilidadCategoriaService.crear(habilidadCategoria);
     }
 
     @PutMapping("/api/habilidadCategoria")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void actualizar(@RequestBody HabilidadCategoria habilidadCategoria){
+    public void actualizar(@RequestBody HabilidadCategoria habilidadCategoria) {
         habilidadCategoriaService.actualizar(habilidadCategoria);
     }
 
     @DeleteMapping("/api/habilidadCategoria/{idHabilidadCategoria}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long idHabilidadCategoria){
+    public void eliminar(@PathVariable Long idHabilidadCategoria) {
         habilidadCategoriaService.eliminar(idHabilidadCategoria);
     }
 }

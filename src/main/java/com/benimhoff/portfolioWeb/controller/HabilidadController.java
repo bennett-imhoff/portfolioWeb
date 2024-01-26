@@ -32,7 +32,7 @@ public class HabilidadController {
     private HabilidadService habilidadService;
 
     @GetMapping("/habilidad/{idCategoria}")
-    public String habilidad(@PathVariable Long idCategoria, Model model){
+    public String habilidad(@PathVariable Long idCategoria, Model model) {
         HabilidadCategoria categoria = habilidadCategoriaService.obtenerPorId(idCategoria);
         List<HabilidadSubcategoria> subcategorias = habilidadSubcategoriaService.verTodas();
         List<Habilidad> habilidades = habilidadService.verTodas();

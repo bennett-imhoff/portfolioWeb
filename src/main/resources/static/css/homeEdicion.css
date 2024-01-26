@@ -2,49 +2,49 @@ body {
     width: fit-content !important;
 }
 
-.modal-title-actualizar{
-    font-family:'Raleway';
-    font-size:2.5em;
+.modal-title-actualizar {
+    font-family: 'Raleway';
+    font-size: 2.5em;
 }
 
-.modal-dialog{
-    max-width:80%;
+.modal-dialog {
+    max-width: 80%;
     max-height: 80%;
     top: 50%;
     transform: translate(0, -50%) !important;
 }
 
-.modal-body{
+.modal-body {
     width: 90%;
     margin: auto;
 }
 
-label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar{
-    font-size:2em;
+label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar {
+    font-size: 2em;
 }
 
-label{
-    width:100%;
+label {
+    width: 100%;
     color: #5cb874;
-    margin:8px 0;
+    margin: 8px 0;
 }
 
-#crearSubcategoriaForm .label-checkbox{
-    width:10%;
+#crearSubcategoriaForm .label-checkbox {
+    width: 10%;
 }
 
-input, textarea{
-    width:100%;
+input, textarea {
+    width: 100%;
     font-family: 'OpenSans';
     border: 1px solid rgba(25,25,25,0.2);
     padding: 0.7em 0.4em;
 }
 
-#crearSubcategoriaForm .input-checkbox{
-    width:2%;
+#crearSubcategoriaForm .input-checkbox {
+    width: 2%;
 }
 
-.btn-close{
+.btn-close {
     margin-right: 0.5em !important;
     border: 1px solid;
     border-radius: 50%;
@@ -52,17 +52,17 @@ input, textarea{
     padding: 0.5em 0.5em 0.5em 0.6em!important
 }
 
-.barra-superior-edicion{
+.barra-superior-edicion {
     background-color: #5cb874 !important;
-    max-width:100%;
+    max-width: 100%;
 }
 
-.barra-superior-edicion .nombre-portfolio{
+.barra-superior-edicion .nombre-portfolio {
     padding: 0.5em 0;
 }
 
-.barra-superior-edicion .nombre-portfolio a{
-    color:white;
+.barra-superior-edicion .nombre-portfolio a {
+    color: white;
 }
 
 .main-edicion {
@@ -71,158 +71,157 @@ input, textarea{
     width: 90%;
 }
 
-#edicion{
-    flex-direction:column;
+#edicion {
+    flex-direction: column;
 }
 
-.bloques-edicion{
-    flex-direction:column;
+.bloques-edicion {
+    flex-direction: column;
 }
 
-article:not(:first-child){
-    padding-top:50px;
+article:not(:first-child) {
+    padding-top: 50px;
 }
 
-.img-panel-edicion{
-    width:30%;
+.img-panel-edicion {
+    width: 30%;
 }
 
-.titulo-seccion-edicion{
+.titulo-seccion-edicion {
     font-family: 'Raleway';
-    font-size:3em;
+    font-size: 3em;
 }
 
-.texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar{
+.texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar {
     font-size: 2em;
     font-family: 'OpenSans';
-    line-height:2;
+    line-height: 2;
 }
 
-.tabla-proyectos img{
-    width:100%;
+.tabla-proyectos img {
+    width: 100%;
 }
 
-.tabla-habilidades .bi{
-    font-size:1.8em;
+.tabla-habilidades .bi {
+    font-size: 1.8em;
 }
 
 /*Escritorio portátil pequeño (1024 a 1365)*/
 @media screen and (min-width: 1024px) {
-    .barra-superior-edicion .nombre-portfolio{
+    .barra-superior-edicion .nombre-portfolio {
         padding: 0.2em 0;
     }
 
-    .barra-superior-edicion .nombre-portfolio a{
-        font-size:0.6em;
+    .barra-superior-edicion .nombre-portfolio a {
+        font-size: 0.6em;
     }
 
-    #edicion{
-        flex-direction:row;
+    #edicion {
+        flex-direction: row;
     }
 
-    .bloques-edicion{
-        flex-direction:row;
+    .bloques-edicion {
+        flex-direction: row;
     }
 
-    article:not(:first-child){
-        padding-top:0;
+    article:not(:first-child) {
+        padding-top: 0;
     }
 
-    .seccion-edicion{
-        padding:0;
-        margin-top:
+    .seccion-edicion {
+        padding: 0;
     }
 
     .seccion-redes-sociales, .seccion-categorias {
         border-right: 2px solid rgba(61,143,83,0.3);
-        padding-right:2em;
+        padding-right: 2em;
     }
 
     .seccion-servicios, .seccion-subcategorias {
-        padding-left:2em;
+        padding-left: 2em;
     }
 
-    .titulo-seccion-edicion{
-        font-size:1.6em;
+    .titulo-seccion-edicion {
+        font-size: 1.6em;
     }
 
-    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar{
+    .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-abrir-modal-agregar {
         font-size: 1em;
     }
 
-    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar{
-        font-size:2em;
+    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar {
+        font-size: 2em;
     }
 
-    .img-panel-edicion{
-        width:20%;
+    .img-panel-edicion {
+        width: 20%;
     }
 
-    .main-edicion{
-        padding-top:5%;
+    .main-edicion {
+        padding-top: 5%;
     }
 
-    .modal-title-actualizar{
-        font-size:1.6em;
+    .modal-title-actualizar {
+        font-size: 1.6em;
     }
 
-    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar, .btn-close{
-        font-size:1em;
+    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btnGuardar, .btn-close {
+        font-size: 1em;
     }
 
-    .modal-body{
-        width:95%;
+    .modal-body {
+        width: 95%;
     }
 
-    .modal-body::-webkit-scrollbar{
-        display:none;
+    .modal-body::-webkit-scrollbar {
+        display: none;
     }
 
-    .btn-close{
+    .btn-close {
         margin-right: 0.2em !important;
     }
 
-    .seccion-edicion{
-        width:50%;
+    .seccion-edicion {
+        width: 50%;
     }
 
     .seccion-proyectos, .seccion-habilidades, .seccion-experiencias-laborales, .seccion-educaciones {
-        width:100%;
+        width: 100%;
     }
 
     .tabla-habilidades img {
-        width:50%;
+        width: 50%;
     }
 }
 
 /*Escritorio portátil medio (1366 a 1535)
     y escritorio medio (1535 a 1919)
 */
-@media screen and (min-width: 1366px){
-    .img-panel-edicion{
-        width:10%;
+@media screen and (min-width: 1366px) {
+    .img-panel-edicion {
+        width: 10%;
     }
 
     .tabla-habilidades img {
-        width:15%;
+        width: 15%;
     }
 }
 
 /*Escritorio grande (1920 min)*/
-@media screen and (min-width: 1920px){
-    .barra-superior-edicion .nombre-portfolio{
+@media screen and (min-width: 1920px) {
+    .barra-superior-edicion .nombre-portfolio {
         padding: 0.5em 0;
     }
-    .barra-superior-edicion .nombre-portfolio a{
-        font-size:1em;
+    .barra-superior-edicion .nombre-portfolio a {
+        font-size: 1em;
     }
 
-    .titulo-seccion-edicion, .modal-title-actualizar{
-        font-size:2.5em;
+    .titulo-seccion-edicion, .modal-title-actualizar {
+        font-size: 2.5em;
     }
 
     .texto-seccion-edicion, #btnEditarDatosPersonales, .btn-close, .btnGuardar,
-    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btn-abrir-modal-agregar{
+    label, input, textarea, select, #btnActualizarPropietario, #btnCerrarModal, .btn-abrir-modal-agregar {
         font-size: 1.5em;
     }
 }

@@ -14,19 +14,19 @@ public class ExperienciaLaboralRestController {
 
     @PostMapping("/api/experienciaLaboral")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void crear(@RequestBody ExperienciaLaboral experienciaLaboral){
+    public void crear(@RequestBody ExperienciaLaboral experienciaLaboral) {
         experienciaLaboralService.crear(experienciaLaboral);
     }
 
     @PutMapping("/api/experienciaLaboral")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void actualizar(@RequestBody ExperienciaLaboral experienciaLaboral){
+    public void actualizar(@RequestBody ExperienciaLaboral experienciaLaboral) {
         experienciaLaboralService.actualizar(experienciaLaboral);
     }
 
     @DeleteMapping("/api/experienciaLaboral/{idExperienciaLaboral}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long idExperienciaLaboral){
+    public void eliminar(@PathVariable Long idExperienciaLaboral) {
         experienciaLaboralService.eliminar(idExperienciaLaboral);
     }
 }

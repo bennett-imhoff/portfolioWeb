@@ -14,19 +14,19 @@ public class RedSocialRestController {
 
     @PostMapping("/api/redSocial")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void crear(@RequestBody RedSocial redSocial){
+    public void crear(@RequestBody RedSocial redSocial) {
         redSocialService.crear(redSocial);
     }
 
     @PutMapping("/api/redSocial")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void actualizar(@RequestBody RedSocial redSocial){
+    public void actualizar(@RequestBody RedSocial redSocial) {
         redSocialService.actualizar(redSocial);
     }
 
     @DeleteMapping("/api/redSocial/{idRedSocial}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long idRedSocial){
+    public void eliminar(@PathVariable Long idRedSocial) {
         redSocialService.eliminar(idRedSocial);
     }
 }

@@ -4,7 +4,7 @@ import org.springframework.core.NestedRuntimeException;
 
 public class LoginException extends NestedRuntimeException {
 
-    public LoginException(String mensaje){
+    public LoginException(String mensaje) {
         super(mensaje);
     }
 }

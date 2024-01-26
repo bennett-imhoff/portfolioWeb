@@ -38,7 +38,7 @@ public class RedSocialServiceImpl implements RedSocialService {
     }
 
     @Override
-    public RedSocial actualizar(RedSocial redSocial){
+    public RedSocial actualizar(RedSocial redSocial) {
         Assert.hasText(redSocial.getNombre(), "El nombre de la red social no puede quedar vacío.");
         Assert.hasText(redSocial.getEnlace(), "El enlace de la red social no puede quedar vacío.");
         Assert.hasText(redSocial.getIcono(), "Debe establecerse un ícono para la red social.");
@@ -47,7 +47,7 @@ public class RedSocialServiceImpl implements RedSocialService {
     }
 
     @Override
-    public void eliminar(Long idRedSocial){
+    public void eliminar(Long idRedSocial) {
         redSocialRepository.deleteById(idRedSocial);
     }
 
