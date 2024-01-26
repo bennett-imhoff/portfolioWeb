@@ -4,7 +4,7 @@
 <head></head>
 <body>
 <th:block th:fragment="editarEducacionFragment">
-  <article class="seccion-educaciones seccion-edicion">
+  <article class="seccion-educaciones seccion-edicion mt-5 mt-lg-1">
     <div class="row d-flex align-items-center">
       <h3 class="titulo-seccion-edicion mb-0 col-6">Educación</h3>
       <div class="text-end col-6">
@@ -20,9 +20,8 @@
           <th class="text-center">Icono</th>
           <th class="text-center">Título</th>
           <th class="text-center">Lugar</th>
-          <th class="text-center">Descripción</th>
-          <th class="text-center">Inicio</th>
-          <th class="text-center">Fin</th>
+          <th class="text-center d-none d-lg-table-cell">Inicio</th>
+          <th class="text-center d-none d-lg-table-cell">Fin</th>
           <th class="text-center">Acciones</th>
         </tr>
         </thead>
@@ -33,9 +32,8 @@
           </td>
           <td class="text-center" th:text="${educacion.titulo}"></td>
           <td class="text-center" th:text="${educacion.lugar}"></td>
-          <td class="text-center" th:text="${educacion.descripcion}"></td>
-          <td class="text-center" th:text="${#dates.format(educacion.fechaInicio, 'dd/MM/yyyy')}"></td>
-          <td class="text-center">
+          <td class="text-center d-none d-lg-table-cell" th:text="${#dates.format(educacion.fechaInicio, 'dd/MM/yyyy')}"></td>
+          <td class="text-center d-none d-lg-table-cell">
             <span th:if="${educacion.fechaFin}">
                 <p class="mb-0" th:text="${#dates.format(educacion.fechaFin, 'dd/MM/yyyy')}"></p>
             </span>

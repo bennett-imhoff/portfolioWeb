@@ -4,12 +4,12 @@
 <head></head>
 <body>
 <th:block th:fragment="editarExperienciaLaboralFragment">
-    <article class="seccion-experiencias-laborales seccion-edicion">
+    <article class="seccion-experiencias-laborales seccion-edicion mt-5 mt-lg-1">
         <div class="row d-flex align-items-center">
-            <h3 class="titulo-seccion-edicion mb-0 col-6">Experiencias laborales</h3>
+            <h3 class="titulo-seccion-edicion mb-0 col-6">Trabajos</h3>
             <div class="text-end col-6">
                 <button type="button" id="btnAbrirModalCrearExperienciaLaboral" class="btn btn-success btn-abrir-modal-agregar mt-3 mt-md-1" data-bs-toggle="modal" data-bs-target="#modalExperienciaLaboral">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Agregar experiencia laboral
+                    <i class="fa fa-plus" aria-hidden="true"></i> Agregar trabajo
                 </button>
             </div>
         </div>
@@ -17,29 +17,29 @@
             <table class="my-4 texto-seccion-edicion tabla-habilidades table table-hover align-middle">
                 <thead>
                 <tr>
+                    <th class="text-center">Icono</th>
                     <th class="text-center">Puesto</th>
                     <th class="text-center">Empresa</th>
-                    <th class="text-center">Inicio</th>
-                    <th class="text-center">Fin</th>
-                    <th class="text-center">Icono</th>
+                    <th class="text-center d-none d-lg-table-cell">Inicio</th>
+                    <th class="text-center d-none d-lg-table-cell">Fin</th>
                     <th class="text-center">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="experienciaLaboral : ${experienciasLaborales}">
+                    <td class="text-center">
+                        <i th:class="'text-success bi ' + ${experienciaLaboral.icono}"></i>
+                    </td>
                     <td class="text-center" th:text="${experienciaLaboral.puesto}"></td>
                     <td class="text-center" th:text="${experienciaLaboral.empresa}"></td>
-                    <td class="text-center" th:text="${#dates.format(experienciaLaboral.fechaInicio, 'dd/MM/yyyy')}"></td>
-                    <td class="text-center">
+                    <td class="text-center d-none d-lg-table-cell" th:text="${#dates.format(experienciaLaboral.fechaInicio, 'dd/MM/yyyy')}"></td>
+                    <td class="text-center d-none d-lg-table-cell">
                         <span th:if="${experienciaLaboral.fechaFin}">
                             <p class="mb-0" th:text="${#dates.format(experienciaLaboral.fechaFin, 'dd/MM/yyyy')}"></p>
                         </span>
                         <span th:unless="${experienciaLaboral.fechaFin}">
                             <p class="mb-0" >-</p>
                         </span>
-                    </td>
-                    <td class="text-center">
-                        <i th:class="'text-success bi ' + ${experienciaLaboral.icono}"></i>
                     </td>
                     <td class="text-nowrap text-center">
                         <span class="cursor-pointer px-3">

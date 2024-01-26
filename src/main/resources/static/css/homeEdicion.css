@@ -65,9 +65,10 @@ input, textarea{
     color:white;
 }
 
-.main-edicion{
-    padding-top:10%;
-    margin-top:2em;
+.main-edicion {
+    padding-top: 10%;
+    margin-top: 2em;
+    width: 90%;
 }
 
 #edicion{
@@ -101,20 +102,12 @@ article:not(:first-child){
     width:100%;
 }
 
-.tabla-habilidades img{
-    width:15%;
-}
-
 .tabla-habilidades .bi{
     font-size:1.8em;
 }
 
 /*Escritorio portátil pequeño (1024 a 1365)*/
-@media screen and (min-width: 1024px){
-    body {
-        width: 90% !important;
-    }
-
+@media screen and (min-width: 1024px) {
     .barra-superior-edicion .nombre-portfolio{
         padding: 0.2em 0;
     }
@@ -196,6 +189,10 @@ article:not(:first-child){
     .seccion-proyectos, .seccion-habilidades, .seccion-experiencias-laborales, .seccion-educaciones {
         width:100%;
     }
+
+    .tabla-habilidades img {
+        width:50%;
+    }
 }
 
 /*Escritorio portátil medio (1366 a 1535)
@@ -204,6 +201,10 @@ article:not(:first-child){
 @media screen and (min-width: 1366px){
     .img-panel-edicion{
         width:10%;
+    }
+
+    .tabla-habilidades img {
+        width:15%;
     }
 }
 
