@@ -1,7 +1,6 @@
 package com.benimhoff.portfolioWeb.service.impl;
 
 import com.benimhoff.portfolioWeb.domain.Educacion;
-import com.benimhoff.portfolioWeb.domain.Propietario;
 import com.benimhoff.portfolioWeb.repository.EducacionRepository;
 import com.benimhoff.portfolioWeb.repository.PropietarioRepository;
 import com.benimhoff.portfolioWeb.service.EducacionService;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,29 +23,33 @@ public class EducacionServiceImpl implements EducacionService {
 
     @Override
     public Educacion crear(Educacion educacion) {
-        Assert.hasText(educacion.getTitulo(), "El título es un campo obligatorio.");
-        Assert.hasText(educacion.getLugar(), "El lugar es un campo obligatorio.");
-        Assert.hasText(educacion.getDescripcion(), "La descripción es un campo obligatorio.");
-        Assert.notNull(educacion.getFechaInicio(), "La fecha de inicio es un campo obligatorio.");
-        Assert.hasText(educacion.getIcono(), "El icono es un campo obligatorio.");
-
-        //Le asigno el propietario a la educacion
-        Optional<Propietario> propietarioExperiencia = propietarioRepository.findAll().stream().findFirst();
-        propietarioExperiencia.ifPresent(propietario -> educacion.setIdPropietario(propietario.getId()));
-        Assert.notNull(educacion.getIdPropietario(), "Debe existir un propietario para crear una educación.");
+        validarEducacion(educacion);
+        asignarPropietario(educacion);
 
         return educacionRepository.save(educacion);
     }
 
+    private void asignarPropietario(Educacion educacion) {
+        propietarioRepository.findAll().stream()
+                .findFirst()
+                .ifPresent(propietario -> educacion.setIdPropietario(propietario.getId()));
+
+        Assert.notNull(educacion.getIdPropietario(), "Debe existir un propietario para crear una educación.");
+    }
+
     @Override
     public Educacion actualizar(Educacion educacion) {
+        validarEducacion(educacion);
+
+        return educacionRepository.save(educacion);
+    }
+
+    private void validarEducacion(Educacion educacion) {
         Assert.hasText(educacion.getTitulo(), "El título es un campo obligatorio.");
         Assert.hasText(educacion.getLugar(), "El lugar es un campo obligatorio.");
         Assert.hasText(educacion.getDescripcion(), "La descripción es un campo obligatorio.");
         Assert.notNull(educacion.getFechaInicio(), "La fecha de inicio es un campo obligatorio.");
         Assert.hasText(educacion.getIcono(), "El icono es un campo obligatorio.");
-
-        return educacionRepository.save(educacion);
     }
 
     @Override
