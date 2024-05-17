@@ -48,7 +48,7 @@ CREATE TABLE habilidad_categoria (
     nombre VARCHAR(255) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     icono VARCHAR(255) NOT NULL,
-    colorIcono VARCHAR(255) NOT NULL,
+    color_icono VARCHAR(255) NOT NULL,
     id_propietario BIGINT NOT NULL,
     FOREIGN KEY (id_propietario) REFERENCES propietario(id)
 );
